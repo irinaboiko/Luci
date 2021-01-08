@@ -1,0 +1,20 @@
+
+{{#partial "page"}}
+
+{{> components/common/page-header list=breadcrumbs page_title=(lang 'account_general.your_account')}}
+
+<article class="account-container">
+
+  <section class="layout-module">
+
+    {{> core/account/orders/all}}
+
+    {{{snippet 'account'}}}
+
+  </section>
+
+</article>
+
+{{/partial}}
+
+{{> layout/base}}

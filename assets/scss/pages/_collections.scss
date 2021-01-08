@@ -1,0 +1,42 @@
+
+.banner-item {
+  width: 100%;
+  min-height: 360px;
+  background: no-repeat 50% 50% transparent;
+  background-size: cover;
+}
+
+.collection-container {
+  padding-top: $page-padding-top;
+  padding-bottom: $page-padding-bottom;
+}
+
+.collection-sidebar {
+  @include fill-parent();
+
+  @include breakpoint(l-up) {
+    @include grid-columns(3 of 12, collapse);
+    position: relative;
+    right: auto;
+    left: 75%;
+  }
+}
+
+.collection-wrapper {
+  @include fill-parent();
+
+  @include breakpoint(l-up) {
+    .has-sidebar & {
+      @include grid-columns(9 of 12, collapse);
+      position: relative;
+      right: 25%;
+      left: auto;
+      padding-right: $gutter*2;
+    }
+  }
+}
+
+.collection-description {
+  padding-top: $gutter;
+  font-size: 14px;
+}

@@ -1,0 +1,16 @@
+
+{{#if cart.items.length}}
+  <div class="cart-content">
+    {{#each cart.items}}
+      {{> components/cart/cart-item
+        this
+        lazyload=../theme_settings.lazyload_mode
+        default_image=../theme_settings.default_image
+      }}
+    {{/each}}
+  </div>
+{{else}}
+  {{lang 'cart.empty'}}
+{{/if}}
+
+{{{snippet 'cart'}}}

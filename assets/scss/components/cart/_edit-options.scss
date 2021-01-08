@@ -1,0 +1,16 @@
+.modal.cart-options-modal {
+  max-width: 600px;
+  opacity: 0;
+
+  .modal-content {
+    padding: 40px;
+  }
+
+  .modal-wrapper.loaded & {
+    opacity: 1;
+  }
+
+  .reconfigure-errors {
+    display: none;
+  }
+}

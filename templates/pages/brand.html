@@ -1,0 +1,88 @@
+---
+brands: true
+brand:
+  products:
+    limit: {{theme_settings.product-results-per-page}}
+cart: true
+---
+
+{{#partial "page"}}
+
+{{#if brand.image}}
+  {{> components/banner brand.image}}
+{{/if}}
+
+{{> components/common/page-header list=breadcrumbs page_title=brand.name}}
+
+{{{region name="brand_below_header"}}}
+
+<section
+  class="
+    collection-container
+    layout-module
+    {{#if brand.products}}
+      {{#if brand.faceted_search_enabled}}
+        has-sidebar
+      {{/if}}
+    {{/if}}
+  "
+>
+
+  {{#if brand.products}}
+    {{#if brand.faceted_search_enabled}}
+      <aside class="collection-sidebar">
+        {{> components/brand/sidebar}}
+      </aside>
+    {{/if}}
+  {{/if}}
+
+  <section
+    class="
+      collection-wrapper
+      {{#if brand.faceted_search_enabled}}
+        layout-grid-of-3
+      {{else}}
+        layout-grid-of-4
+      {{/if}}
+    "
+  >
+
+    {{{snippet 'brand'}}}
+
+    {{#if brand.products}}
+      {{#if theme_settings.product-grid-layout '===' "classic-grid"}}
+        <div class="collection-wrapper-sorting">
+          {{> components/common/sort sort=pagination.brand.sort}}
+        </div>
+      {{/if}}
+
+      <form
+        class="product-grid-container grid-masonry"
+        action="/compare"
+        method="POST"
+        {{#if settings.data_tag_enabled}}
+          data-list-name="Brand: {{brand.name}}"
+          data-event-type="list"
+        {{/if}}
+        data-product-compare
+      >
+        {{> components/brand/product-listing
+          settings=../settings
+          event="list"
+        }}
+      </form>
+    {{else}}
+      <p class="collection-empty">
+        {{lang 'brands.empty'}}
+      </p>
+    {{/if}}
+
+  </section>
+
+  {{{region name="brand_below_content"}}}
+
+</section>
+
+{{/partial}}
+
+{{> layout/base}}

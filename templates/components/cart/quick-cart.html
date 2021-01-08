@@ -1,0 +1,9 @@
+<div id="quick-cart" class="quick-cart{{#unless cart.items.length}} empty{{/unless}}" data-count="{{cart.quantity}}">
+  <div data-quick-cart-content>
+    {{> components/cart/quick-cart-content this}}
+  </div>
+
+  <div data-quick-cart-totals>
+    {{> components/cart/quick-cart-totals this}}
+  </div>
+</div>

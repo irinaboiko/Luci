@@ -1,0 +1,98 @@
+.product-item {
+  text-align: $product-item-align;
+}
+
+.product-item-link {
+  display: block;
+  transition: background 0.7s $ease-out-quad;
+
+  .no-touch .product-item-thumbnail:hover & {
+    background-color: $product-item-actions-background-color;
+  }
+}
+
+.product-item-thumbnail {
+  position: relative;
+  display: block;
+  width: 100%;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: map-get($product-image-small, height);
+    margin: 0 auto;
+    transition: opacity 0.7s $ease-out-quad;
+    backface-visibility: hidden;
+    object-fit: contain;
+  }
+
+  .no-touch & {
+    &:hover img {
+      opacity: 0.3;
+    }
+  }
+}
+
+.product-item-details {
+  margin-top: $gutter;
+}
+
+.product-item-price,
+.product-item-brand {
+  display: block;
+  margin: 0;
+  font-size: 14px;
+}
+
+.product-item-title {
+  margin: 5px 0;
+  font-family: $product-item-title-font-family;
+  font-size: $body-font-size;
+  font-weight: $product-item-title-font-weight;
+  line-height: 1;
+
+  a {
+    color: $product-item-title-color;
+  }
+}
+
+.product-item-price {
+  margin-top: 8px;
+}
+
+//-- Badges --//
+.product-item-badges {
+  @extend %font-smoothing;
+  @extend %meta-text-treatment;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  opacity: 1;
+  transform: translateY(-50%) translateX(-50%);
+  transition: all 0.5s $ease-out-quad;
+
+  .no-touch .product-item-thumbnail:hover & {
+    top: 70%;
+    opacity: 0;
+  }
+}
+
+.product-item-out-of-stock,
+.product-item-sale-tag {
+  @extend %font-smoothing;
+  @extend %meta-text-treatment;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: $product-item-sale-color;
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+  background-color: $product-item-sale-background;
+}
+
+.product-item-out-of-stock {
+  color: $product-item-sold-out-color;
+  background-color: $product-item-sold-out-background;
+}

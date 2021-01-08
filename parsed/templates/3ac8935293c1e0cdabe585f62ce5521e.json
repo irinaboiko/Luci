@@ -1,0 +1,4 @@
+{
+  "components/page/page-sidebar": "{{!-- TODO: Replace with RTE content\n  <h3 class=\"sidebar-title\">{{settings.store_name}}</h3>\n  {{{theme_settings.content-page-right}}}\n--}}\n\n<h3 class=\"sidebar-title\">{{lang 'page.alt_label'}}</h3>\n<ul class=\"sidebar-listing\">\n  {{#each pages}}\n    {{>components/page/sidebar-link}}\n    {{#if children}}\n      {{#each children}}\n        {{>components/page/sidebar-link}}\n        {{#if children}}\n          {{#each children}}\n            {{>components/page/sidebar-link}}\n          {{/each}}\n        {{/if}}\n      {{/each}}\n    {{/if}}\n  {{/each}}\n</ul>\n",
+  "components/page/sidebar-link": "\n<li>\n  <a href=\"{{url}}\" class=\"sidebar-link\">{{name}}</a>\n</li>\n"
+}

@@ -1,0 +1,87 @@
+// Review Modal Outer
+.write-review-wrapper {
+  @include page-overlay(map-get($zindex, write-review));
+
+  .page-spinner {
+    opacity: 0;
+    transition: opacity 1s $ease-out-quad;
+
+    &.visible {
+      opacity: 1;
+    }
+  }
+}
+
+.write-review-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: map-get($zindex, write-review);
+  width: 100%;
+  max-width: $max-width;
+  max-height: 90%;
+  padding: $gutter;
+  overflow-y: scroll;
+  background-color: $container-background-color;
+  opacity: 0;
+  transition: opacity 0.5s $ease-out-quad;
+
+  &.visible {
+    opacity: 1;
+  }
+}
+
+.write-review-close {
+  position: absolute;
+  right: 0;
+  padding: $gutter/2;
+  line-height: 1;
+  color: $body-color-light;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 1s $ease-out-quad;
+
+  &:hover {
+    @include hover($body-color-light);
+  }
+
+  .visible & {
+    opacity: 1;
+  }
+}
+
+// Review Modal Inner
+.review-modal-images {
+  @include grid-columns(1 of 2, collapse);
+  display: none;
+  padding-right: $gutter;
+
+  @include breakpoint(m-up) {
+    display: block;
+  }
+}
+
+.review-modal-form {
+  @include grid-columns(1 of 2, collapse);
+  padding-left: $gutter;
+
+  .g-recaptcha {
+    @include breakpoint(s-only) {
+      transform: scale(0.8);
+      transform-origin: 0 0;
+    }
+  }
+}
+
+// Left Column (Image / Title)
+.review-image-caption {
+  margin-top: $gutter/2;
+  font-size: 18px;
+  color: $body-color-dark;
+  text-align: left;
+}
+
+// Right Column (Form)
+.review-form-heading {
+  margin-top: 0;
+}

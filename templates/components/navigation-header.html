@@ -1,0 +1,115 @@
+
+<section class="navigation-wrap" data-slideout-wrapper>
+  <ul class="navigation-tier navigation-tier-secondary" id="header-pane-category">
+    {{#each categories}}
+      <li class="header-navigation-item{{#if children}} has-dropdown{{/if}}">
+        <a href="{{url}}">{{name}}</a>
+        {{#if children}}
+          <ul class="navigation-tier navigation-tier-tertiary">
+            {{#unless ../../theme_settings.hide-parent-menu-items}}
+              <li class="header-navigation-item">
+                <a href="{{url}}">{{lang 'common.header.view_all' name=name}}</a>
+              </li>
+            {{/unless}}
+
+            {{#each children}}
+              <li class="header-navigation-item{{#if children}} has-dropdown{{/if}}">
+                <a href="{{url}}">{{name}}</a>
+
+                {{#if children}}
+                  <ul class="navigation-tier navigation-tier-quaternary">
+                    {{#unless ../../../../theme_settings.hide-parent-menu-items}}
+                      <li class="header-navigation-item">
+                        <a href="{{url}}">{{lang 'common.header.view_all' name=name}}</a>
+                      </li>
+                    {{/unless}}
+
+                    {{#each children}}
+                      <li class="header-navigation-item">
+                        <a href="{{url}}">{{name}}</a>
+                      </li>
+                    {{/each}}
+                  </ul>
+                {{/if}}
+              </li>
+            {{/each}}
+          </ul>
+        {{/if}}
+      </li>
+    {{/each}}
+  </ul>
+
+  {{#if shop_by_brand}}
+    <ul class="navigation-tier navigation-tier-secondary" id="header-pane-brand">
+      {{#each (limit shop_by_brand 10)}}
+        <li class="header-navigation-item">
+          <a href="{{url}}">{{name}}</a>
+        </li>
+      {{/each}}
+
+      {{#if shop_by_brand.length '>' 10}}
+        <li class="header-navigation-item header-navigation-separation">
+          <a href="{{urls.brands}}">{{lang 'brands.view_brands'}}</a>
+        </li>
+      {{/if}}
+    </ul>
+  {{/if}}
+
+  {{#if pages}}
+    <ul class="navigation-tier navigation-tier-secondary" id="header-pane-pages">
+      {{#each pages}}
+        <li class="header-navigation-item{{#if children}} has-dropdown{{/if}}">
+          <a href="{{url}}">{{name}}</a>
+          {{#if children}}
+            <ul class="navigation-tier navigation-tier-tertiary">
+              {{#each children}}
+                <li class="header-navigation-item{{#if children}} has-dropdown{{/if}}">
+                  <a href="{{url}}">{{name}}</a>
+
+                  {{#if children}}
+                    <ul class="navigation-tier navigation-tier-quaternary">
+                      {{#unless ../../theme_settings.hide-parent-menu-items}}
+                        <li class="header-navigation-item">
+                          <a href="{{url}}">{{lang 'common.header.view' name=name}}</a>
+                        </li>
+                      {{/unless}}
+
+                      {{#each children}}
+                        <li class="header-navigation-item">
+                          <a href="{{url}}">{{name}}</a>
+                        </li>
+                      {{/each}}
+                    </ul>
+                  {{/if}}
+                </li>
+              {{/each}}
+            </ul>
+          {{/if}}
+        </li>
+      {{/each}}
+    </ul>
+  {{/if}}
+
+  <div class="navigation-tier navigation-tier-secondary" id="header-cart-pane">
+    <div class="form-field">
+      <label class="quick-cart-currency form-label" for="quick_cart_currency_change">
+      <span class="quick-cart-change-currency form-label-text">
+        {{lang 'common.currency_converter'}}
+        {{#if currency_selector.currencies.length '>' 1}}
+          <select class="quick-cart-currency-selector currency-switcher" name="quick_cart_currency_change" id="quick_cart_currency_change">
+            {{#each currency_selector.currencies}}
+              <option value="{{{switch_url}}}" {{#if is_active}}selected{{/if}}>
+                {{name}}
+              </option>
+            {{/each}}
+          </select>
+        {{else}}
+          {{{currency_selector.active_currency_name}}}
+        {{/if}}
+      </span>
+      </label>
+    </div>
+
+    {{> components/cart/quick-cart}}
+  </div>
+</section>

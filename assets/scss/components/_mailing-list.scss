@@ -1,0 +1,49 @@
+.footer-module {
+  .section-title {
+    text-align: left;
+  }
+}
+
+.mailing-list-form {
+  position: relative;
+
+  @include breakpoint(m-up) {
+    max-width: 380px;
+  }
+
+  .form-input {
+    line-height: 16px;
+  }
+
+  .form-label {
+    padding-right: $form-gutter + 60px;
+  }
+
+  .form-inline-message {
+    position: absolute;
+  }
+
+}
+
+.mailing-list-email {
+  min-width: 190px;
+}
+
+.mailing-list-submit {
+  @extend %icon-base;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 60px;
+  min-width: 60px;
+  margin-bottom: 0;
+  color: $button-primary-text-color;
+  background-color: $button-primary-background-color;
+  border: 1px solid $button-primary-border-color;
+  transition: all 0.5s $ease-out-quad;
+
+  &:hover {
+    @include hover($button-primary-text-color);
+    @include hover($button-primary-background-color, background-color);
+  }
+}

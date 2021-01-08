@@ -1,0 +1,78 @@
+.gift-certificate-container {
+  padding-top: $page-padding-top;
+  padding-bottom: $page-padding-bottom;
+}
+
+.gift-certificate-sidebar {
+  @include fill-parent();
+
+  @include breakpoint(l-up) {
+    @include grid-columns(3 of 12, collapse);
+  }
+}
+
+.gift-certificate-page {
+  @include fill-parent();
+  margin-top: $gutter;
+
+  @include breakpoint(l-up) {
+    @include grid-columns(9 of 12, collapse);
+    padding-left: $gutter*2;
+    margin-top: 0;
+  }
+
+  ol {
+    padding-left: $gutter;
+  }
+}
+
+.gift-certificate-nav-list {
+  padding: 0;
+  list-style: none;
+  border: 1px solid $border-color;
+}
+
+.gift-certificate-nav-item {
+  line-height: 1.2;
+  border-top: 1px solid $border-color;
+
+  &:first-child {
+    border-top: 0;
+  }
+
+  &.active {
+    padding: $gutter;
+    color: $accent-color;
+    border-left: 3px solid $accent-color;
+  }
+
+  > a {
+    display: block;
+    padding: $gutter;
+  }
+}
+
+// Purchase
+.gift-certificate-theme {
+  margin-top: 30px;
+}
+
+.gift-certificate-terms .form-field {
+  display: block;
+  width: 100%;
+}
+
+.gift-certificate-expiry {
+  margin-bottom: 10px;
+}
+
+.gift-certificate-balance {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.gift-certificate-balance-title {
+  @extend %meta-text-treatment;
+  display: block;
+  font-size: 12px;
+}

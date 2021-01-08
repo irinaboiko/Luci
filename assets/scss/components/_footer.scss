@@ -1,0 +1,137 @@
+.footer-interactions {
+  background-color: $footer-nav-background-color;
+  @if($footer-nav-background-color == $body-background-color){
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+  }
+
+  a {
+    color: $footer-nav-font-color;
+
+    &:hover {
+      @include hover($footer-nav-font-color);
+    }
+  }
+}
+
+.footer-navigation {
+  @include breakpoint(m-up, true) {
+    @include grid-columns(9 of 12, collapse);
+  }
+}
+
+.footer-social-media {
+  @include breakpoint(m-up, true) {
+    @include grid-columns(3 of 12, collapse);
+  }
+}
+
+.footer-navigation-list-item {
+  padding-top: $gutter;
+  padding-bottom: $gutter;
+  font-family: $heading-font;
+
+  li {
+    display: inline-block;
+    margin-right: $gutter;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.footer-content {
+  @include fill-parent();
+
+  @include breakpoint(l-up, true) {
+    @include grid-columns(9 of 12, collapse);
+    padding-right: $gutter;
+    padding-bottom: $gutter / 2 ;
+  }
+}
+
+.footer-content-column {
+  padding-top: $gutter * 2;
+
+  @include breakpoint(m-down) {
+    @include fill-parent();
+  }
+
+  @include breakpoint(l-up, true) {
+    @include grid-columns(6 of 12, collapse);
+    padding-right: $gutter*2;
+  }
+}
+
+.footer-contact-address {
+  font-style: normal;
+}
+
+.footer-quick-links {
+  @include fill-parent();
+
+  @include breakpoint(l-up, true) {
+    @include grid-columns(3 of 12, collapse);
+  }
+}
+
+.footer-account-links,
+.footer-page-links {
+  margin-top: $gutter;
+
+  li {
+    display: block;
+  }
+}
+
+.footer-payment-icons {
+  @extend %clearfix;
+  max-width: 300px;
+  margin-top: $gutter * 2;
+  text-align: left;
+
+  li {
+    @include span-columns(3);
+    @include omega(3n);
+    margin-top: $gutter / 2;
+
+    &:nth-child(-n+3) {
+      margin-top: 0;
+    }
+
+    &:nth-child(3n-1) {
+      text-align: center;
+    }
+
+    &:nth-child(3n) {
+      text-align: right;
+    }
+  }
+}
+
+.copyright {
+  margin-top: $gutter * 2;
+  font-size: 0.9em;
+}
+
+.footer-attribution {
+  margin: 0;
+  font-size: 0.8em;
+}
+
+.footer-account-links {
+  margin-top: $gutter * 2;
+}
+
+// Geotrust seals
+table.geotrust-ssl-seal-table {
+  margin-top: 30px;
+  margin-bottom: 0;
+  border: 0;
+
+  td {
+    padding: 0;
+    border: 0;
+  }
+}

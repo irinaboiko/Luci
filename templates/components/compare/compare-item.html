@@ -1,0 +1,88 @@
+<div class="compare-item-single"
+>
+  <figure class="compare-item-thumbnail">
+    <a
+      href="{{{url}}}"
+      title="{{name}}"
+      {{#if settings.data_tag_enabled}}
+        data-event-type="product-click"
+      {{/if}}
+    >
+      {{> components/common/responsive-image
+        image=image
+        fallback_size='300w'
+        lazyload=lazyload
+        default_image=default_image
+      }}
+    </a>
+  </figure>
+
+  {{#if brand.name}}
+    <span class="compare-item-brand">{{brand.name}}</span>
+  {{/if}}
+
+  <h3 class="compare-item-title">
+    <a
+      href="{{{url}}}"
+      {{#if settings.data_tag_enabled}}
+        data-event-type="product-click"
+      {{/if}}
+    >
+      {{name}}
+    </a>
+  </h3>
+
+  <div class="compare-item-price">
+    {{> core/products/price
+      show_tax_labels=true
+      show_sale_badges=false
+      price_range_display=price_range_display
+      retail_price_label=retail_price_label
+      non_sale_price_label=non_sale_price_label
+      sale_price_label=sale_price_label
+      price_label=price_label
+    }}
+  </div>
+
+  <div class="compare-item-cart-actions">
+    {{#if has_options}}
+      <a
+        href="{{url}}"
+        class="button button-primary"
+        {{#if settings.data_tag_enabled}}
+          data-event-type="product-click"
+        {{/if}}
+      >
+        {{lang 'product.choose_options'}}
+      </a>
+    {{else}}
+      {{#if add_to_cart_url}}
+        <a
+          href="{{add_to_cart_url}}"
+          class="button button-primary"
+          {{#if settings.data_tag_enabled}}
+            data-event-type="product-click"
+          {{/if}}
+        >
+          {{#if pre_order}}
+            {{lang 'product.pre_order'}}
+          {{else}}
+            {{lang 'product.add_to_cart'}}
+          {{/if}}
+        </a>
+      {{else}}
+        {{#if out_of_stock_message}}
+          <a
+            href="{{url}}"
+            class="button button-primary"
+            {{#if settings.data_tag_enabled}}
+              data-event-type="product-click"
+            {{/if}}
+          >
+            {{out_of_stock_message}}
+          </a>
+        {{/if}}
+      {{/if}}
+    {{/if}}
+  </div>
+</div>

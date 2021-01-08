@@ -1,0 +1,31 @@
+.contact-page-form {
+  @include grid-row();
+
+  .form-field {
+
+    @include breakpoint(s-only) {
+      @include grid-columns(1 of 1);
+    }
+    @include breakpoint(m-up) {
+      @include grid-columns(1 of 2);
+    }
+
+    &.full-width-field {
+      @include grid-columns(1 of 1);
+    }
+  }
+
+  .form-input {
+    max-width: 100%;
+  }
+}
+
+.contact-page-success-form {
+  padding-right: $gutter/2;
+  padding-left: $gutter/2;
+}
+
+.g-recaptcha {
+  float: right;
+  width: calc(50% - 20px);
+}

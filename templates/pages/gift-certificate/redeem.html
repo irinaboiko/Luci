@@ -1,0 +1,17 @@
+
+{{#partial "page"}}
+
+  {{> components/common/page-header list=breadcrumbs page_title=(lang 'gift_certificate.redeem.heading')}}
+
+  <article class="gift-certificate-container giftcard-page">
+
+    <section class="layout-module">
+      {{> components/gift-certificate/navigation page='redeem'}}
+      {{> core/gift-certificate/redeem}}
+    </section>
+
+  </article>
+
+{{/partial}}
+
+{{> layout/base}}

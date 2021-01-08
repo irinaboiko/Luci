@@ -1,0 +1,45 @@
+<div class="{{class}}" data-slideshow-container>
+  {{> components/common/share-buttons
+    settings.add_this
+    inline-facebook-like=false
+    url=product.url
+    title=product.title
+    image=(getImage product.main_image '600x1200' (cdn theme_settings.default_image))
+  }}
+
+  <div class="product-slideshow-wrapper">
+    {{#if product.main_image}}
+      <div
+        class="
+          single-product-slideshow
+          {{#if product.images.length '==' 1}}
+            single-image-slideshow
+          {{/if}}
+        "
+        data-start-position="0"
+        {{#if ../quick_shop}}
+          data-quickshop-slideshow
+        {{else}}
+          data-product-slideshow
+        {{/if}}
+      >
+        {{> components/products/gallery/product-slideshow
+          lazyload=theme_settings.lazyload_mode
+          fallback_size='600w'
+          default_image=theme_settings.default_image
+          isolate-image=theme_settings.product-slider-isolate-images
+        }}
+      </div>
+    {{else}}
+      <img
+        src="{{cdn theme_settings.default_image}}"
+        alt="{{lang 'product.image_coming_soon'}}"
+      >
+    {{/if}}
+  </div>
+  {{> components/products/gallery/product-thumbnails
+    lazyload=theme_settings.lazyload_mode
+    fallback_size='600w'
+    default_image=theme_settings.default_image
+  }}
+</div>

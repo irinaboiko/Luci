@@ -1,0 +1,169 @@
+<footer class="main-footer">
+
+  <div class="container footer-interactions">
+    <div class="layout-module">
+      <div class="footer-navigation footer-navigation-list-item">
+        {{> components/navigation-footer}}
+      </div>
+
+      {{#if social_media}}
+        <div class="footer-social-media footer-navigation-list-item">
+          <ul>
+            {{#each social_media}}
+            <li class="footer-icons">
+              {{#compare display_name 'google+' operator='==='}}
+                <a href="{{url}}" class="google">
+                  <i class="icon-google"></i>
+                </a>
+              {{else}}
+                <a href="{{url}}" class="{{display_name}}">
+                  <i class="icon-{{display_name}}"></i>
+                </a>
+              {{/compare}}
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+      {{/if}}
+    </div>
+  </div>
+  <div class="layout-module">
+    <div class="footer-content">
+      {{#if settings.show_newsletter_box}}
+        <div class="footer-content-column mailing-list-wrapper">
+          {{> components/common/mailing-list location="footer-module"}}
+        </div>
+      {{/if}}
+
+      <div class="footer-content-column">
+        {{! TODO: When custom blocks come in to play, allow a custom block to be shown here }}
+        {{#if settings.address}}
+          <address class="footer-contact-address">
+            {{nl2br settings.address}}
+          </address>
+        {{/if}}
+
+        {{#if settings.phone_number.length}}
+          <p class="footer-contact-phone">
+            {{settings.phone_number}}
+          </p>
+        {{/if}}
+      </div>
+    </div>
+
+    <div class="footer-quick-links">
+
+        <ul class="footer-account-links">
+          {{#if customer}}
+            <li>
+              <a href="{{urls.account.index}}">
+                {{lang 'account_general.your_account'}}
+              </a>
+            </li>
+            <li>
+              <a href="{{urls.auth.logout}}">
+                {{lang 'account_general.log_out'}}
+              </a>
+            </li>
+          {{else}}
+            <li>
+              <a href="{{urls.auth.login}}">
+                {{lang 'account_general.log_in'}}
+              </a>
+            </li>
+            {{#if settings.account_creation_enabled}}
+              <li>
+                <a href="{{urls.auth.create_account}}">
+                  {{lang 'account_general.sign_up'}}
+                </a>
+              </li>
+            {{/if}}
+          {{/if}}
+        </ul>
+
+
+      <ul class="footer-page-links">
+        {{! TODO: Any other static links? }}
+        {{#if settings.gift_certificates_enabled}}
+          <li>
+            <a href="{{urls.gift_certificate.purchase}}">
+              {{lang 'gift_certificate.heading'}}
+            </a>
+          </li>
+        {{/if}}
+        <li>
+          <a href="{{urls.sitemap}}">
+            {{lang 'sitemap.heading'}}
+          </a>
+        </li>
+      </ul>
+
+      <ul class="footer-payment-icons">
+        {{#if theme_settings.payment-visa}}
+          <li>
+            <span class="payment-icon">
+              <i class="icon-payment-visa"></i>
+            </span>
+          </li>
+        {{/if}}
+
+        {{#if theme_settings.payment-mastercard}}
+          <li>
+            <span class="payment-icon">
+              <i class="icon-payment-mastercard"></i>
+            </span>
+          </li>
+        {{/if}}
+
+        {{#if theme_settings.payment-american-express}}
+          <li>
+            <span class="payment-icon">
+              <i class="icon-payment-american-express"></i>
+            </span>
+          </li>
+        {{/if}}
+
+        {{#if theme_settings.payment-discover}}
+          <li>
+            <span class="payment-icon">
+              <i class="icon-payment-discover"></i>
+            </span>
+          </li>
+        {{/if}}
+
+        {{#if theme_settings.payment-paypal}}
+          <li>
+            <span class="payment-icon">
+              <i class="icon-payment-paypal"></i>
+            </span>
+          </li>
+        {{/if}}
+
+        {{#if theme_settings.payment-apple-pay}}
+          <li>
+            <span class="payment-icon">
+              <i class="icon-payment-apple-pay"></i>
+            </span>
+          </li>
+        {{/if}}
+      </ul>
+
+      {{#if theme_settings.geotrust-ssl-common-name}}
+        {{> core/geotrust-ssl-seal}}
+      {{/if}}
+    </div>
+  </div>
+
+  <div class="layout-module">
+    <p class="copyright" role="contentinfo">&copy; <script>document.write(new Date().getFullYear())</script> <a href="{{settings.base_url}}">{{settings.store_name}}</a></p>
+    {{#if theme_settings.theme-credits}}
+      <p class="footer-attribution">
+        {{{lang 'footer.theme_attribution'
+          theme_name='Fortune'
+          developed='<a href="http://pixelunion.net" target="_blank">Pixel Union</a>'
+          powered_by='<a href="https://www.bigcommerce.com/" target="_blank" rel="nofollow">BigCommerce</a>'
+        }}}
+      </p>
+    {{/if}}
+  </div>
+</footer>

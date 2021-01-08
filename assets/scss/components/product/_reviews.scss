@@ -1,0 +1,49 @@
+.product-reviews-title {
+  margin-bottom: 0;
+}
+
+.reviews-header-action {
+  float: right;
+  font-size: 14px;
+  font-weight: 400;
+  color: lightness-adjust($button-primary-background-color, $container-background-color, $heading-color);
+  text-decoration: underline;
+  text-transform: none;
+  transition: all 1s $ease-out-quad;
+
+  &:hover {
+    @include hover($color-primary-dark);
+  }
+
+  &.disabled {
+    color: $button-disabled-background-color;
+  }
+}
+
+.review-grid-container {
+  transition: all 1s $ease-out-quad;
+
+  &.animating-out,
+  &.hidden {
+    //scss-lint:disable ImportantRule
+    height: 0 !important;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &.animating {
+    overflow: hidden;
+  }
+
+  &.visible {
+    padding-top: $gutter*3;
+    opacity: 1;
+  }
+}
+
+// Individual Reviews
+.single-review-title {
+  margin-top: $gutter/2;
+  margin-bottom: $gutter/2;
+}

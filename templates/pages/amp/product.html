@@ -1,0 +1,62 @@
+---
+product:
+  reviews:
+    limit: 8
+  related_products:
+    limit: 8
+  videos:
+    limit: 12
+---
+
+{{#partial 'amp-cart-icon'}}
+  <div class="amp-mini-cart">
+    <a
+      class="navigation-link-primary"
+      href="{{urls.cart}}"
+      data-slideout-menu="header-cart-pane"
+    >
+      {{lang 'cart.label'}}
+    </a>
+  </div>
+{{/partial}}
+
+{{#partial 'amp-custom-header-styles'}}
+  {{> components/amp/styles/header}}
+{{/partial}}
+
+{{> core/amp/pages/product
+  header_background=theme_settings.body-background-color
+  header_text=theme_settings.heading-font-color
+  body_background=theme_settings.body-background-color
+  color_headings=theme_settings.heading-font-color
+  color_text=theme_settings.body-font-color
+  footer_background=theme_settings.body-background-color
+  footer_text=theme_settings.body-font-color
+  color_accent=theme_settings.accent-color
+  color_borders=theme_settings.border-color
+}}
+
+{{#partial 'amp-custom-product-styles'}}
+  {{> components/amp/styles/product}}
+{{/partial}}
+
+{{#partial 'amp-additional-info'}}
+  {{> components/products/additional-info}}
+{{/partial}}
+
+{{#partial 'amp-footer'}}
+  {{> core/amp/common/footer
+    theme_credits=theme_settings.theme-credits
+    theme_name="Fortune"
+    store_copyright=theme_settings.theme-credits
+  }}
+{{/partial}}
+
+{{#partial 'amp-social'}}
+  {{> components/amp/social-media-links}}
+{{/partial}}
+
+{{#partial 'amp-custom-footer-styles'}}
+  {{> components/amp/styles/footer}}
+{{/partial}}
+{{> layout/amp}}

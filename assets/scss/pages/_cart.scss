@@ -1,0 +1,77 @@
+.cart-container {
+  padding-top: $page-padding-top;
+  padding-bottom: $page-padding-bottom;
+}
+
+.cart-sidebar {
+  @include fill-parent();
+
+  @include breakpoint(l-up) {
+    @include grid-columns(3 of 12, collapse);
+    position: relative;
+    right: auto;
+    left: 75%;
+  }
+
+  .checkout-multiple {
+    display: block;
+    margin-top: $gutter/2;
+  }
+}
+
+.cart-checkout-button {
+  display: block;
+  max-width: 240px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include breakpoint(l-up) {
+    display: inline-block;
+    margin-left: 0;
+  }
+}
+
+.cart-wrapper {
+  @include fill-parent();
+  margin-top: $gutter*2.5;
+
+  @include breakpoint(l-up) {
+    @include grid-columns(9 of 12, collapse);
+    position: relative;
+    right: 25%;
+    left: auto;
+    padding-right: $gutter*2;
+    margin-top: 0;
+  }
+}
+
+.additional-checkout-buttons {
+  @extend %clearfix;
+  margin-top: em($gutter);
+  text-align: center;
+
+  @include breakpoint(l-up) {
+    text-align: left;
+  }
+
+  // scss-lint:disable ImportantRule, QualifyingElement
+  p {
+    margin: 0;
+    color: $meta-color;
+
+    &:empty,
+    &[style*="float"] {
+      display: none;
+    }
+  }
+
+  // scss-lint:disable ImportantRule
+  *[style*="float"] {
+    float: none !important;
+  }
+
+  form {
+    margin-bottom: em($gutter / 2);
+    clear: both;
+  }
+}

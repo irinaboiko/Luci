@@ -1,0 +1,32 @@
+<section class="layout-module">
+
+  <h2 class="product-reviews-title section-title">
+    {{lang 'product.reviews.number_reviews' total=reviews.total}}
+    {{#if reviews.list.length}}
+      <span class="reviews-header-action" data-toggle-reviews>{{lang 'product.reviews.hide_reviews'}}</span>
+    {{else}}
+      <a class="reviews-header-action" href="#modal-review-form" data-open-review-modal>{{lang 'product.reviews.write_review'}}</a>
+    {{/if}}
+  </h2>
+
+  {{{snippet 'reviews'}}}
+
+  {{#if reviews.list.length}}
+    <div class="review-grid-container grid-masonry layout-grid-of-4 visible" data-review-container>
+      <div class="layout-grid-sizer"></div>
+      <div class="layout-grid-gutter"></div>
+      {{#each reviews.list}}
+        {{> components/products/single-review this product_title=../product_title}}
+      {{/each}}
+
+      <div class="review-footer layout-grid-item">
+        <a class="button button-primary" href="#modal-review-form"  data-open-review-modal>
+          {{lang 'product.reviews.write_review'}}
+        </a>
+      </div>
+
+      {{> components/common/pagination pagination.reviews is_grid=true}}
+    </div>
+  {{/if}}
+
+</section>

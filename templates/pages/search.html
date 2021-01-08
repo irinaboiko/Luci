@@ -1,0 +1,143 @@
+---
+brands: true
+cart: true
+product_results:
+  limit: {{theme_settings.product-results-per-page}}
+---
+
+{{#partial "page"}}
+
+{{!-- TODO: This is an assumption that BC will will/has integrated the banner like Category--}}
+{{!#if product_results.image}}
+{{!> components/banner product_results.image}}
+{{!/if}}
+
+  {{> components/common/page-header list=breadcrumbs page_title=forms.search.query}}
+
+  <section
+    class="
+      search-container
+      layout-module
+      {{#if product_results.faceted_search_enabled}}
+        {{#if product_results.products.length}}
+          has-sidebar
+        {{/if}}
+      {{/if}}
+      {{#unless product_results.products.length}}
+        {{#unless content_results.length}}
+          no-search-results
+        {{/unless}}
+      {{/unless}}
+    "
+  >
+
+  <div class="search-tabber" data-search-tabber>
+
+    <div class="search-tabber-tabs tabs">
+      {{#if product_results.products.length}}
+        <div class="tab-title" data-search-results-tab>
+          {{lang 'search.products'}}
+        </div>
+      {{/if}}
+      {{#if content_results.length}}
+        <div class="tab-title" data-search-results-tab>
+          {{lang 'search.content'}}
+        </div>
+      {{/if}}
+    </div>
+
+    <section
+      class="
+        search-wrapper
+        {{#if product_results.faceted_search_enabled}}
+          layout-grid-of-3
+        {{else}}
+          layout-grid-of-4
+        {{/if}}
+      "
+      data-search-query="{{{sanitize forms.search.query}}}"
+    >
+
+      {{{snippet 'search'}}}
+
+      <div
+        class="
+          search-tabber-content
+          tabs-content
+          {{#if content_results.length}}
+            has-content
+          {{/if}}
+          {{#if product_results.products.length}}
+            has-products
+          {{/if}}
+        "
+      >
+        {{#if product_results.products.length}}
+          <div
+            class="tabs-content-panel search-results-product"
+            data-search-results-content
+          >
+            {{#if theme_settings.product-grid-layout '===' "classic-grid"}}
+              <div class="collection-wrapper-sorting">
+                {{> components/common/sort sort=pagination.product_results.sort}}
+              </div>
+            {{/if}}
+
+            <form
+              class="product-grid-container grid-masonry"
+              action="/compare"
+              method="POST"
+              {{#if settings.data_tag_enabled}}
+                data-list-name="Search Results"
+                data-event-type="list"
+              {{/if}}
+              data-product-compare
+            >
+              {{> components/search/product-listing
+                settings=../settings
+                event="list"
+              }}
+            </form>
+            {{#if product_results.faceted_search_enabled}}
+              <aside class="search-sidebar">
+                {{> components/search/sidebar}}
+              </aside>
+            {{/if}}
+          </div>
+        {{/if}}
+        {{#if content_results.length}}
+          <div
+            class="tabs-content-panel search-results-content rte"
+            data-search-results-content
+          >
+            {{> components/search/results
+              settings=../settings
+              results=content_results
+            }}
+          </div>
+        {{/if}}
+      </div>
+
+    </div>
+
+    </section>
+
+    {{#unless product_results.products.length}}
+      {{#unless content_results.length}}
+        <p class="search-empty">
+          {{#if forms.search.query}}
+            {{{lang 'search.no_results' query=(sanitize forms.search.query)}}}
+          {{else}}
+            {{{lang 'search.no_search' query=(sanitize forms.search.query)}}}
+          {{/if}}
+        </p>
+      {{/unless}}
+    {{/unless}}
+
+    {{{region name="search_below_content"}}}
+
+  </section>
+
+{{/partial}}
+
+{{> layout/base}}

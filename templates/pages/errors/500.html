@@ -1,0 +1,18 @@
+
+{{#partial "page"}}
+
+{{> components/common/page-header list=breadcrumbs page_title=(lang 'error_pages.page_500.heading')}}
+
+<article class="page-container">
+
+  <section class="layout-module">
+
+    <p>{{{lang 'error_pages.page_500.message' home_url=urls.home}}}</p>
+
+  </section>
+
+</article>
+
+{{/partial}}
+
+{{> layout/base}}

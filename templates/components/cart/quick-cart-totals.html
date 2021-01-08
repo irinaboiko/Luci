@@ -1,0 +1,31 @@
+
+{{#if cart.items.length}}
+  <div class="quick-cart-footer">
+
+    <div class="quick-cart-subtotal">
+      <div class="label">{{lang 'cart.subtotal'}}:</div>
+      <div class="total">{{cart.sub_total.formatted}}</div>
+    </div>
+
+    <div class="quick-cart-actions">
+      <a
+        href="{{urls.checkout.single_address}}"
+        class="button button-primary button-wide checkout-button"
+      >
+        {{lang 'cart.checkout'}}
+      </a>
+      {{#if cart.show_multiple_address_shipping}}
+        <a class="checkout-multiple" href="{{urls.checkout.multiple_address}}">
+          {{lang 'cart.checkout_multiple'}}
+        </a>
+      {{/if}}
+      <a
+        href="{{urls.cart}}"
+        class="button button-secondary button-wide view-cart-button"
+      >
+        {{lang 'account_general.view_cart'}}
+      </a>
+    </div>
+
+  </div>
+{{/if}}

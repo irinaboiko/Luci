@@ -1,0 +1,170 @@
+<div
+  class="cart-item cart-table-item"
+  data-id="{{id}}"
+  data-qty="{{quantity}}"
+  data-item-row
+>
+  <div
+    class="
+      cart-item-top
+      {{#if type '===' 'GiftCertificate'}}
+        type-gift-certificate
+      {{/if}}
+    "
+  >
+    <div class="cart-item-image">
+      {{#if image}}
+        {{> components/common/responsive-image
+          image=image
+          fallback_size='800w'
+          lazyload=lazyload
+          default_image=default_image
+        }}
+      {{/if}}
+      <span class="sr-only">{{name}}</span>
+    </div>
+    <button class="cart-item-remove cart-item-action" data-item-id="{{id}}">
+      <i class="icon-remove" aria-hidden="true"></i>
+      <span class="sr-only">{{lang 'cart.product.remove'}}</span>
+    </button>
+
+      <div class="cart-item-actions">
+        {{#if type "!==" "GiftCertificate"}}
+          <button
+            class="cart-item-action"
+            data-cart-update data-item-id="{{id}}"
+            data-action="increase"
+          >
+            <i class="icon-increase" aria-hidden="true"></i>
+            <span class="sr-only">{{lang 'cart.product.increase'}}</span>
+          </button>
+        {{/if}}
+
+        <button
+          class="cart-item-action quantity-input"
+          id="qty-{{id}}"
+          name="qty-{{id}}"
+          value="{{quantity}}"
+          aria-live="polite"
+        >
+          {{quantity}}
+        </button>
+
+        {{#if type "!==" "GiftCertificate"}}
+          <button
+            class="cart-item-action"
+            data-cart-update data-item-id="{{id}}"
+            data-action="decrease"
+          >
+            <i class="icon-decrease" aria-hidden="true"></i>
+            <span class="sr-only">{{lang 'cart.product.decrease'}}</span>
+          </button>
+        {{/if}}
+      </div>
+  </div>
+
+  <div class="cart-item-content">
+    <h3 class="cart-item-product-name">
+      {{#if url}}
+        <a class="cart-item-product-title" href="{{url}}">
+          {{name}}
+        </a>
+      {{else}}
+        {{#if edit_url}}
+          <a class="cart-item-product-title" href="{{edit_url}}">
+            {{name}}
+          </a>
+        {{else}}
+          <span class="cart-item-product-title no-link">
+            {{name}}
+          </span>
+        {{/if}}
+      {{/if}}
+    </h3>
+    {{#if type "!==" "GiftCertificate"}}
+      <div class="cart-item-single-price">
+        <span class="{{#if price_discounted}}cart-item-price-discounted{{/if}}">
+          {{price.formatted}}
+        </span>
+        {{#if price_discounted}}
+          <span class="cart-item-price-discount">
+            {{price_discounted.formatted}}
+          </span>
+        {{/if}}
+      </div>
+    {{/if}}
+    <div class="cart-item-meta">
+      {{#if type "===" "GiftCertificate"}}
+        <a
+          class="
+            button
+            button-primary
+            button-small
+            cart-item-gift-certificate-edit
+          "
+          href="{{edit_url}}"
+        >
+          {{lang 'cart.gift_certificates.edit_before_purchase'}}
+        </a>
+      {{/if}}
+
+      <div class="product-options-summary">
+        {{#or options configurable_fields}}
+          <dl class="cart-item-details-block">
+            {{#each configurable_fields}}
+              <dt class="cart-item-details-name cart-item-label">
+                {{name}}:
+              </dt>
+              <dd class="cart-item-details-value">
+                {{#if is_file}}
+                  <a href="/viewfile.php?prodfield={{../id}}&cartitem={{../../id}}">
+                    {{value}}
+                  </a>
+                {{else}}
+                  {{{sanitize value}}}
+                {{/if}}
+              </dd>
+            {{/each}}
+
+            {{#each options}}
+              <dt class="cart-item-details-name cart-item-label">
+                {{name}}:
+              </dt>
+              <dd class="cart-item-details-value">
+                {{#if is_file}}
+                  <a href="/viewfile.php?attributeId={{../id}}&cartitem={{../../id}}">
+                    {{value}}
+                  </a>
+                {{else}}
+                  {{{value}}}
+                {{/if}}
+              </dd>
+            {{/each}}
+          </dl>
+        {{/or}}
+      </div>
+    </div>
+
+    {{#or options configurable_fields}}
+      <button
+        class="cart-item-edit-button"
+        data-item-edit="{{id}}"
+      >
+        {{lang 'cart.change_options'}}
+      </button>
+    {{/or}}
+
+    {{> components/cart/gift-wrap/gift-wrap-item}}
+
+    <span class="cart-item-price-block">
+      <span class="{{#if total_discounted}}cart-item-price-discounted{{/if}}">
+        {{total.formatted}}
+      </span>
+      {{#if total_discounted}}
+        <span class="cart-item-price-discount">
+          {{total_discounted.formatted}}
+        </span>
+      {{/if}}
+    </span>
+  </div>
+</div>

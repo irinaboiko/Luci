@@ -1,0 +1,129 @@
+.carousel-wrapper {
+  height: auto;
+  padding-bottom: $gutter * 2;
+  overflow: hidden;
+  background-color: $carousel-background-color;
+
+  .flickity-viewport {
+    height: $carousel-height-mobile;
+
+    @include breakpoint(l-up) {
+      height: $carousel-height-desktop;
+    }
+  }
+
+  + .layout-module .section-title {
+    .carousel-border & {
+      border-top: 1px solid $border-color;
+    }
+  }
+}
+
+.carousel-item {
+  width: 100%;
+}
+
+.carousel-item-background {
+  display: block;
+  width: 100%;
+  height: $carousel-height-mobile;
+  background: 50% 50% no-repeat;
+  background-size: $carousel-image-crop;
+
+  @include breakpoint(l-up) {
+    height: $carousel-height-desktop;
+  }
+}
+
+.carousel-item-info {
+  @extend %wrapper;
+  margin-top: $gutter * 2;
+  color: $carousel-font-color;
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
+  @include breakpoint(m-up){
+    max-width: 50%;
+    margin-left: 0;
+  }
+}
+
+.carousel-item-title {
+  margin-top: 0;
+  color: $carousel-font-color;
+}
+
+.flickity-prev-next-button {
+  top: ($carousel-height-mobile/2 + $header-height-mobile/2);
+  transition: all 0.5s $ease-out-quad;
+
+  @include breakpoint(l-up) {
+    top: ($carousel-height-desktop/2 + $header-height-desktop/2);
+
+    .alternate-header & {
+      top: ($carousel-height-desktop/2 + $header-height-mobile/2);
+    }
+  }
+
+  &:before {
+    @extend %icon-base;
+    height: 32px;
+    font-size: 32px;
+    line-height: 32px;
+    content: $icon-arrow-left;
+  }
+
+  &.next {
+    &:before {
+      content: $icon-arrow-right;
+    }
+  }
+
+  &,
+  &:active,
+  &:hover {
+    background: transparent;
+    border: 0;
+    outline: none;
+  }
+
+  svg,
+  .arrow {
+    display: none;
+  }
+}
+
+.flickity-page-dots {
+  @extend %wrapper;
+  top: $carousel-height-mobile + $gutter;
+  bottom: auto;
+  left: 50%;
+  padding-right: $gutter;
+  text-align: right;
+  transform: translateX(-50%);
+
+  @include breakpoint(l-up) {
+    top: $carousel-height-desktop + $gutter;
+  }
+
+  .dot {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 2px 0 0 $gutter/2;
+    line-height: 16px;
+    color: $carousel-dot-color;
+    content: " ";
+
+    &:before {
+      @extend %icon-base;
+      content: $icon-circle-full;
+    }
+
+    &.is-selected {
+      @include hover($carousel-dot-color);
+    }
+  }
+}

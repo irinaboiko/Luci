@@ -1,0 +1,13 @@
+$form-gutter: 15px;
+$form-element-padding: 10px;
+$swatch-size: 30px;
+
+$form-input-color: $meta-color;
+$form-input-border: $border-color;
+$form-input-background: $container-background-color;
+
+$required-color: $error-color;
+//-- Product Settings --//
+$product-option: (space: 4px, padding: $gutter / 3, selected: $accent-color, hover: brightness-adjust($form-input-color));
+$product-pick-list: (size: 40px, padding: $gutter / 3);
+$product-swatch: (size: 20px, space: map-get($product-option, space) / 2);

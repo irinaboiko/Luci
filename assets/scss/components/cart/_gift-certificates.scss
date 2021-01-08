@@ -1,0 +1,12 @@
+.cart-total-certificate {
+  vertical-align: middle;
+}
+
+.cart-certificate-remove {
+  @extend %meta-text-treatment;
+  font-size: 12px;
+}
+
+.cart-item-gift-certificate-edit {
+  margin-top: $gutter;
+}

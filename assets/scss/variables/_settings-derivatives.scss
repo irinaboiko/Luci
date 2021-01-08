@@ -1,0 +1,41 @@
+// -- Static variables -- //
+$color-white: #fff;
+$color-black: #000;
+
+// -- Backgrounds / Low Hierarchy -- //
+$container-background-color: $body-background-color;
+$container-background-color-opaque: rgba($container-background-color, 0.8);
+$container-background-color-secondary: $color-primary-light;
+$main-nav-background-color-opaque: rgba($main-nav-background-color, 0.8);
+
+// -- Primary Color Derivatives -- //
+$color-primary-dark-dark:  brightness-adjust($color-primary-dark, darken);
+$color-primary-contrast:  brightness-adjust($color-primary-light, lighten);
+
+$body-color-light: brightness-adjust($body-color, lighten, 90%);
+$body-color-dark: brightness-adjust($body-color, darken, 90%);
+$body-color-link: brightness-adjust($body-color, false, 50%);
+
+$secondary-color-main: $color-primary-dark;
+$secondary-color-accent: $color-primary-light;
+
+$modal-background-color: rgba(modal-background($color-primary-dark), 0.9);
+
+//----- Secondary Color Derivatives -----//
+$accent-color-light: brightness-adjust($accent-color, lighten, 70%);
+$accent-color-dark: brightness-adjust($accent-color, darken);
+
+$error-color-border: mix($error-color, $container-background-color, 75%);
+$error-color-placeholder: mix($error-color, $container-background-color);
+
+// -- Main Nav Color Derivatives -- //
+$main-nav-color-dark:  brightness-adjust($main-nav-color, darken);
+$main-nav-color-light:  brightness-adjust($main-nav-color, lighten, 35%);
+$main-nav-color-overlay-contrast:  color-contrast($color-primary-dark, $modal-background-color);
+
+//-- Product Item Actions #derived --//
+$product-item-sale-color: mix(#fff, $error-color, 90%);
+$product-item-sale-background: $error-color;
+
+$product-item-sold-out-background: $button-border-color;
+$product-item-sold-out-color: lightness-adjust($container-background-color, $product-item-sold-out-background, color-contrast($product-item-sold-out-background));

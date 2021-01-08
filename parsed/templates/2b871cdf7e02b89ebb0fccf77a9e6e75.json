@@ -1,0 +1,3 @@
+{
+  "components/search/results": "{{#each results}}\n  <div class=\"search-result\">\n    <h3 class=\"search-result-title\">\n      <a href=\"{{url}}\">{{title}}</a>\n    </h3>\n    <div class=\"search-result-content\">{{{content}}}</div>\n  </div>\n{{/each}}\n"
+}

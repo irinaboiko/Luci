@@ -1,0 +1,3 @@
+{
+  "components/common/rating": "\n{{#for 1 5}}\n    <i class=\"rating-star {{#if ../rating '>=' $index}}icon-star{{else}}icon-star-empty{{/if}}\"></i>\n{{/for}}\n"
+}

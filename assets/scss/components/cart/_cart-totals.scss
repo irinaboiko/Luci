@@ -1,0 +1,40 @@
+.cart-totals {
+  margin: $gutter * 2 0;
+}
+
+.cart-total {
+  margin-top: $gutter;
+  font-size: 14px;
+}
+
+.cart-total-value {
+  text-align: right;
+}
+
+.cart-total-label,
+.cart-total-value {
+  display: inline-block;
+  width: 49%;
+  vertical-align: middle;
+  box-sizing: border-box;
+
+  @include breakpoint(m-down) {
+    width: 100%;
+    text-align: left;
+  }
+}
+
+.cart-grand-total-label {
+  display: block;
+}
+
+.cart-grand-total-value {
+  display: block;
+  font-family: $heading-font;
+  font-size: 30px;
+  color: $body-color-dark;
+}
+
+.cart-add-coupon {
+  text-decoration: underline;
+}

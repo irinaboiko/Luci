@@ -1,0 +1,69 @@
+{{! Theme Settings}}
+{{inject 'themeImageSizes' theme_images}}
+{{inject 'breakPoints' theme_settings.screen-sizes}}
+{{inject 'productsPerPage' theme_settings.product-results-per-page}}
+{{inject 'disableProductAjax' theme_settings.product-purchase-disable-ajax}}
+{{inject 'cartUrl' urls.cart}}
+
+{{! Carousel Settings}}
+{{inject 'carouselDelay' carousel.swap_frequency}}
+
+{{! Compare Messages}}
+{{inject 'compareCompareProducts' (lang 'compare.compare_submit')}}
+{{inject 'compareClearSelection' (lang 'compare.clear_compare')}}
+
+{{! Product Messages}}
+{{inject 'homeLink' urls.home}}
+{{inject 'continueShopping' (lang 'product.continue_shopping')}}
+{{inject 'urlsCart' urls.cart}}
+{{inject 'urlsCheckout' urls.checkout.single_address}}
+{{inject 'messagesCartLink' (lang 'product.cart_link')}}
+{{inject 'messagesCartQuantityError' (lang 'product.error_message_quantity')}}
+{{inject 'messagesCheckoutLink' (lang 'product.checkout_link')}}
+{{inject 'messagesProductGeneral' (lang 'product.error_message_general')}}
+{{inject 'messagesProductAddSuccess' (lang 'product.success')}}
+{{inject 'messagesProductAddSuccessAlert' (lang 'product.success_alert')}}
+{{inject 'productOutOfStock' (lang 'product.error_message_stock')}}
+{{inject 'productAddToCart' (lang 'product.add_to_cart')}}
+{{inject 'productPreOrder' (lang 'product.pre_order')}}
+{{inject 'productSoldOut' (lang 'product.sold_out')}}
+{{inject 'productYouSave' (lang 'product.you_save')}}
+{{inject 'productIncludingTax' (lang 'product.including_tax')}}
+{{inject 'productExcludingTax' (lang 'product.excluding_tax')}}
+{{inject 'productPreviewVariation' (lang 'product.preview_variation')}}
+{{inject 'productOptionUnavailable' (lang 'product.option_unavailable')}}
+{{inject 'salePriceLabel' theme_settings.sale-price-label}}
+{{inject 'nonSalePriceLabel' theme_settings.non-sale-price-label}}
+{{inject 'retailPriceLabel' theme_settings.retail-price-label}}
+{{inject 'priceLabel' theme_settings.price-label}}
+{{inject 'messagesWishlistAddSuccess' (lang 'product.wishlist.add_success')}}
+{{inject 'messagesWishlistAddError' (lang 'product.wishlist.add_error')}}
+
+{{! Form Validation Messages}}
+{{inject 'validationRequired' (lang 'forms.validation.required')}}
+{{inject 'validationEmail' (lang 'forms.validation.email')}}
+{{inject 'validationNumber' (lang 'forms.validation.number')}}
+{{inject 'validationNumMax' (lang 'forms.validation.num_max')}}
+{{inject 'validationNumMin' (lang 'forms.validation.num_min')}}
+{{inject 'validationNumRange' (lang 'forms.validation.num_range')}}
+{{inject 'validationMaxLength' (lang 'forms.validation.max_length')}}
+{{inject 'validationMinLength' (lang 'forms.validation.min_length')}}
+{{inject 'validationMaxChecked' (lang 'forms.validation.max_checked')}}
+{{inject 'validationMinChecked' (lang 'forms.validation.min_checked')}}
+{{inject 'validationMaxSelected' (lang 'forms.validation.max_selected')}}
+{{inject 'validationMinSelected' (lang 'forms.validation.min_selected')}}
+{{inject 'validationNotEqual' (lang 'forms.validation.not_equal')}}
+{{inject 'validationDifferent' (lang 'forms.validation.different')}}
+
+{{inject 'showMore' (lang 'sidebar_filters.show_more')}}
+{{inject 'hideMore' (lang 'sidebar_filters.hide_more')}}
+
+{{!-- Image Zoom --}}
+{{inject 'zoomClose' (lang 'core.product.zoom.close')}}
+{{inject 'zoomShare' (lang 'core.product.zoom.share')}}
+{{inject 'zoomFullscreen' (lang 'core.product.zoom.fullscreen')}}
+{{inject 'zoomAction' (lang 'core.product.zoom.zoom_action')}}
+{{inject 'zoomPrevious' (lang 'core.product.zoom.previous')}}
+{{inject 'zoomNext' (lang 'core.product.zoom.next')}}
+
+{{inject 'customerID' customer.id}}

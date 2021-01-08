@@ -1,0 +1,19 @@
+
+<form>
+  <ul class="shipping-quotes-estimates">
+    {{#if quotes.shipping_methods}}
+      {{#each quotes.shipping_methods}}
+        {{> components/cart/cart-shipping-quote }}
+      {{/each}}
+    {{/if}}
+
+    {{#if quotes.ups_shipping_methods}}
+      {{#each quotes.ups_shipping_methods}}
+        {{> components/cart/cart-shipping-quote provider_name=description}}
+      {{/each}}
+    {{/if}}
+  </ul>
+  <div class="form-field">
+    <input class="select-shipping-quote button button-primary button-small" type="submit" value="{{lang 'cart.shipping_calculator.select'}}">
+  </div>
+</form>

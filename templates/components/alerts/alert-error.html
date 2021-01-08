@@ -1,0 +1,9 @@
+<div class="alert-message error">
+  {{#if dismissable}}<a href="#" class="dismiss">&times;</a>{{/if}}
+
+  {{#if message}}
+    {{{message}}}
+  {{else}}
+    {{{this}}}
+  {{/if}}
+</div>

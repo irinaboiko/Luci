@@ -1,0 +1,36 @@
+<section class="carousel-wrapper"
+  data-list-name="{{list}}"
+  data-carousel-position="0"
+  event="list"
+>
+  {{#each carousel.slides}}
+    <figure class="carousel-item {{#if @first}}active{{/if}}"
+      data-image-position="{{@index}}"
+      data-image-distance
+      >
+      {{#if url}}
+        <a class="carousel-item-image-link" href="{{{url}}}">
+          <span class="carousel-item-background" style="background-image: url({{image}});">
+            <img class="sr-only" src="{{image}}" alt="{{alt_text}}">
+          </span>
+        </a>
+      {{else}}
+        <span class="carousel-item-background" style="background-image: url({{image}});">
+          <img class="sr-only" src="{{image}}" alt="{{alt_text}}">
+        </span>
+      {{/if}}
+
+      <figcaption class="carousel-item-info">
+        {{#if heading}}
+          <h2 class="carousel-item-title">{{{heading}}}</h2>
+        {{/if}}
+        {{#if text}}
+          <p>{{{text}}}</p>
+        {{/if}}
+        {{#if button_text}}
+          <a class="button" {{#if url}}href="{{{url}}}"{{/if}}>{{{button_text}}}</a>
+        {{/if}}
+      </figcaption>
+    </figure>
+  {{/each}}
+</section>

@@ -1,0 +1,79 @@
+{{inject 'addInfo' (lang 'cart.shipping_calculator.add_info')}}
+{{inject 'hideCalc' (lang 'cart.shipping_calculator.hide_calculator')}}
+
+<li class="cart-total">
+  {{! Start Cart-Shipping Label }}
+  <span class="cart-total-label">{{lang 'cart.shipping_calculator.title'}}</span>
+  <span class="cart-total-value">
+    {{#if shipping_cost}}
+      <button class="cart-total-amount shipping-calculator-toggle" data-cost-default="{{shipping_cost.formatted}}">
+        {{shipping_cost.formatted}}
+      </button>
+    {{else}}
+      {{#if shipping_cost "===" 0}}
+        {{#if provider}}
+          <button class="cart-total-amount shipping-calculator-toggle">
+            {{provider.description}}
+          </button>
+        {{/if}}
+      {{else}}
+        <button
+          class="cart-total-amount shipping-calculator-toggle">
+          {{lang 'cart.shipping_calculator.add_info'}}
+        </button>
+      {{/if}}
+    {{/if}}
+  </span>
+  {{! End Cart-Shipping Label }}
+
+  {{! Start Shipping Calculator }}
+  <div class="shipping-calculator hidden">
+    <form class="shipping-calculator-form" data-shipping-calculator>
+      <div class="form-field">
+        <label class="form-label" for="shipping-country">
+          <span class="form-label-text">{{lang 'cart.shipping_calculator.select_a_country'}}</span>
+          <span class="select-wrapper">
+            <select class="form-select" id="shipping-country" name="shipping-country" data-field-type="Country">
+              {{#each countries}}
+                <option value="{{id}}" {{#if selected}}selected="selected"{{/if}}>{{name}}</option>
+              {{/each}}
+            </select>
+          </span>
+        </label>
+      </div>
+
+      <div class="form-field">
+        <label class="form-label" for="shipping-state">
+          <span class="form-label-text">{{lang 'cart.shipping_calculator.select_a_state'}}</span>
+          <span class="select-wrapper">
+            <select class="form-select" id="shipping-state" name="shipping-state" data-field-type="State">
+              {{#each states}}
+                <option value="{{id}}" {{#if selected}}selected="selected"{{/if}}>{{name}}</option>
+              {{/each}}
+            </select>
+          </span>
+        </label>
+      </div>
+
+      <div class="form-field">
+        <label class="form-label" for="shipping-zip">
+          <span class="form-label-text">{{lang 'cart.shipping_calculator.zip_postal_code'}}</span>
+          <input class="form-input" type="text" id="shipping-zip" name="shipping-zip" value="{{selected_zip}}">
+        </label>
+      </div>
+
+      {{inject 'required' (lang 'forms.required')}}
+      {{inject 'state_error' (lang 'forms.errors.state_error')}}
+
+      <div class="form-field">
+        <button class="button button-primary button-small">
+          {{lang 'cart.shipping_calculator.estimate_shipping'}}
+        </button>
+      </div>
+    </form>
+
+    <div class="shipping-quotes"></div>
+  </div>
+  {{! End Shipping Calculator }}
+
+</li>

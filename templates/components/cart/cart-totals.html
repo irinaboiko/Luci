@@ -1,0 +1,49 @@
+
+<ul class="cart-totals">
+  <li class="cart-total">
+    <span class="cart-total-label">
+      {{lang 'cart.subtotal'}}
+    </span>
+    <span class="cart-total-value">
+      {{cart.sub_total.formatted}}
+    </span>
+  </li>
+
+  {{#if cart.discount}}
+    <li class="cart-total">
+      <span class="cart-total-label">
+        {{lang 'cart.discount'}}
+      </span>
+      <span class="cart-total-value">
+        {{cart.discount.formatted}}
+      </span>
+    </li>
+  {{/if}}
+
+  {{#each cart.taxes}}
+    <li class="cart-total">
+      <span class="cart-total-label">
+        {{name}}
+      </span>
+      <span class="cart-total-value">
+        {{cost.formatted}}
+      </span>
+    </li>
+  {{/each}}
+
+  {{> components/cart/cart-coupon-codes}}
+  {{#if settings.gift_certificates_enabled}}
+    {{> components/cart/gift-certificate/certificate}}
+  {{/if}}
+  {{> components/cart/gift-wrap/gift-wrap-totals}}
+  {{> components/cart/cart-shipping-calculator cart.shipping_handling}}
+
+  <li class="cart-total cart-total-grand-total">
+    <span class="cart-grand-total-label">
+      {{lang 'cart.grand_total'}}
+    </span>
+    <span class="cart-grand-total-value">
+      {{cart.grand_total.formatted}}
+    </span>
+  </li>
+</ul>

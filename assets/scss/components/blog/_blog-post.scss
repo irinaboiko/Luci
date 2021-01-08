@@ -1,0 +1,41 @@
+.blog-post-footer {
+  margin-top: $gutter*2;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.blog-post-tag {
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.blog-share {
+  margin-top: $gutter/2;
+
+  .sharing-button {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    background: transparent;
+  }
+
+  .facebook-share-button {
+    line-height: 20px;
+  }
+
+  .fb-like {
+    display: block;
+    margin-top: -3px;
+  }
+
+  i {
+    color: $body-color;
+
+    &:hover {
+      color: $body-color-link;
+    }
+  }
+}

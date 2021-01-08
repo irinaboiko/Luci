@@ -1,0 +1,323 @@
+.form-row {
+  @include grid-row(nest);
+}
+
+.form-field {
+  margin-bottom: $form-gutter;
+  font-size: $body-font-size;
+  letter-spacing: 0.05em;
+  color: $form-input-color;
+
+  .form-row.row-of-2 & {
+    @include grid-columns(1 of 2);
+  }
+
+  .form-row.row-of-1 & {
+    @include grid-columns(1 of 1);
+  }
+}
+
+.form-input {
+  @extend %border-radius-treatment;
+  width: 100%;
+  max-width: 280px;
+  min-width: 240px;
+  padding: $form-element-padding;
+  font-size: 14px;
+  color: $form-input-color;
+  background: $form-input-background;
+  border-color: $form-input-border;
+  transition: border-color 0.3s $ease-out-quad;
+
+  .full-width-field & {
+    max-width: 100%;
+  }
+
+  &::placeholder {
+    @include hover($form-input-color);
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &.form-error {
+    color: $error-color;
+    border: 1px solid $error-color;
+
+    &::placeholder {
+      @include hover($error-color);
+    }
+  }
+}
+
+.form-label-text,
+.form-field-title {
+  display: block;
+  margin: 0 0 $form-gutter / 3;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  color: $form-input-color;
+
+  .required-text {
+    // Additional styles in place in case these should be shown later
+    color: $required-color;
+  }
+}
+
+//-- Old style Checkboxes --//
+//-- TODO: Remove all old occurances of these style, update them to match new standard --//
+.input-checkbox,
+.input-radio,
+.input-rectangle {
+  width: auto;
+  max-width: 0;
+  min-width: 0;
+  background: none;
+  border: 0;
+  appearance: none;
+
+  + .form-input-mask {
+    // scss-lint:disable PlaceholderInExtend
+    @extend .icon-unchecked;
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: $gutter / 3;
+    cursor: pointer;
+  }
+
+  &:checked + .form-input-mask {
+    // scss-lint:disable PlaceholderInExtend
+    @extend .icon-checked;
+  }
+
+  ~ .form-label-text {
+    margin: 0;
+  }
+}
+
+//-- New style checkboxes --//
+.form-radio,
+.form-checkbox {
+  @extend %checkbox-hide;
+
+  + .form-label-text {
+    margin-bottom: 0;
+    vertical-align: middle;
+    cursor: pointer;
+
+    &:before {
+      // scss-lint:disable PlaceholderInExtend
+      @extend .icon-unchecked;
+      position: relative;
+      top: 1px;
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: $gutter / 3;
+      cursor: pointer;
+      content: "";
+    }
+
+    &:hover {
+      color: brightness-adjust($form-input-color);
+    }
+  }
+
+  &:checked + .form-label-text {
+
+    &:before {
+      // scss-lint:disable PlaceholderInExtend
+      @extend .icon-checked;
+    }
+  }
+}
+
+.form-rectangles {
+
+  .form-label {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+
+  .input-rectangle {
+    position: absolute;
+    width: 100%;
+
+    ~ .form-label-text {
+      @extend %border-radius-treatment;
+      padding: 7px 12px;
+      border: 1px solid $form-input-border;
+    }
+
+    &:checked ~ .form-label-text {
+      color: $accent-color;
+      border-color: $accent-color;
+    }
+  }
+}
+
+// Forms & buttons
+
+.form-error-message {
+  color: $error-color;
+  background: transparent;
+}
+
+// scss-lint:disable QualifyingElement
+input[type="password"] {
+  .lt-ie9 & {
+    font-family: Arial, sans-serif;
+  }
+}
+
+.form-selected-text {
+  @extend %show-for-sr;
+}
+
+.form-select-wrapper,
+.select-wrapper {
+  position: relative;
+  display: block;
+  max-width: 280px;
+  font-size: 14px;
+  line-height: 1.2;
+  color: $form-input-color;
+  cursor: pointer;
+  background: transparent;
+
+  &:after {
+    position: absolute;
+    top: 50%;
+    right: $form-element-padding;
+    margin-top: -1px;
+    border-top: 4px solid $form-input-border;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    content: "";
+  }
+
+  select {
+    z-index: 2;
+    width: 100%; // needed for Firefox
+    max-width: 100%;
+    min-width: inherit;
+    padding: $form-element-padding;
+    cursor: pointer;
+    border: 1px solid $form-input-border;
+    -webkit-appearance: none;
+
+    .ie & {
+      height: 100%; // needed for IE
+    }
+  }
+}
+
+.icon-checkbox-checked {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: none;
+  transform: translate(-50%, -50%);
+
+  path {
+    fill: $container-background-color-opaque;
+  }
+}
+
+.form-captcha-description {
+  margin-top: 5px;
+  font-size: $body-font-size * 0.9;
+  font-style: italic;
+}
+
+.form-hidden {
+  display: none;
+
+  .lt-ie10 & {
+    display: block;
+  }
+}
+
+.form-stars {
+  @extend %clearfix;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  border: 0;
+
+  &.form-field-error {
+    position: relative;
+    padding-bottom: 24px;
+  }
+
+  .input-star {
+    float: right;
+    padding-right: 4px;
+    line-height: 1;
+    color: $accent-color-light;
+    cursor: pointer;
+
+    &:before {
+      color: $accent-color-light;
+    }
+
+    &:hover,
+    &:hover ~ .input-star {
+
+      &:before {
+        color: $body-color;
+      }
+    }
+  }
+
+  input:checked {
+    ~ label {
+      &:before{
+        color: $body-color;
+      }
+    }
+  }
+
+  .form-inline-message {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    white-space: nowrap;
+
+    + .form-inline-message {
+      display: none;
+    }
+  }
+}
+
+.sr-only {
+  @extend %show-for-sr;
+}
+
+//----- Form Errors & Messages -----//
+.form-field-error {
+  .form-input {
+    border-color: $error-color-border;
+
+    &::placeholder {
+      color: $error-color-placeholder;
+    }
+  }
+}
+
+.form-inline-message {
+  display: block;
+  padding: 5px 0 0;
+  font-size: 12px;
+  color: $error-color;
+  transition: all 0.5s $ease-out-quad;
+
+  &:first-letter {
+    text-transform: uppercase;
+  }
+}

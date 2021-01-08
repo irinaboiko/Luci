@@ -1,0 +1,93 @@
+
+.modal-overlay {
+  @include page-overlay(map-get($zindex, modal-overlay));
+}
+
+.modal-wrapper {
+  z-index: map-get($zindex, modal-wrapper);
+  width: 100%;
+  height: 100vh;
+  box-sizing: content-box;
+  backface-visibility: hidden;
+}
+
+.modal {
+  width: 100%;
+  max-width: $max-width;
+  max-height: calc(100% - #{$gutter * 4});
+  padding: 0;
+  overflow-y: scroll;
+
+  &.modal-quick-shop {
+    opacity: 0;
+    transition: opacity 0.5s $ease-out-quad;
+
+    .loaded & {
+      opacity: 1;
+    }
+  }
+}
+
+.modal-close {
+  position: fixed;
+  top: 0;
+  right: 0;
+  float: none;
+  padding: ($gutter / 3) ($gutter / 2);
+  color: $color-primary-contrast;
+
+  .modal-close-icon {
+    display: inline-block;
+    width: $body-font-size;
+    height: $body-font-size;
+    vertical-align: middle;
+  }
+
+  .modal-close-label {
+    display: none;
+    transition: color 0.4s $ease-out-quad;
+
+    @include breakpoint(m-up) {
+      display: inline-block;
+      margin-left: 5px;
+      line-height: 1;
+      vertical-align: middle;
+    }
+  }
+
+  &:hover {
+
+    &,
+    .modal-close-icon,
+    .modal-close-label {
+      color: $color-primary-contrast;
+    }
+  }
+}
+
+.modal-content {
+  @extend %clearfix;
+  padding: $gutter;
+  background: $body-background-color;
+
+  > *:first-child { margin-top: 0; }
+  > *:last-child { margin-bottom: 0; }
+
+  .modal-quick-shop & {
+    @include breakpoint(m-up){
+      padding: 50px;
+    }
+  }
+}
+
+.modal-toggle {
+  padding: 0;
+  color: $accent-color;
+  background: none;
+  border: 0;
+  outline: 0;
+
+  &:hover {
+    @include hover($accent-color);
+  }
+}

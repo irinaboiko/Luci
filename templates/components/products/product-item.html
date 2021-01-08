@@ -1,0 +1,197 @@
+<article
+  class="
+    layout-grid-item
+    product-item
+    product-area
+    {{#if show_large_first}}
+      {{#if index '===' 0}}
+        grid-span-2
+      {{/if}}
+    {{/if}}
+    "
+    data-event-type="{{event}}"
+    data-entity-id="{{id}}"
+    data-position="{{position}}"
+    data-name="{{name}}"
+    data-product-category="
+      {{#each category}}
+        {{#if @last}}
+          {{this}}
+        {{else}}
+          {{this}},
+        {{/if}}
+      {{/each}}"
+    data-product-brand="{{brand.name}}"
+    data-product-price="
+      {{#if price.with_tax}}
+        {{price.with_tax.value}}
+          {{else}}
+        {{price.without_tax.value}}
+      {{/if}}
+    "
+>
+  <figure class="product-item-thumbnail">
+    <a
+      href="{{{url}}}"
+      title="{{name}}"
+      class="product-item-link"
+      {{#if settings.data_tag_enabled}}
+        data-event-type="product-click"
+      {{/if}}
+    >
+      {{#compare index 0 operator='==='}}
+        {{#if show_large_first}}
+          {{> components/common/responsive-image
+            image=image
+            class="product-item-image"
+            fallback_size='600w'
+            lazyload=lazyload
+            default_image=default_image
+          }}
+        {{else}}
+          {{> components/common/responsive-image
+            image=image
+            class="product-item-image"
+            fallback_size='300w'
+            lazyload=lazyload
+            default_image=default_image
+          }}
+        {{/if}}
+      {{else}}
+        {{> components/common/responsive-image
+          image=image
+          class="product-item-image"
+          fallback_size='300w'
+          lazyload=lazyload
+          default_image=default_image
+        }}
+      {{/compare}}
+    </a>
+
+    <div class="product-item-badges">
+      {{#unless out_of_stock_message}}
+        {{#if sale_badges}}
+          {{> core/products/sale-badge
+            classes="product-item-sale-tag"
+          }}
+        {{/if}}
+      {{else}}
+        {{> core/products/oos-badge
+          classes="product-item-out-of-stock"
+        }}
+      {{/unless}}
+    </div>
+
+    <ul class="product-item-actions">
+      {{#if show_quick_shop}}
+        <li>
+          <span
+            class="product-item-action quick-shop-trigger"
+            data-product-id="{{id}}"
+            {{#if settings.data_tag_enabled}}
+              data-event-type="product-click"
+            {{/if}}
+          >
+            {{lang 'product.quick_view'}}
+          </span>
+        </li>
+      {{/if}}
+
+      <li>
+        {{#if has_options}}
+          <a
+            href="{{url}}"
+            {{#if settings.data_tag_enabled}}
+              data-event-type="product-click"
+            {{/if}}
+          >
+            <span class="product-item-action">
+              {{lang 'product.choose_options'}}
+            </span>
+          </a>
+        {{else}}
+          {{#if add_to_cart_url}}
+            <a
+              href="{{add_to_cart_url}}"
+              data-product-add-to-cart
+              data-product-id="{{id}}"
+              data-product-title="{{name}}"
+              data-progress-text="{{lang 'product.add_to_cart_progress'}}"
+              {{#if settings.data_tag_enabled}}
+                data-event-type="product-click"
+              {{/if}}
+            >
+              <span class="button-text product-item-action">
+                {{#if pre_order}}
+                  {{lang 'product.pre_order'}}
+                {{else}}
+                  {{lang 'product.add_to_cart'}}
+                {{/if}}
+              </span>
+            </a>
+          {{else}}
+            <a
+              href="{{url}}"
+              {{#if settings.data_tag_enabled}}
+                data-event-type="product-click"
+              {{/if}}
+            >
+              <span class="product-item-action ">
+                {{#if out_of_stock_message}}
+                  {{lang 'product.sold_out'}}
+                {{else}}
+                  {{lang 'product.view_full_details'}}
+                {{/if}}
+              </span>
+            </a>
+          {{/if}}
+        {{/if}}
+      </li>
+
+      {{#if show_compare}}
+        <li>
+          <label for="compare-{{id}}">
+            <input
+              class="input-checkbox product-item-compare"
+              type="checkbox"
+              name="products[]"
+              value="{{id}}"
+              id="compare-{{id}}"
+            >
+              <span class="product-item-action">
+                {{lang "product.compare"}}
+              </span>
+          </label>
+        </li>
+      {{/if}}
+    </ul>
+  </figure>
+
+  <div class="product-item-details">
+    {{#if brand.name}}
+      <span class="product-item-brand">{{brand.name}}</span>
+    {{/if}}
+
+    <h3 class="product-item-title">
+      <a
+        href="{{{url}}}"
+        {{#if settings.data_tag_enabled}}
+          data-event-type="product-click"
+        {{/if}}
+      >
+        {{name}}
+      </a>
+    </h3>
+    <div class="product-item-price">
+      {{> core/products/price
+        show_tax_labels=true
+        show_sale_badges=false
+        price_range_display=price_range_display
+        retail_price_label=retail_price_label
+        non_sale_price_label=non_sale_price_label
+        sale_price_label=sale_price_label
+        price_label=price_label
+      }}
+    </div>
+  </div>
+</article>

@@ -1,0 +1,16 @@
+
+<div class="faceted-search">
+  {{!> components/brand/sort-filter sort=pagination.product_results.sort}}
+
+  {{#if product_results.faceted_search_enabled}}
+    {{#each product_results.facets}}
+      {{#if partial '!==' 'range'}}
+        {{#if items}}
+          {{> components/faceted-search/facets-base}}
+        {{/if}}
+      {{else}}
+        {{> components/faceted-search/facets-base}}
+      {{/if}}
+    {{/each}}
+  {{/if}}
+</div>

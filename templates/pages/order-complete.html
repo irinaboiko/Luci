@@ -1,0 +1,19 @@
+{{#partial "page"}}
+
+{{> components/common/page-header list=breadcrumbs page_title=(lang 'checkout.order.heading')}}
+
+<article class="page-container">
+
+  <section class="layout-module">
+
+   <p>{{lang 'checkout.order.message'}}</p>
+
+    {{{snippet 'order_confirmation'}}}
+
+  </section>
+
+</article>
+
+{{/partial}}
+
+{{> layout/base}}

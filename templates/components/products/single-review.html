@@ -1,0 +1,22 @@
+<div class="layout-grid-item">
+  <div class='sr-only' aria-hidden="true">
+    <span>{{product_title}}</span>
+  </div>
+  <span class="rating-stars-readonly" aria-hidden="true">
+    {{> components/common/rating rating=rating}}
+    <meta class="sr-only" content="{{rating}}">
+  </span>
+
+  <h3 class="single-review-title">{{{sanitize title}}}</h3>
+
+  <span class="single-review-author">
+    {{#if name}}
+      {{lang 'product.reviews.posted_on_by' date=date name=name}}
+    {{else}}
+      {{lang 'product.reviews.posted_on' date=date}}
+    {{/if}}
+  </span>
+
+  <p class="single-review-text">{{{sanitize text}}}</p>
+
+</div>

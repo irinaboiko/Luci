@@ -1,0 +1,3 @@
+{
+  "components/common/body-class": "template-{{page_type}}\nmain-nav-closed\n{{#if carousel.slides}}has-carousel{{else}}no-carousel{{/if}}\n{{#if theme_settings.enable-carousel-border}}carousel-border{{/if}}\n{{#if theme_settings.product-slider-isolate-images}}isolate-product-slider-images{{/if}}\n{{#unless in_production}} dev-environment{{/unless}}\n"
+}

@@ -1,0 +1,110 @@
+
+.grid-masonry {
+  @extend %clearfix;
+  margin-right: -$column-gutter;
+  margin-left: -$column-gutter;
+
+  @include breakpoint(l, true) {
+    margin-right: -($column-gutter * 1.5);
+    margin-left: -($column-gutter * 1.5);
+  }
+
+  @include breakpoint(xl) {
+    margin-right: -($column-gutter * 2);
+    margin-left: -($column-gutter * 2);
+  }
+}
+
+.layout-grid-gutter,
+.layout-grid-sizer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.layout-grid-sizer,
+.layout-grid-item,
+.product-item-empty {
+  float: left;
+  width: percentage(1 / 2);
+  padding: 0 $column-gutter $gutter;
+  margin-bottom: $gutter;
+  box-sizing: border-box;
+
+
+  .product-grid-container & {
+    margin-bottom: $gutter + $gutter / 2;
+  }
+
+  @include breakpoint(l, true) {
+    padding-right: $column-gutter * 1.5;
+    padding-left: $column-gutter * 1.5;
+  }
+
+  @include breakpoint(xl) {
+    padding-right: $column-gutter * 2;
+    padding-left: $column-gutter * 2;
+  }
+
+  .layout-grid-of-3 & {
+    @include breakpoint(m-up) {
+      width: percentage(1/2);
+    }
+
+    @include breakpoint(l-up, true) {
+      width: percentage(1/3);
+    }
+  }
+
+  .layout-grid-of-4 & {
+    @include breakpoint(m-up, true) {
+      width: percentage(1/3);
+    }
+
+    @include breakpoint(l-up) {
+      width: percentage(1/4);
+    }
+  }
+
+  .layout-grid-blog & {
+    @include breakpoint(s-only) {
+      width: percentage(1);
+    }
+
+    @include breakpoint(l-up, true) {
+      width: percentage(1/3);
+    }
+
+    @include breakpoint(xl-up) {
+      width: percentage(1/4);
+    }
+  }
+
+  &.grid-span-2 {
+    width: 100%;
+
+    .layout-grid-of-3 & {
+      @include breakpoint(m-up, true) {
+        width: percentage(2/3);
+      }
+    }
+
+    .layout-grid-of-4 & {
+      @include breakpoint(m-up, true) {
+        width: percentage(2/3);
+      }
+
+      @include breakpoint(l-up) {
+        width: percentage(1/2);
+      }
+    }
+  }
+
+  &.review-footer,
+  &.pagination-container {
+    width: 100%;
+  }
+
+}

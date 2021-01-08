@@ -1,0 +1,14 @@
+// Status
+// A label used to mark the status of an item
+
+.account-status {
+  padding: 6px 10px 5px;
+  margin: 0;
+  font-size: 12px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  color: $account-light-color;
+  text-align: center;
+  text-transform: uppercase;
+  background: #8e8e8e; // TODO: Colors for each status
+}

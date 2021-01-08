@@ -1,0 +1,41 @@
+
+.account-wishlist-items,
+.account-recently-viewed {
+  @include outer-container;
+
+  .account-product-item {
+    @include fill-parent;
+    position: relative;
+    font-size: $body-font;
+
+    @include breakpoint(m-only) {
+      @include span-columns(6);
+      @include omega(2n);
+    }
+
+    @include breakpoint(l-up) {
+      @include span-columns(4);
+      @include omega(3n);
+    }
+  }
+
+  .account-product-item-brand a {
+    color: $body-color;
+  }
+}
+
+.account-product-item-remove {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 10;
+
+  input {
+    @extend %button-base, %button-primary;
+    padding: 5px 10px;
+    font-family: $body-font;
+    font-size: 12px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+}

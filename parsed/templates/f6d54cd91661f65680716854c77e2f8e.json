@@ -1,0 +1,3 @@
+{
+  "components/common/quantity": "{{!\n  Quantity Widget with Increment/Decrement controls.\n\n  @param product\n         cart.item or product object\n}}\n\n<span class=\"form-field-quantity\" data-quantity-control=\"{{id}}\">\n  <input\n    class=\"form-input\"\n    type=\"number\"\n    name=\"qty{{#if product_id}}-{{id}}{{else}}[]{{/if}}\"\n    pattern=\"[0-9]*\"\n    value=\"{{#if quantity}}{{quantity}}{{else}}{{#if min_purchase_quantity}}{{min_purchase_quantity}}{{else}}1{{/if}}{{/if}}\"\n    min=\"{{#if min_purchase_quantity}}{{min_purchase_quantity}}{{else}}0{{/if}}\"\n    {{#if max_purchase_quantity '!==' 0}}max=\"{{max_purchase_quantity}}\"{{/if}}\n    data-quantity-control-input\n  >\n</span>\n"
+}

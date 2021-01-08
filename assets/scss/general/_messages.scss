@@ -1,0 +1,68 @@
+
+.alert {
+  position: relative;
+  padding: 15px;
+  margin-bottom: 1em;
+  font-size: 13px;
+  border: 1px solid $border-color;
+  border-radius: 3px;
+  transition: opacity 0.3s ease;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &.hidden { display: none; }
+
+  .alert-dismiss {
+    position: absolute;
+    top: 4px;
+    right: 6px;
+    font-size: 16px;
+    line-height: 16px;
+    color: inherit;
+    cursor: pointer;
+    opacity: 0.8;
+
+    &:hover { opacity: 1; }
+  }
+
+  &.alert-success,
+  &.alert-error,
+  &.alert-info {
+    // scss-lint:disable VariableForProperty
+    color: lighten($neutral-color, 10%);
+    background-color: rgba($neutral-color, 0.05);
+    border-color: rgba($neutral-color, 0.1);
+
+    .dismiss { color: lighten($neutral-color, 20%); }
+  }
+
+  // make buttons small & tidy
+  // currently only used in the 'cart add' success message
+  .button {
+    padding: 2px 10px 3px;
+    font-weight: normal;
+    color: $button-primary-text-color;
+    background: $button-primary-background-color;
+    border-color: $button-primary-border-color;
+
+    &:hover {
+      @include hover($button-primary-text-color);
+      @include hover($button-primary-background-color, background);
+      @include hover($button-primary-border-color, border-color);
+    }
+  }
+
+  .actions {
+    @extend %clearfix;
+    @include row(100, 4);
+    margin-top: 1em;
+
+    a {
+      @include fluid-width(48, 100, 4);
+      display: block;
+      float: left;
+    }
+  }
+}

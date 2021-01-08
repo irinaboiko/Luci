@@ -1,0 +1,18 @@
+<div class="quick-cart-content-area">
+
+  {{#if cart.items.length}}
+
+    {{#each cart.items}}
+      {{> components/cart/quick-cart-item
+        this
+        lazyload=../theme_settings.lazyload_mode
+        default_image=../theme_settings.default_image
+      }}
+    {{/each}}
+
+  {{else}}
+
+    <div class="empty-cart">{{lang 'cart.empty'}}</div>
+
+  {{/if}}
+</div>

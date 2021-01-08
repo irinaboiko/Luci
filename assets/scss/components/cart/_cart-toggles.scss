@@ -1,0 +1,64 @@
+.certificate-toggle,
+.item-gift-wrap-toggle,
+.shipping-calculator-toggle,
+.coupon-code-toggle,
+.cart-item-edit-button {
+  padding: 0;
+  color: $body-color-dark;
+  text-decoration: underline;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  transition: all 0.5s $ease-out-quad;
+
+  &:hover {
+    @include hover($body-color-dark);
+  }
+
+  &.disabled {
+    color: $accent-color-light;
+    opacity: 0.8;
+  }
+}
+
+.certificate-form,
+.gift-wrap-form-wrapper,
+.shipping-calculator,
+.coupon-code-form {
+  @include grid-columns(1 of 1, collapse);
+  transition: all 1s $ease-out-quad;
+
+  &.animating-out,
+  &.hidden {
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &.animating {
+    overflow: hidden;
+  }
+
+  &.visible {
+    padding-top: $gutter/2;
+    padding-bottom: $gutter/2;
+    opacity: 1;
+  }
+
+  .form-input,
+  .form-field {
+    font-size: 14px;
+  }
+}
+
+.coupon-code-form,
+.gift-wrap-form-wrapper {
+  .form-input {
+    min-width: initial;
+  }
+}
+
+.cart-item-edit-button {
+  font-size: 14px;
+}

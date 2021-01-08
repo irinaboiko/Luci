@@ -1,0 +1,240 @@
+//-- Set Items Only--//
+%option-set-item {
+  position: relative;
+  display: block;
+  float: left;
+  margin-right: map-get($product-option, space);
+  margin-bottom: map-get($product-option, space);
+}
+
+//-- Date Fields --//
+.form-field-date {
+
+  .form-field-control {
+    @extend %clearfix;
+  }
+
+  select {
+    min-width: inherit;
+  }
+
+  .form-select-wrapper {
+    display: block;
+    float: left;
+    width: calc(33.33% - 6px);
+    margin-right: 9px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+//-- Form Rectangle Options --//
+.form-field-rectangle {
+
+  .form-field-control {
+    @extend %clearfix;
+    display: inline-block;
+  }
+
+  .form-input {
+    @extend %checkbox-hide;
+  }
+
+  .rectangle {
+    @extend %option-set-item;
+    margin-right: map-get($product-option, space) * 2;
+    margin-bottom: map-get($product-option, space) * 2;
+  }
+
+  .rectangle-text {
+    @extend %border-radius-treatment;
+    position: relative;
+    z-index: 1;
+    display: block;
+    height: 44px;
+    min-width: 44px;
+    padding: 0 map-get($product-option, padding);
+    overflow: hidden;
+    line-height: 44px;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    border: 1px solid $form-input-border;
+  }
+
+  .rectangle-text:hover {
+    color: brightness-adjust($body-color);
+  }
+
+  .form-input:focus + .rectangle-text {
+    color: map-get($product-option, selected);
+  }
+
+  .form-input:checked + .rectangle-text {
+    position: relative;
+    z-index: 10;
+    color: map-get($product-option, selected);
+    border-color: map-get($product-option, selected);
+  }
+}
+
+//-- Swatch Picker --//
+.form-field-swatch {
+
+  .swatch-value {
+    font-size: 0.8em;
+  }
+
+  .form-field-control {
+    @extend %clearfix;
+    display: inline-block;
+  }
+
+  .form-input {
+    @extend %checkbox-hide;
+  }
+
+  .form-label-text {
+    @extend %show-for-sr;
+  }
+
+  .swatch-wrap {
+    @extend %option-set-item;
+
+    .form-input:checked + .swatch {
+      border-color: map-get($product-option, selected);
+    }
+
+    &:hover {
+      .swatch-pattern-expanded {
+        z-index: 5000;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  .swatch {
+    @extend %border-radius-treatment;
+    position: relative;
+    display: block;
+    padding: map-get($product-swatch, space);
+    cursor: pointer;
+    border: 1px solid $form-input-border;
+
+    &:hover {
+      border-color: map-get($product-option, hover);
+    }
+  }
+
+  .swatch-color {
+    @extend %border-radius-treatment;
+    position: relative;
+    display: block;
+    width: map-get($product-swatch, size);
+    height: map-get($product-swatch, size);
+    background: {
+      position: 50%;
+      repeat: no-repeat;
+      size: cover;
+    }
+  }
+
+  .tertiary,
+  .secondary {
+    margin-top: map-get($product-option, space);
+  }
+
+  .swatch-pattern-expanded {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: calc(100% + 29px);
+    display: block;
+    width: 108px; // 100px + padding + border
+    height: 108px;
+    padding: 3px;
+    background-color: $body-background-color;
+    border: 1px solid map-get($product-option, selected);
+    border-radius: 3px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, 0);
+    transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    @include breakpoint(m-down) { display: none; }
+  }
+
+  .swatch-pattern-image {
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 3px;
+  }
+}
+
+//-- Product Picklist --//
+.product-picklist-item {
+  position: relative;
+  display: block;
+}
+
+.product-picklist-radio {
+  position: absolute;
+  top: 50%;
+  margin-top: -7px;
+  line-height: 14px;
+}
+
+.product-picklist-item-body {
+  position: relative;
+  display: table;
+  width: 100%;
+  min-height: map-get($product-pick-list, size) * 1.5;
+  padding: map-get($product-pick-list, padding);
+  padding-left: (map-get($product-pick-list, size) * 1.5) + map-get($product-pick-list, padding);
+  cursor: pointer;
+  border: 1px solid transparent;
+
+  &.picklist-none {
+    padding-left: (map-get($product-pick-list, size) * 1.5) + map-get($product-pick-list, padding);
+  }
+
+  &:hover {
+    color: brightness-adjust($body-color);
+  }
+
+  [type="radio"]:checked ~ & {
+    z-index: 2;
+    border-color: map-get($product-option, selected);
+  }
+}
+
+.product-picklist-image-wrap {
+  position: absolute;
+  top: map-get($product-pick-list, padding);
+  bottom: map-get($product-pick-list, padding);
+  left: map-get($product-pick-list, padding);
+  width: map-get($product-pick-list, size);
+  overflow: hidden;
+}
+
+.product-picklist-label-text {
+  display: table-cell;
+  line-height: 1.4;
+  color: inherit;
+  vertical-align: middle;
+}
+.form-file-types,
+.form-file-size {
+  display: inline-block;
+  font-size: 0.7em;
+  color: $form-input-color;
+  padding: $form-element-padding $form-element-padding 0;
+
+  &:nth-of-type(2n) {
+    padding-top: 0;
+  }
+}

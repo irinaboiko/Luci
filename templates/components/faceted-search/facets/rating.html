@@ -1,0 +1,17 @@
+<ul class="faceted-search-filter-list {{#if selected}}is-open{{/if}} {{#unless start_collapsed}}is-open{{/unless}}">
+  {{#each items}}
+    {{#unless selected}}
+      {{#if param_value}}
+        <li class="faceted-search-item">
+          <a href="{{url}}" data-faceted-search-facet rel="nofollow">
+            <span class="icon {{#if selected}}icon-checked{{else}}icon-unchecked{{/if}}"></span>
+
+            {{> components/common/rating rating=param_value}}
+
+            {{#if ../show_product_counts}}<span class="faceted-search-item-count">({{count}})</span>{{/if}}
+          </a>
+        </li>
+      {{/if}}
+    {{/unless}}
+  {{/each}}
+</ul>

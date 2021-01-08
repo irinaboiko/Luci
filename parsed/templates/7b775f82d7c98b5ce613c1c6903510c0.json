@@ -1,0 +1,3 @@
+{
+  "components/page/sidebar-link": "\n<li>\n  <a href=\"{{url}}\" class=\"sidebar-link\">{{name}}</a>\n</li>\n"
+}

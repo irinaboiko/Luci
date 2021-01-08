@@ -1,0 +1,3 @@
+{
+  "components/cart/cart-shipping-quote": "\n<li class=\"form-field form-inline\">\n  <label for=\"shipping-quote-{{id}}\">\n    <input id=\"shipping-quote-{{id}}\" class=\"shipping-quote form-input input-radio\" type=\"radio\" name=\"shipping_method\" value=\"{{id}}\">\n    <span class=\"form-input-mask\"></span>\n    <span class=\"form-label-text\">{{#if logo_path}}<img src=\"{{logo_path}}\" alt=\"{{provider_name}}\" class=\"shipping-method-badge\">{{/if}} {{provider_name}}: {{cost.formatted}}</span>\n  </label>\n</li>\n"
+}

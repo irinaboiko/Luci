@@ -1,0 +1,26 @@
+<form
+  id="form-wishlist"
+  class="form wishlist-list-form"
+  data-wishlist-list-form
+  data-validated-form
+>
+  <div class="form-field form-field-options form-field-radio form-required">
+    <span class="form-field-control">
+      {{#each customer.wishlists}}
+        <label class="form-label">
+          <input class="form-input show-for-sr"
+            id="{{name}}"
+            name="product-wishlist"
+            type="radio"
+            value="{{../product.add_to_wishlist_url}}&wishlistid={{id}}"
+            required
+            aria-required="true"
+          >
+          <span class="form-label-text">
+            {{name}}
+          </span>
+        </label>
+      {{/each}}
+    </span>
+  </div>
+</form>

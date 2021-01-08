@@ -1,0 +1,76 @@
+<div
+  class="quick-cart-item"
+  data-id="{{id}}"
+  data-qty="{{quantity}}"
+  data-item-row
+>
+
+  <div
+    class="
+      quick-cart-image-column
+      {{#if type "===" "GiftCertificate"}}
+        type-gift-certificate
+      {{/if}}
+    "
+  >
+    {{> components/common/responsive-image
+      image=image
+      class="quick-cart-image"
+      fallback_size='70w'
+      lazyload=lazyload
+      default_image=default_image
+    }}
+    {{#if type "!==" "GiftCertificate"}}
+      <span
+        class="quick-cart-quantity-overlay"
+        data-value="{{quantity}}"
+        aria-live="polite"
+        id="quick-cart-qty-{{id}}"
+      >
+        {{quantity}}
+      </span>
+
+      <div class="quick-cart-item-actions">
+
+        <button
+          class="quick-cart-item-action"
+          data-quick-cart-update
+          data-item-id="{{id}}"
+          data-action="increase"
+        >
+          <i class="icon-increase" aria-hidden="true"></i>
+          <span class="sr-only">
+            {{lang 'cart.product.increase'}}
+          </span>
+        </button>
+
+        <button
+          class="quick-cart-item-action"
+          data-quick-cart-update
+          data-item-id="{{id}}"
+          data-action="decrease"
+        >
+          <i class="icon-decrease" aria-hidden="true"></i>
+          <span class="sr-only">
+            {{lang 'cart.product.decrease'}}
+          </span>
+        </button>
+
+      </div>
+    {{/if}}
+
+  </div>
+
+  <div
+    class="
+      quick-cart-content-column
+      {{#if type "===" "GiftCertificate"}}
+        type-giftcertificate
+      {{/if}}
+    "
+  >
+    <h5 class="quick-cart-product-name">{{name}}</h5>
+    {{lang 'cart.quantity_in_cart' quantity=quantity at_price=price.formatted}}
+  </div>
+
+</div>

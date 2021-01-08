@@ -1,0 +1,36 @@
+{{#if type '==' 'top'}}
+  {{{region name="header_bottom--global"}}}
+{{/if}}
+
+{{#if banners}}
+  {{#if settings.data_tag_enabled}}
+    <div
+      class="outer-banner-wrapper {{type}}-banner"
+      data-banner-location="{{type}}"
+    >
+      {{#each (limit metadata 1)}}
+      <div
+        class="banner layout-module rte"
+        data-event-type="promotion"
+        data-entity-id="{{this.id}}"
+        data-name="{{this.banner-name}}"
+        data-position="{{this.location}}"
+        data-name="{{this.banner-name}}"
+      >
+        <div data-event-type="promotion-click">
+          {{{this.content}}}
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  {{else}}
+    <div
+      class="outer-banner-wrapper {{type}}-banner"
+      data-banner-location="bottom"
+    >
+      <div class="layout-module rte">
+        {{{limit banners 1}}}
+      </div>
+    </div>
+  {{/if}}
+{{/if}}

@@ -1,0 +1,8 @@
+
+.account-wishlist {
+  margin-top: $gutter * 2;
+}
+.account-wishlist-items {
+  @extend %clearfix;
+  margin-top: $gutter;
+}

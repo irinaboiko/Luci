@@ -1,0 +1,17 @@
+{{#partial "page"}}
+
+  {{> components/common/page-header list=breadcrumbs page_title=(lang 'core.auth.create.heading')}}
+
+  <article class="authorization-container">
+
+    <section class="layout-module">
+
+      {{> core/auth/create-account}}
+
+    </section>
+
+  </article>
+
+{{/partial}}
+
+{{> layout/base}}

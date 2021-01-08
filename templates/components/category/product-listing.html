@@ -1,0 +1,27 @@
+<div class="layout-grid-sizer"></div>
+<div class="layout-grid-gutter"></div>
+{{#each category.products}}
+  {{> components/products/product-item
+    settings=../settings
+    show_compare=../category.show_compare
+    show_quick_shop=../theme_settings.show_quick_shop
+    lazyload=../theme_settings.lazyload_mode
+    fallback_size=../theme_settings.thumb
+    default_image=../theme_settings.default_image
+    price_range_display=../theme_settings.price_range_display
+    retail_price_label=../theme_settings.retail-price-label
+    non_sale_price_label=../theme_settings.non-sale-price-label
+    sale_price_label=../theme_settings.sale-price-label
+    price_label=../theme_settings.price-label
+    sale_badges=../theme_settings.sale-badges
+  }}
+{{/each}}
+
+{{#for 1 3}}
+  <div class="product-item-empty"></div>
+{{/for}}
+
+{{> components/common/pagination
+  pagination.category
+  is_grid=true
+}}

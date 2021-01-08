@@ -1,0 +1,82 @@
+// Overrides for payment method pages from core files
+.payment-method-form {
+  .payment-card-number,
+  .payment-name-on-card {
+    .form-input {
+      max-width: 100%;
+    }
+  }
+
+  .payment-cvv,
+  .payment-expiration {
+    .form-input {
+      min-width: auto;
+    }
+  }
+
+  .payment-method-form-inputs-icon  {
+    top: 36px !important;
+  }
+
+  .form-field-checkbox {
+    padding-left: 0 !important;
+
+    .form-input,
+    .form-checkbox {
+      position: relative !important;
+      top: 7px;
+      z-index: 1;
+      width: auto;
+      height: auto;
+      overflow: visible;
+      clip: auto;
+
+      [data-address-form] & {
+        top: -1px;
+      }
+    }
+  }
+}
+
+.payment-method {
+  @include breakpoint(m-down) {
+    width: 100%;
+  }
+}
+
+[data-payment-method-form] {
+  .form-actions {
+    padding-top: 20px;
+  }
+}
+
+.billing-addess-form {
+  &.form-row {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .form-field {
+    @include breakpoint(m-down) {
+      width: 100%;
+      float: none;
+    }
+  }
+}
+
+// Overrides for payment method forms in core files
+.payment-method-form .payment-method-form-column {
+  @include breakpoint(m-down) {
+    display: block;
+  }
+}
+
+.payment-method-form .payment-method-form-column .payment-method-form-inputs:last-child {
+  @include breakpoint(m-down) {
+    padding-left: 0;
+  }
+}
+
+.billing-actions {
+  margin-top: 20px;
+}

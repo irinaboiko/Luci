@@ -1,0 +1,30 @@
+{{#partial "page"}}
+
+  {{> components/common/page-header list=breadcrumbs page_title=page.title}}
+
+  <article class="page-container">
+
+    <section class="layout-module">
+
+      <div class="page-content-sidebar">
+        {{> components/page/page-sidebar}}
+      </div>
+
+      <div class="page-content-text rte">
+        {{{page.content}}}
+
+        <div class="contact-page-form">
+          {{#if forms.contact.success}}
+            <p class="contact-page-success-form">{{{lang 'core.contact.successful' home_url=urls.home}}}</p>
+          {{else}}
+            {{> components/page/contact-us-form}}
+          {{/if}}
+        </div>
+      </div>
+    </section>
+
+  </article>
+
+{{/partial}}
+
+{{> layout/base}}

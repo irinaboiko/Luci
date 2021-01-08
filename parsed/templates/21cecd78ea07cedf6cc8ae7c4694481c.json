@@ -1,0 +1,3 @@
+{
+  "components/amp/styles/header": ".navigation-link-primary {\n  font-size: 18px;\n  font-weight: 500;\n  line-height: 26px;\n  text-transform: uppercase;\n}\n"
+}

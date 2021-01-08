@@ -1,0 +1,17 @@
+{{> components/common/modal-close}}
+
+<div class="modal-content">
+  <h1 class="wishlist-modal-title">
+    {{#if customer.wishlists}}
+      {{lang 'product.wishlist.choose_wishlist'}}
+    {{else}}
+      {{lang 'core.account.wishlists.create'}}
+    {{/if}}
+  </h1>
+
+  {{#if customer.wishlists}}
+    {{> components/wishlist/wishlist-list}}
+  {{/if}}
+  {{> components/wishlist/wishlist-create}}
+</div>
+<div class="wishlist-modal-overlay" data-wishlist-modal-overlay></div>

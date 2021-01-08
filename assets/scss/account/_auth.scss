@@ -1,0 +1,54 @@
+//-- Account Created --//
+.account-page-created {
+
+  .account-content {
+
+    em {
+      font-family: $body-font;
+      font-weight: normal;
+      color: $heading-color;
+    }
+  }
+}
+
+//-- Create Account --//
+.account-create-captcha {
+  display: block;
+  margin-right: 0;
+  margin-bottom: $gutter / 2;
+
+  //scss-lint:disable SelectorFormat, IdSelector
+  #recaptcha_widget_div {
+    display: inline-block;
+  }
+}
+
+//-- Log in / Register --//
+.account-create {
+  padding-top: $page-padding-top;
+  padding-left: 0;
+}
+
+.account-login,
+.account-create {
+  display: block;
+  padding-right: 0;
+
+  @include breakpoint(m-only) {
+    @include span-columns(6);
+    @include shift(3);
+  }
+
+  @include breakpoint(l-up) {
+    @include span-columns(6);
+    padding-top: 0;
+  }
+}
+
+.account-login-button {
+  margin-right: 0;
+}
+
+.account-create-form-actions {
+  text-align: left;
+}

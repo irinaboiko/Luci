@@ -1,0 +1,32 @@
+// Compare Buttons
+.compare-item-remove {
+  @extend %button-primary;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 6px;
+  font-size: 12px;
+  line-height: 1;
+  color: $body-color;
+  background: $body-color-light;
+  border: 0;
+  opacity: 0;
+  transition: all 1s $ease-out-quad;
+
+  .compare-grid-item & {
+    right: $gutter;
+    padding-right: 8px;
+    padding-left: 8px;
+    font-size: 16px;
+  }
+
+  .compare-grid-item &,
+  .product-compare-item:hover & {
+    opacity: 1;
+  }
+
+  &:hover {
+    color: $body-color-link;
+    @include hover($body-color-light, background-color);
+  }
+}

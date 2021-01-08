@@ -1,0 +1,96 @@
+// This style sheet only affects the checkout page, and as its not coded by
+// PXU it does not follow our normal markup rules
+@import "../../node_modules/bc-baseline/lib/mixins";
+
+@import "general/user-settings";
+
+// Helpers
+@import "general/functions";
+@import "general/mixins";
+
+// Variables
+@import "variables/settings-derivatives";
+@import "variables/layout";
+
+//scss-lint:disable SelectorFormat, IdSelector
+#Header {
+  padding-right: 25px;
+  padding-left: 25px;
+
+  @if ($enable-main-nav-background-color == "true") {
+    background-color: $main-nav-background-color;
+  }
+
+  .inner {
+    display: table;
+    height: $header-height-mobile;
+    text-align: left;
+
+    @include breakpoint(l-up) {
+      height: $header-height-desktop;
+    }
+  }
+
+  .header-logo {
+    display: table-cell;
+    width: 100%;
+    height: $header-height-mobile;
+    padding: 0;
+    vertical-align: middle;
+    box-sizing: border-box;
+
+    @include breakpoint(l-up) {
+      height: $header-height-desktop;
+    }
+
+    @include media($max: 769px) {
+      margin-bottom: 0;
+    }
+
+    #LogoImage {
+      height: auto;
+      max-width: $header-logo-max-width;
+      max-height: $header-height-mobile;
+      padding-top: $gutter;
+      padding-bottom: $gutter;
+      margin: 0;
+
+      @include breakpoint(l-up) {
+        max-height: $header-height-desktop;
+      }
+    }
+
+    #LogoContainer h1 {
+      font-family: $store-title-font, "Open Sans", Helvetica, Arial, Sans-serif;
+      font-size: 20px;
+      letter-spacing: initial;
+      color: $store-title-color;
+    }
+
+    a,
+    a:hover {
+      color: $main-nav-color;
+    }
+
+    a {
+      display: block;
+      width: auto;
+      text-align: left;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      margin: 0 auto; }
+
+    a,
+    img { box-sizing: border-box; }
+  }
+}
+
+.page {
+  .main {
+    padding-top: $gutter;
+  }
+}

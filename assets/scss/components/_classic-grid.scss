@@ -1,0 +1,18 @@
+.grid-classic {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.collection-wrapper-sorting {
+  padding-left: 20px;
+
+  .form-field-title,
+  .form-select-wrapper {
+    display: inline-block;
+  }
+
+  .form-select-wrapper {
+    padding-left: 10px;
+  }
+}

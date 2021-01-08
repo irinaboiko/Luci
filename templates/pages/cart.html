@@ -1,0 +1,49 @@
+
+{{#partial "page"}}
+
+{{> components/common/page-header
+  list=breadcrumbs
+  page_title=(lang 'cart.shopping_cart')
+}}
+
+<div class="cart-container layout-module">
+
+  {{> components/common/shipping-messages}}
+
+  <div class="cart-sidebar">
+    <h3 class="sidebar-title">{{lang 'cart.totals'}}</h3>
+
+    <div data-cart-totals>
+      {{> components/cart/cart-totals}}
+    </div>
+
+    <a
+      class="button button-primary cart-checkout-button"
+      href="{{urls.checkout.single_address}}">
+        {{lang 'cart.checkout'}}
+    </a>
+
+    {{#if cart.show_multiple_address_shipping}}
+      <a class="checkout-multiple" href="{{urls.checkout.multiple_address}}">
+        {{lang 'cart.checkout_multiple'}}
+      </a>
+    {{/if}}
+
+    {{#if cart.additional_checkout_buttons.length}}
+      <div class="additional-checkout-buttons">
+        {{#each cart.additional_checkout_buttons}}
+          {{{this}}}
+        {{/each}}
+      </div>
+    {{/if}}
+  </div>
+
+  <section class="cart-wrapper" data-cart-content>
+    {{> components/cart/cart-content}}
+  </section>
+
+</div>
+
+{{/partial}}
+
+{{> layout/base}}

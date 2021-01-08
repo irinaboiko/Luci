@@ -1,0 +1,89 @@
+
+.item-gift-wrap {
+  margin-top: $gutter;
+}
+
+.item-gift-wrap-toggle {
+  font-size: 14px;
+}
+
+.item-gift-wrap-change {
+  display: block;
+  margin-top: $gutter/2;
+  margin-bottom: $gutter;
+}
+
+.item-gift-wrap-info {
+  font-size: 16px;
+
+  + .gift-wrap-form-wrapper {
+    margin-top: $gutter/2;
+  }
+}
+
+.gift-wrap-instructions {
+  margin-top: 0;
+}
+
+.item-gift-wrap-add,
+.gift-wrap-single,
+.gift-wrap-multiple,
+.gift-wrap-message,
+.gift-wrap-image-toggle {
+  display: none;
+
+  &.visible {
+    display: block;
+  }
+}
+
+.gift-wrap-image-toggle {
+  margin-top: 10px;
+  font-size: 14px;
+  color: $accent-color;
+  text-decoration: underline;
+
+  &:hover {
+    @include hover($accent-color);
+  }
+}
+
+.gift-wrap-image-wrapper {
+  display: none;
+}
+
+.gift-wrap-image {
+  display: block;
+  margin: 0 auto;
+}
+
+.gift-wrap-multiple {
+  @include grid-row();
+}
+
+.gift-wrap-item {
+
+  .rows-of-3 & {
+    @include breakpoint(s-only) {
+      @include grid-columns(1 of 1);
+    }
+
+    @include breakpoint(m-only) {
+      @include grid-columns(1 of 2);
+    }
+
+    @include breakpoint(l-up) {
+      @include grid-columns(1 of 3);
+    }
+  }
+
+  .rows-of-2 & {
+    @include breakpoint(s-only) {
+      @include grid-columns(1 of 1);
+    }
+
+    @include breakpoint(m-up) {
+      @include grid-columns(1 of 2);
+    }
+  }
+}

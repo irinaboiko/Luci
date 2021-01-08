@@ -1,0 +1,25 @@
+//-- Account Variables #mixed --//
+$account-link-color: $heading-color;
+$account-light-color: $container-background-color;
+$account-accent-color: $accent-color;
+$account-border-color: $border-color;
+$account-gutter: $gutter;
+$account-font-size: $body-font-size;
+$account-border-radius: 5px;
+$account-text-color: $body-color;
+$account-text-color-light: mix($body-color, $accent-color, 90%);
+
+$account-card-background-color: $container-background-color;
+
+$account-alert-text-color: $body-color;
+$account-alert-info-color: $neutral-color;
+$account-alert-error-color: $error-color;
+$account-alert-success-color: $success-color;
+
+$giftcard-nav-use-default-styles: false;
+
+$account-nav-link: $body-color;
+$account-nav-link-active: $heading-color;
+$account-form-spacing: $account-gutter / 2;
+
+$account-settings-background: contrast($container-background-color, 90%);

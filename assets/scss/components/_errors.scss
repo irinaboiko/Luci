@@ -1,0 +1,10 @@
+.error-message-modal {
+  display: none;
+}
+
+.error-message {
+  padding-right: $gutter;
+  padding-left: $gutter;
+  font-size: $body-font-size;
+  text-align: center;
+}

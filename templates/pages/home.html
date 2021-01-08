@@ -1,0 +1,111 @@
+---
+carousel: true
+products:
+  featured:
+    limit: {{theme_settings.homepage-show-featured-products}}
+  new:
+    limit: {{theme_settings.homepage-show-new-products}}
+  top_sellers:
+    limit: {{theme_settings.homepage-show-popular-products}}
+---
+
+{{#partial "page"}}
+  {{#if carousel.slides.length}}
+    {{> components/carousel
+      settings=../settings
+      list="Featured Products"
+    }}
+
+    {{{region name="home_below_carousel"}}}
+  {{/if}}
+
+  {{{region name="header_bottom"}}}
+
+  {{{snippet 'home_content'}}}
+
+  {{> components/common/banners
+    banners=banners.top
+    metadata=banners.top_metadata
+    type='top'
+  }}
+
+  {{> components/common/shipping-messages}}
+
+  {{#if theme_settings.homepage-show-featured-products}}
+    {{#if products.featured.length}}
+      {{> components/products/homepage-grid
+        settings=../settings
+        title=(lang 'product_featured.heading')
+        grid=products.featured
+        show_quick_shop=theme_settings.show_quick_shop
+        show_large_first=theme_settings.homepage-show-show-large-first
+        column_count=theme_settings.home-product-grid-count
+        lazyload=theme_settings.lazyload_mode
+        fallback_size=theme_settings.thumb
+        default_image=theme_settings.default_image
+        price_range_display=theme_settings.price_range_display
+        retail_price_label=theme_settings.retail-price-label
+        non_sale_price_label=theme_settings.non-sale-price-label
+        sale_price_label=theme_settings.sale-price-label
+        price_label=theme_settings.price-label
+        sale_badges=theme_settings.sale-badges
+        list="Featured Products"
+      }}
+
+      {{{region name="home_below_featured_products"}}}
+    {{/if}}
+  {{/if}}
+
+  {{#if theme_settings.homepage-show-new-products}}
+    {{#if products.new.length}}
+      {{> components/products/homepage-grid
+        settings=../settings
+        title=(lang 'product_new.heading')
+        grid=products.new
+        show_quick_shop=theme_settings.show_quick_shop
+        show_large_first=theme_settings.homepage-show-show-large-first
+        column_count=theme_settings.home-product-grid-count
+        lazyload=theme_settings.lazyload_mode
+        fallback_size=theme_settings.thumb
+        default_image=theme_settings.default_image
+        price_range_display=theme_settings.price_range_display
+        retail_price_label=theme_settings.retail-price-label
+        non_sale_price_label=theme_settings.non-sale-price-label
+        sale_price_label=theme_settings.sale-price-label
+        price_label=theme_settings.price-label
+        sale_badges=theme_settings.sale-badges
+        list="New Products"
+      }}
+
+      {{{region name="home_below_new_products"}}}
+    {{/if}}
+  {{/if}}
+
+  {{#if theme_settings.homepage-show-popular-products}}
+    {{#if products.top_sellers.length}}
+      {{> components/products/homepage-grid
+        settings=../settings
+        title=(lang 'product_top.heading')
+        grid=products.top_sellers
+        show_quick_shop=theme_settings.show_quick_shop
+        show_large_first=theme_settings.homepage-show-show-large-first
+        column_count=theme_settings.home-product-grid-count
+        lazyload=theme_settings.lazyload_mode
+        fallback_size=theme_settings.thumb
+        default_image=theme_settings.default_image
+        price_range_display=theme_settings.price_range_display
+        retail_price_label=theme_settings.retail-price-label
+        non_sale_price_label=theme_settings.non-sale-price-label
+        sale_price_label=theme_settings.sale-price-label
+        price_label=theme_settings.price-label
+        sale_badges=theme_settings.sale-badges
+        list="Popular Products"
+      }}
+
+      {{{region name="home_below_top_products"}}}
+    {{/if}}
+  {{/if}}
+
+{{/partial}}
+
+{{> layout/base}}

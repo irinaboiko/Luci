@@ -1,0 +1,4 @@
+{
+  "components/common/breadcrumbs": "<ol class=\"page-title-breadcrumbs\">\n\n  {{#if this.hide_last}}\n    {{#each this.list}}\n      {{#unless @last}}\n        {{> components/common/breadcrumbs-partial this}}\n      {{/unless}}\n    {{/each}}\n  {{else}}\n    {{#each this.list}}\n      {{> components/common/breadcrumbs-partial this}}\n    {{/each}}\n  {{/if}}\n\n</ol>\n",
+  "components/common/breadcrumbs-partial": "<li class=\"breadcrumb-item{{#if @last}} is-active{{/if}}\">\n  {{#unless @first}}&rsaquo; {{/unless}}\n  {{#if url}}\n  <a class=\"breadcrumb-label\" href=\"{{url}}\"><span>{{name}}</span></a>\n  {{else}}\n  <span class=\"breadcrumb-label\">{{name}}</span>\n  {{/if}}\n\n</li>\n"
+}

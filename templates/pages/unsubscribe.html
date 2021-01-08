@@ -1,0 +1,22 @@
+{{#partial "page"}}
+
+  {{> components/common/page-header list=breadcrumbs page_title=(lang 'newsletter.unsubscribed_heading')}}
+
+  <article class="page-container">
+    <section class="layout-module">
+      <div class="page-content-sidebar">
+        {{> components/page/page-sidebar}}
+      </div>
+
+      <div class="page-content-text rte">
+        <h2 class="sub-header">
+          {{lang 'newsletter.unsubscribed_subheading'}}
+        </h2>
+
+        {{> core/alerts/alert-success message=(lang 'newsletter.unsubscribed_message' store_name=settings.store_name)}}
+      </div>
+    </section>
+  </article>
+
+{{/partial}}
+{{> layout/base}}

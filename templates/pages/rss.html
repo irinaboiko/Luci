@@ -1,0 +1,32 @@
+---
+brands: true
+cart: true
+---
+
+{{#partial "page"}}
+
+{{> components/common/page-header list=breadcrumbs page_title=page.title}}
+
+<article class="page-container">
+
+  <section class="layout-module">
+
+    <div class="page-content-sidebar">
+      {{> components/page/page-sidebar}}
+    </div>
+
+    <div class="page-content-text rte">
+      {{#replace '%%Syndicate%%' page.content}}
+        {{> components/page/rss}}
+      {{else}}
+        {{{page.content}}}
+      {{/replace}}
+    </div>
+
+  </section>
+
+</article>
+
+{{/partial}}
+
+{{> layout/base}}

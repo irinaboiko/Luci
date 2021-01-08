@@ -1,0 +1,38 @@
+.shipping-quotes,
+.shipping-calculator-form {
+  @include breakpoint(m-only) {
+    @include grid-columns(1 of 2, collapse);
+  }
+}
+
+.shipping-quotes {
+
+  @include breakpoint(m-only) {
+    padding-left: $gutter/2;
+  }
+
+  @include breakpoint(l-up) {
+    margin-top: $gutter*2.5;
+  }
+
+  .form-inline {
+    margin-bottom: $form-gutter/2;
+  }
+}
+
+.shipping-calculator-form {
+  @include breakpoint(m-only) {
+    padding-right: $gutter/2;
+  }
+
+  .form-input {
+    min-width: inherit;
+  }
+}
+
+.shipping-method-badge {
+  display: inline-block;
+  max-height: 100%;
+  line-height: 1;
+  vertical-align: middle;
+}

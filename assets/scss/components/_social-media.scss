@@ -1,0 +1,26 @@
+
+.sharing-button:not(.facebook-share-button) {
+  color: $body-color;
+  background-color: $container-background-color;
+  transition: all 0.2s $ease-out-quad;
+
+  &:hover {
+    @include hover($container-background-color, background-color);
+    color: $body-color-link;
+  }
+}
+
+.facebook-share-button {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  vertical-align: middle;
+  background: transparent;
+}
+
+.facebook-share-button-standalone {
+  position: absolute;
+  top: 100%;
+}
+
+.fb-like iframe { max-width: none; }

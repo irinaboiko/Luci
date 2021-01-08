@@ -1,0 +1,92 @@
+// Buttons
+
+// DEFAULT button is white with colour border
+// SECONDARY button is colour with white text
+
+.button {
+  @extend %button-base;
+}
+
+.button-disabled,
+.button:disabled {
+
+  &,
+  &:hover {
+    color: $button-disabled-color;
+    cursor: default;
+    background: $button-disabled-background-color;
+    border-color: $button-disabled-background-color;
+  }
+}
+
+.button-small {
+  font-family: $body-font;
+  font-size: 12px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.button-wide-medium {
+  display: inline-block;
+  width: 100%;
+  max-width: 240px;
+}
+
+.button-wide {
+  display: block;
+  width: 100%;
+}
+
+.button-primary {
+  @extend %button-primary;
+}
+
+.button-secondary {
+  @extend %button-secondary;
+}
+
+.button-invisible-thin,
+.button-invisible {
+  color: $button-tertiary-text-color;
+  background-color: $button-tertiary-background-color;
+  border-width: 0;
+
+  &:hover {
+    @include hover($button-tertiary-background-color, background-color)
+  }
+}
+
+.button-invisible-thin {
+  font-weight: normal;
+}
+
+// add to cart ajax progress
+.button-progress {
+  //transition: opacity 0.2s;
+
+  span:before {
+    display: inline-block;
+    width: 0;
+    height: 1em;
+    vertical-align: bottom;
+    background: url("../img/spinner.svg");
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 1em 1em; // 22/14
+    content: "";
+    opacity: 0;
+    transition: all 0.4s ease;
+  }
+
+  &.progress {
+    @include opacity(0.5);
+    cursor: default;
+    background: desaturate($button-primary-background-color, 100%);
+    border-color: desaturate($button-primary-background-color, 100%);
+
+    span:before {
+      width: 2.14em; // 30/14
+      opacity: 1;
+    }
+  }
+}

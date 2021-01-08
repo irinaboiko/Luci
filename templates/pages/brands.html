@@ -1,0 +1,47 @@
+---
+brands:
+  limit: {{theme_settings.brand-count}}
+---
+
+{{#partial "page"}}
+
+{{> components/common/page-header list=breadcrumbs page_title=page.title}}
+
+{{{region name="brands_below_header"}}}
+
+<article class="collection-container layout-module">
+
+  <section class="layout-module">
+
+    <div class="collection-wrapper layout-grid-of-4">
+      <div class="grid-masonry">
+
+        <div class="layout-grid-sizer"></div>
+        <div class="layout-grid-gutter"></div>
+
+        {{#each brands}}
+          <a class="layout-grid-item" href="{{url}}">
+            <div class="brands-grid-item">
+              <img src="{{getImage image '600x600' (cdn ../theme_settings.default_image)}}" alt="{{image.alt}}">
+              <h4 class="brands-item-title">
+                {{name}}
+              </h4>
+            </div>
+          </a>
+        {{/each}}
+
+        {{#if pagination.brands}}
+          {{> components/common/pagination pagination.brands is_grid=true}}
+        {{/if}}
+      </div>
+    </div>
+
+  </section>
+
+  {{{region name="brands_below_content"}}}
+
+</article>
+
+{{/partial}}
+
+{{> layout/base}}

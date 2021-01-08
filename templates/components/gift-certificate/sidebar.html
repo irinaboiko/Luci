@@ -1,0 +1,36 @@
+
+<nav class="gift-certificate-nav">
+  <ul class="gift-certificate-nav-list">
+
+    {{#if page_type "===" "purchase"}}
+      <li class="gift-certificate-nav-item active">{{lang 'gift_certificate.purchase.heading'}}</li>
+    {{else}}
+      <li class="gift-certificate-nav-item">
+        <a href="{{urls.gift_certificate.purchase}}">
+          {{lang 'gift_certificate.purchase.heading'}}
+        </a>
+      </li>
+    {{/if}}
+
+    {{#if page_type "===" "redeem"}}
+      <li class="gift-certificate-nav-item active">{{lang 'gift_certificate.redeem.heading'}}</li>
+    {{else}}
+      <li class="gift-certificate-nav-item">
+        <a href="{{urls.gift_certificate.redeem}}">
+          {{lang 'gift_certificate.redeem.heading'}}
+        </a>
+      </li>
+    {{/if}}
+
+    {{#if page_type "===" "balance"}}
+      <li class="gift-certificate-nav-item active">{{lang 'gift_certificate.balance.heading'}}</li>
+    {{else}}
+      <li class="gift-certificate-nav-item">
+        <a href="{{urls.gift_certificate.balance}}">
+          {{lang 'gift_certificate.balance.heading'}}
+        </a>
+      </li>
+    {{/if}}
+
+  </ul>
+</nav>

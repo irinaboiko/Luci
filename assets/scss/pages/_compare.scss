@@ -1,0 +1,139 @@
+.compare-container {
+  padding-top: $page-padding-top;
+  padding-bottom: $page-padding-bottom;
+  color: $body-color-dark;
+}
+
+.compare-grid-row {
+  @include grid-row(nest);
+}
+
+.compare-grid-item {
+  @include grid-columns(1 of 1, collapse);
+  position: relative;
+  padding-right: $gutter;
+  padding-left: $gutter;
+  transition: all 0.2s $ease-out-quad;
+
+  @include breakpoint(m-up) {
+    @include grid-columns(1 of 3, collapse);
+  }
+
+  .compare-layout-4 & {
+    @include grid-columns(1 of 4, collapse);
+  }
+
+  .compare-row-product-collapse & {
+    @include breakpoint(m-down) {
+      @include grid-columns(1 of 2, collapse);
+    }
+  }
+
+  .compare-row-information-collapse & {
+    padding-top: $gutter;
+    padding-bottom: $gutter;
+
+    @include breakpoint(m-down) {
+      @include grid-columns(1 of 1, collapse);
+      float: right;
+      padding-top: $gutter/2;
+      padding-bottom: $gutter/2;
+      clear: both;
+    }
+
+    &:before {
+      display: block;
+      line-height: 120%;
+      color: $body-color;
+      text-decoration: underline;
+      content: attr(data-product-name);
+
+      @include breakpoint(l-up) {
+        display: none;
+      }
+    }
+  }
+
+  &.compare-grid-empty {
+
+    @include breakpoint(m-down) {
+      display: none;
+    }
+
+    &:before {
+      display: none;
+    }
+  }
+}
+
+// Single Item
+.compare-item-thumbnail {
+  display: block;
+  width: 100%;
+
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+.compare-item-brand {
+  display: block;
+  margin-top: $gutter/2;
+}
+
+.compare-item-title {
+  margin: $gutter/2 0;
+}
+
+.compare-item-price {
+  margin: 0;
+
+  .price-on-sale {
+    text-decoration: line-through;
+  }
+
+  .price-original {
+    font-weight: bold;
+  }
+}
+
+.compare-item-cart-actions {
+  margin-top: $gutter;
+  margin-bottom: $gutter;
+}
+
+// Compare Content
+
+.compare-title-row {
+  padding-top: $gutter/2;
+  padding-bottom: $gutter/2;
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+}
+
+.compare-item-section-title {
+  color: $section-title-color;
+}
+
+.compare-item-details {
+  @extend %clearfix;
+}
+
+.compare-item-details-value,
+.compare-item-details-name {
+  float: left;
+}
+
+.compare-item-details-name {
+  margin-right: $gutter/2;
+  clear: left;
+  color: $meta-color;
+}
+
+.compare-item-details-value {
+  margin-left: 0;
+}
+
+
+

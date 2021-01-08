@@ -1,0 +1,25 @@
+{{#each product.images}}
+  {{#if ../isolate-image}}
+    <div class="single-product-slideshow-image">
+  {{/if}}
+  <a
+    {{#unless ../isolate-image}}
+      class="single-product-slideshow-image"
+    {{/unless}}
+    href="{{getImage this 'zoom'}}"
+    data-slide-position="{{@index}}"
+    data-image-distance
+    data-product-image
+  >
+    {{> components/common/responsive-image
+      image=this
+      class="product-image"
+      fallback_size='600w'
+      lazyload=../lazyload
+      default_image=../default_image
+    }}
+  </a>
+  {{#if ../isolate-image}}
+    </div>
+  {{/if}}
+{{/each}}

@@ -1,0 +1,27 @@
+
+<div class="faceted-search-filter filter-type-{{type}}">
+
+  <h3 class="sidebar-title">
+    {{title}}
+
+    {{#if remove_url}}
+      <a
+        class="faceted-search-remove"
+        href="{{remove_url}}"
+        data-faceted-search-facet
+        rel="nofollow">
+        {{lang 'sidebar_filters.clear_filters'}}
+      </a>
+    {{/if}}
+
+    {{#unless selected}}
+      {{#if start_collapsed}}
+        <span class="faceted-search-toggle">&#43;</span>
+      {{else}}
+        <span class="faceted-search-toggle is-open" data-default-visible>&ndash;</span>
+      {{/if}}
+    {{/unless}}
+  </h3>
+
+  {{{dynamicComponent 'components/faceted-search/facets'}}}
+</div>

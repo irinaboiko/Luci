@@ -1,0 +1,81 @@
+.compare-bar {
+  position: fixed;
+  bottom: -100%;
+  z-index: map-get($zindex, compare);
+  width: 100%;
+  height: auto;
+  padding: $gutter * 2 $gutter;
+  background-color: $container-background-color;
+  border-top: 1px solid $border-color;
+  transition: all 1s $ease-out-quad;
+
+  @include breakpoint(s-only) {
+    padding: $gutter $gutter / 2;
+  }
+
+  &.visible {
+    bottom: 0;
+    transition: all 0.25s $ease-out-quad;;
+  }
+}
+
+.compare-bar-internal {
+  float: left;
+
+  @include breakpoint(s-only) {
+    @include grid-row();
+  }
+}
+
+.compare-bar-actions {
+  float: left;
+  height: 75px;
+
+  .compare-bar-clear {
+    margin-left: $gutter / 4;
+  }
+
+  @include breakpoint(s-only) {
+    width: 100%;
+    margin-top: $gutter;
+    text-align: center;
+  }
+
+  @include breakpoint(m-up) {
+    transform: translateY(50%);
+  }
+}
+
+.compare-bar-clear,
+.compare-bar-submit {
+
+  @include breakpoint(m-up) {
+    transform: translateY(-50%);
+  }
+}
+
+.product-compare-item {
+  position: relative;
+  float: left;
+  width: 75px;
+  padding: 0;
+  margin: 0 $gutter 0 0;
+  border: 0;
+
+  @include breakpoint(s-only) {
+    @include grid-columns(1 of 3);
+    margin-right: 0;
+  }
+}
+
+.product-compare-item-thumbnail {
+  @include maintain-ratio();
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.product-compare-item-image {
+  @include maintain-ratio();
+  background: 50% 50% no-repeat;
+  background-size: cover;
+}

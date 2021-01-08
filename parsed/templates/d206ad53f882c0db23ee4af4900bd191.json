@@ -1,0 +1,4 @@
+{
+  "components/products/ratings": "{{!\n  @param show_reviews - whether or not to render review count\n  @param total_reviews - amount of total reviews\n  @param rating - rating count\n}}\n\n<span class=\"rating-stars-readonly\" aria-hidden=\"true\">\n  {{> components/common/rating rating=rating}}\n</span>\n\n{{#if show_reviews}}\n  {{#if total_reviews}}\n    <span>\n      <span class=\"sr-only ratings-total-score\">\n        <span>{{rating}}</span>/<span>5</span>\n      </span>\n      <span class=\"rating-total-votes\">\n        (<span>{{total_reviews}}</span>\n        {{lang 'product.reviews.number_reviews' total=total_reviews}})\n      </span>\n    </span>\n  {{/if}}\n{{/if}}\n",
+  "components/common/rating": "\n{{#for 1 5}}\n    <i class=\"rating-star {{#if ../rating '>=' $index}}icon-star{{else}}icon-star-empty{{/if}}\"></i>\n{{/for}}\n"
+}

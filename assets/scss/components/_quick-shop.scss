@@ -1,0 +1,79 @@
+.quick-shop-wrapper {
+  @include page-overlay(map-get($zindex, overlay));
+
+  .page-spinner {
+    opacity: 0;
+    transition: opacity 1s $ease-out-quad;
+
+    &.visible {
+      opacity: 1;
+    }
+  }
+}
+
+.quick-shop-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: map-get($zindex, quick-shop);
+  width: 100%;
+  max-width: $max-width;
+  max-height: 90%;
+  padding: $gutter*2;
+  overflow-y: scroll;
+  background-color: $container-background-color;
+  opacity: 0;
+  transition: opacity 1s $ease-out-quad;
+
+  &.visible {
+    opacity: 1;
+  }
+}
+
+.quick-shop-details,
+.quick-shop-images {
+  @include fill-parent();
+  position: relative;
+
+  @include breakpoint(m-up) {
+    @include grid-columns(1 of 2, collapse);
+  }
+}
+
+.quick-shop-details {
+  @include breakpoint(m-up) {
+    right: 50%;
+    padding-right: $gutter;
+  }
+}
+
+.quick-shop-images {
+  @include breakpoint(m-up) {
+    left: 50%;
+    padding-left: $gutter;
+  }
+}
+
+.quick-shop-close {
+  position: absolute;
+  right: 0;
+  padding: $gutter/2;
+  line-height: 1;
+  color: $body-color-light;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 1s $ease-out-quad;
+
+  &:hover {
+    @include hover($body-color-light);
+  }
+
+  .visible & {
+    opacity: 1;
+  }
+}
+
+.quick-shop-title {
+  margin-top: 0;
+  margin-bottom: 14px;
+}

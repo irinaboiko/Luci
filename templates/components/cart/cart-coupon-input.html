@@ -1,0 +1,25 @@
+{{inject 'addCode' (lang 'cart.coupon_codes.add_code')}}
+{{inject 'hideCoupons' (lang 'cart.coupon_codes.hide_coupons')}}
+
+<div class="cart-total coupon-code-wrapper">
+  <span class="cart-total-label">{{lang 'cart.coupon_codes.enter_code'}}</span>
+
+  {{#if cart.discount ">" 0}}
+    <button class="cart-total-value coupon-code-toggle" data-discount-default="{{cart.discount.formatted}}">{{cart.discount.formatted}}</button>
+  {{else}}
+    <button class="cart-total-value coupon-code-toggle">{{lang 'cart.coupon_codes.add_code'}}</button>
+  {{/if}}
+
+  <form class="coupon-code-form hidden" method="post" action="{{urls.cart}}">
+    <div class="form-field coupon-entry-field">
+      <label class="form-label" for="couponcode">
+        <span class="form-label-text form-hidden">{{lang 'cart.coupon_codes.coupon_code'}}</span>
+        <input class="form-input" data-error="{{lang 'cart.coupon_codes.empty_error'}}" id="couponcode" type="text" name="couponcode" value="" placeholder="{{lang 'cart.coupon_codes.coupon_code'}}">
+      </label>
+    </div>
+    <div class="form-field coupon-entry-submit">
+      <input class="button button-primary button-small" type="submit" value="{{lang 'cart.coupon_codes.submit'}}">
+      <input type="hidden" name="action" value="applycoupon">
+    </div>
+  </form>
+</div>

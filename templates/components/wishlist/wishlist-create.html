@@ -1,0 +1,44 @@
+<form
+  class="form wishlist-form"
+  action="{{urls.account.wishlists.add}}&product_id={{product.id}}"
+  method="post"
+  data-validated-form
+  data-wishlist-form
+>
+  <input type="hidden" name="submit">
+
+  <div class="wishlist-form-options">
+    {{> core/forms/common/text
+      required=true
+      name="wishlistname"
+      id="wishlistname"
+      value=forms.wishlist.name
+      prefill="New Wishlist"
+    }}
+
+    <div class="form-field form-field-checkbox">
+      <div class="form-field-control">
+        <label class="form-label">
+          <input
+            class="form-checkbox"
+            name="publicwishlist"
+            type="checkbox"
+            {{#if forms.wishlist.is_public}}checked{{/if}}
+            aria-required="false"
+          >
+          <span class="form-label-text">
+            {{lang 'core.account.wishlists.make_public'}}
+          </span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <input
+      type="submit"
+      class="button button-primary button-wishlist"
+      value="{{lang 'product.wishlist.add'}}"
+    >
+  </div>
+</form>

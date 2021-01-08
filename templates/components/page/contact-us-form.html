@@ -1,0 +1,40 @@
+{{! TODO: Check to see if forms can be sticky --}}
+{{! TODO: Check to see if error messages show --}}
+
+<form data-validates action="{{urls.contact_us_submit}}" method="post">
+  {{#if forms.contact.error}}
+    {{> core/alerts/alert-error message=forms.contact.error dismissable=true}}
+  {{/if}}
+
+  <input type="hidden" name="page_id" id="page_id" value="{{forms.contact.page_id}}">
+
+  {{#if forms.contact.name}}
+    {{> core/forms/common/text label=(lang 'contact.full_name') name="contact_fullname" id="contact_fullname" required="true" prefill=(lang 'contact.full_name_placeholder') value=customer.name}}
+  {{/if}}
+
+  {{> core/forms/common/email label=(lang 'contact.email') name="contact_email" id="contact_email" required="true" prefill=(lang 'contact.email_placeholder') value=customer.email}}
+
+  {{#if forms.contact.company}}
+    {{> core/forms/common/text label=(lang 'contact.company') name="contact_companyname" id="contact_companyname" prefill=(lang 'contact.company_placeholder')}}
+  {{/if}}
+
+  {{#if forms.contact.phone}}
+    {{> core/forms/common/text label=(lang 'contact.phone') name="contact_phone" id="contact_phone" prefill=(lang 'contact.phone_placeholder') value=customer.phone}}
+  {{/if}}
+
+  {{#if forms.contact.order}}
+    {{> core/forms/common/text label=(lang 'contact.order') name="contact_orderno" id="contact_orderno" prefill=(lang 'contact.order_placeholder')}}
+  {{/if}}
+
+  {{#if forms.contact.rma}}
+    {{> core/forms/common/text label=(lang 'contact.rma') name="contact_rma" id="contact_rma" prefill=(lang 'contact.rma_placeholder')}}
+  {{/if}}
+
+  {{{forms.contact.recaptcha.markup}}}
+
+  {{> core/forms/common/multiline label=(lang 'contact.question') name="contact_question" id="contact_question" required=true prefill=(lang 'contact.question_placeholder') rows=4}}
+
+  <div class="form-field full-width-field">
+    <input class="button button-primary" type="submit" value="{{lang 'contact.submit'}}">
+  </div>
+</form>

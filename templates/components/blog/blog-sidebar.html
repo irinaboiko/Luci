@@ -1,0 +1,12 @@
+{{!-- TODO: Replace with RTE content
+  <h3 class="sidebar-title">{{lang 'blog.label'}}</h3>
+  <div class="blog-sidebar-text"></div>
+--}}
+
+{{!-- TODO: Replace with Tag cloud when it becomes visible --}}
+<h3 class="sidebar-title">{{lang 'blog.sidebar_title'}}</h3>
+<ul class="sidebar-listing">
+  {{#each pages}}
+    {{>components/page/sidebar-link}}
+  {{/each}}
+</ul>

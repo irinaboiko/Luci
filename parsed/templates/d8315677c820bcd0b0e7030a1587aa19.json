@@ -1,0 +1,4 @@
+{
+  "components/category/show-more": "{{#if category.facets}}\n  {{> components/faceted-search/show-more-facets category}}\n{{/if}}",
+  "components/faceted-search/show-more-facets": "<ul class=\"faceted-search-filter-list\" data-additional-facets-list>\n  {{#each facets}}\n    {{#if facet '===' ../all_facets}}\n      {{#each items}}\n        <li class=\"faceted-search-item\">\n          <a href=\"{{url}}\"\n          rel=\"nofollow\"\n          data-id=\"{{ id }}\"\n          data-faceted-search-facet>\n            <span class=\"icon {{#if selected}}icon-checked{{else}}icon-unchecked{{/if}}\"></span>\n            {{{title}}}\n            {{#if ../show_product_counts}}\n              <span class=\"faceted-search-item-count\">\n                ({{count}})\n              </span>\n            {{/if}}\n          </a>\n      </li>\n      {{/each}}\n    {{/if}}\n  {{/each}}\n</ul>\n"
+}

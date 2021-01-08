@@ -1,0 +1,34 @@
+<form class="faceted-search-filter-list {{#if selected}}is-open{{/if}} {{#unless start_collapsed}}is-open{{/unless}}" method="get" data-faceted-search-range>
+  {{#each current_selected_items}}
+    <input type="hidden" name="{{param_name}}" value="{{param_value}}"/>
+  {{/each}}
+
+  <div class="form-field faceted-search-range-min">
+    <input
+      class="form-input"
+      name="min_price"
+      min="0"
+      type="number"
+      value="{{min_price}}"
+      placeholder="{{lang 'sidebar_filters.min_price'}}"
+      required
+    />
+  </div>
+
+  <div class="form-field faceted-search-range-max">
+    <input
+      class="form-input"
+      name="max_price"
+      min="0"
+      type="number"
+      value="{{max_price}}"
+      placeholder="{{lang 'sidebar_filters.max_price'}}"
+      required
+    />
+  </div>
+
+  <div class="form-field form-button">
+    <input class="button button-small button-primary" type="submit" value="{{lang 'sidebar_filters.update'}}">
+  </div>
+
+</form>

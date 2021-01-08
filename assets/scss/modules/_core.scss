@@ -1,0 +1,73 @@
+
+%account-nav {
+  padding: 0;
+  list-style: none;
+  border-width: 0;
+
+  li {
+    color: $account-nav-link;
+    border: {
+      color: $account-border-color;
+      style: solid;
+      width: 0 1px 1px 1px;
+    }
+
+    &:first-child {
+      border-top: 1px solid $account-border-color;
+      border-radius: $account-border-radius $account-border-radius 0 0;
+    }
+
+    &:last-child {
+      border-radius: 0 0 $account-border-radius $account-border-radius;
+    }
+
+    &.is-active {
+      color: $account-nav-link-active;
+      border-left: 3px solid $account-accent-color;
+
+      @include breakpoint(m-down) {
+        border-right: 2px solid $account-accent-color;
+        border-left-width: 2px;
+      }
+    }
+  }
+
+  a {
+    display: block;
+    padding: 15px;
+    color: inherit;
+  }
+}
+
+%account-layout-nav {
+  @include fill-parent();
+
+  @include breakpoint(m-only) {
+    @include span-columns(8);
+    @include shift(2);
+  }
+
+  @include breakpoint(l-up) {
+    @include grid-columns(3 of 12, collapse);
+  }
+}
+
+%account-layout-body {
+  @include fill-parent();
+  padding-top: $page-padding-top / 2;
+
+  @include breakpoint(m-only) {
+    @include span-columns(8);
+    @include shift(2);
+  }
+
+  @include breakpoint(l-up) {
+    @include grid-columns(9 of 12, collapse);
+    padding-top: 0;
+    padding-left: $gutter * 2;
+
+    .account-nav-hidden & {
+      padding-left: 0;
+    }
+  }
+}

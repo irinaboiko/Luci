@@ -1,0 +1,45 @@
+.blog-banner-item {
+  width: 100%;
+  min-height: 360px;
+  background: no-repeat 50% 50% transparent;
+  background-size: cover;
+
+  @include breakpoint(print) {
+    display: none;
+  }
+}
+
+.blog-container {
+  padding-top: $page-padding-top;
+  padding-bottom: $page-padding-bottom;
+}
+
+.blog-post-sidebar {
+  @include fill-parent();
+  @include breakpoint(l-up) {
+    @include grid-columns(3 of 12, collapse);
+    position: relative;
+    right: auto;
+    left: 75%;
+  }
+
+  @include breakpoint(print) {
+    display: none;
+  }
+}
+
+.blog-post-text {
+  @include fill-parent();
+  @include breakpoint(l-up) {
+    @include grid-columns(9 of 12, collapse);
+    position: relative;
+    right: 25%;
+    left: auto;
+    padding-right: $gutter*2;
+  }
+}
+
+.blog-sidebar-text {
+  font-size: 14px;
+  line-height: 1.3;
+}

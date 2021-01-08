@@ -1,0 +1,254 @@
+.main-header {
+  @if ($enable-main-nav-background-color == "true") {
+    @if ($always-show-main-nav-background-color == "true") {
+      .no-carousel & {
+        background-color: $main-nav-background-color-opaque;
+      }
+    }
+  }
+
+  .sticky-header & {
+    top: 0;
+    width: 100%;
+  }
+
+  .alternate-header & {
+
+    @if ($enable-main-nav-background-color == "true") {
+      background-color: $main-nav-background-color-opaque;
+    }
+
+    @include breakpoint (l-up) {
+      top: -200px;
+    }
+  }
+
+  .alternate-header.header-positioned & {
+    position: fixed;
+  }
+
+  .alternate-header.sticky-header & {
+    top: 0;
+  }
+
+  .main-nav-open & {
+    background-color: transparent;
+  }
+
+  @include breakpoint(print) {
+    position: relative !important;
+  }
+}
+
+.header-widget {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: lightblue;
+  height: 100px;
+}
+
+.header-container {
+  @extend %clearfix;
+  display: table;
+  padding-right: 0;
+  padding-left: 0;
+  table-layout: fixed;
+
+  .main-nav-open & {
+    max-width: 100%;
+  }
+}
+
+.header-branding,
+.header-navigation {
+  position: relative;
+  display: table-cell;
+  float: left;
+  height: $header-height-mobile;
+  max-height: $header-height-mobile;
+  vertical-align: middle;
+  box-sizing: border-box;
+  transition: width 0.5s $ease-out-quad;
+
+  @include breakpoint(l-up) {
+    height: $header-height-desktop;
+    max-height: $header-height-desktop;
+
+    .alternate-header & {
+      height: $header-height-mobile;
+      max-height: $header-height-mobile;
+    }
+  }
+}
+
+.header-branding {
+  width: 70%;
+  padding-right: $gutter;
+  padding-left: $gutter;
+
+  .alternate-header & {
+    @include breakpoint(l-up) {
+      width: 30%;
+    }
+  }
+}
+
+.header-navigation {
+  float: right;
+  width: 30%;
+  transition: width 0.5s $ease-out-quad;
+
+  @include breakpoint(l-up) {
+    padding-right: $gutter;
+  }
+
+  .alternate-header & {
+    @include breakpoint(l-up) {
+      width: 70%;
+    }
+  }
+
+  @include breakpoint(print) {
+    display: none;
+  }
+}
+
+.header-logo {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  box-sizing: border-box;
+
+  @include breakpoint(l-up) {
+
+    .alternate-header & {
+      transform: translateY(0);
+    }
+  }
+}
+
+.header-logo-text,
+.header-logo-image {
+  position: absolute;
+  display: none;
+  max-height: 100%;
+  margin: 0;
+  opacity: 0;
+  transition: all 1s $ease-out-quad;
+
+  &.visible {
+    position: relative;
+    display: block;
+    opacity: 1;
+  }
+}
+
+.header-logo-image {
+  top: 50%;
+  max-width: $header-logo-max-width;
+  padding-top: $gutter;
+  padding-bottom: $gutter;
+  transform: translateY(-50%);
+}
+
+.header-logo-text {
+  z-index: 10;
+  width: 100%;
+  overflow: hidden;
+  font-family: $store-title-font;
+  font-size: 20px;
+  font-weight: $store-title-weight;
+  line-height: 60px;
+  color: $store-title-color;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  word-wrap: break-word;
+  white-space: nowrap;
+
+  @include breakpoint(l-up) {
+    font-size: 26px;
+  }
+
+  &.no-image {
+    top: 50%;
+    height: auto;
+    max-height: inherit;
+    transform: translateY(-50%);
+
+    .alternate-header & {
+      top: 0;
+      transform: translateY(0);
+    }
+  }
+}
+
+.main-header-menu {
+  padding-top: $gutter;
+  padding-bottom: $gutter;
+
+  .alternate-header & {
+    width: 100%;
+    padding-top: $header-padding;
+    padding-bottom: $header-padding;
+  }
+
+  .alternate-header.main-nav-open & {
+    padding-top: $gutter;
+    padding-bottom: $gutter;
+  }
+}
+
+.navigation-toggle-mobile-wrapper {
+  @extend %border-radius-treatment;
+  position: absolute;
+  top: 50%;
+  right: $gutter;
+  display: inline-block;
+  padding: 23px;
+  margin-top: -23px;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  transition: all 0.1s $ease-out-quad;
+
+  @include breakpoint(l-up) {
+    display: none;
+  }
+}
+
+.navigation-toggle-mobile {
+  @extend %navigation-toggle-line;
+  position: absolute;
+  top: 22px;
+  left: 10px;
+
+  &:before,
+  &:after {
+    @extend %navigation-toggle-line;
+    position: absolute;
+    left: 0;
+    content: " ";
+  }
+
+  &:before { top: 6px; }
+  &:after { top: -12px; }
+
+  &.expand {
+    left: 13px;
+    background: transparent;
+    border-top: 0;
+
+    &:before { transform: rotate(45deg); }
+    &:after { transform: rotate(-45deg); }
+
+    &:before,
+    &:after {
+      top: 0;
+      width: 18px;
+    }
+  }
+}

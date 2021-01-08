@@ -1,0 +1,161 @@
+// General
+
+body {
+  font-family: $body-font;
+  font-size: $body-font-size;
+  line-height: 1.666;
+  color: $body-color;
+}
+
+// Links
+
+a {
+  color: $general-link-color;
+  transition: color 0.2s $ease-out-quad;
+
+  &:hover {
+    @include hover($general-link-color);
+  }
+}
+
+// Headers
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @extend %heading-text-treatment;
+  line-height: 1.25;
+}
+
+h1 { font-size: 36px; }
+
+h2 { font-size: 28px; }
+
+h3 { font-size: 20px; }
+
+h4 { font-size: 18px; }
+
+h5 { font-size: 14px; }
+
+h6 { font-size: 14px; }
+
+.page-title {
+  @extend %heading-text-treatment;
+  margin: 0;
+  font-size: 26px;
+
+  @include breakpoint(l-up) {
+    @include grid-columns(6 of 12, row);
+  }
+
+}
+
+.sub-header {
+  @extend %heading-text-treatment;
+  font-size: 18px;
+}
+
+.section-title {
+  @extend %heading-text-treatment;
+  font-size: 20px;
+  color: $section-title-color;
+  text-align: $section-title-align;
+}
+
+// Rich Text Editor spacing adjustments
+.rte {
+  @extend %clearfix;
+  font-size: $body-font-size;
+  text-align: left;
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ul,
+  ol,
+  dl {
+    margin-left: $gutter;
+  }
+
+  blockquote {
+    padding-left: $gutter;
+    margin-left: 0;
+    border-left: 2px solid $accent-color;
+  }
+
+  img {
+    height: auto;
+  }
+
+  .tabs {
+    position: relative;
+    z-index: 10;
+    display: block;
+    width: 100%;
+    height: 44px;
+    padding: 0;
+    margin: 0;
+    font-size: 0;
+    white-space: nowrap;
+  }
+
+  .tab-title {
+    display: inline-block;
+    height: 45px;
+    padding: 0 20px;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 45px;
+    letter-spacing: 0.05em;
+    color: $heading-color;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-bottom: 0;
+
+    &.active {
+      height: 44px;
+      background: transparent;
+      border-color: $border-color;
+    }
+  }
+
+  .tabs-content {
+    position: relative;
+    top: -1px;
+    z-index: 5;
+    display: block;
+    width: 100%;
+    padding: 20px 0 0;
+    margin: 0 0 30px;
+    overflow: hidden;
+    border-top: 1px solid $border-color;
+  }
+
+  .tab-content-panel {
+    display: none;
+    margin: 0;
+
+    > *:first-child {
+      margin-top: 0;
+    }
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+
+    &.active { display: block; }
+  }
+}

@@ -1,0 +1,105 @@
+// Basic elements
+hr {
+  background: $border-color;
+}
+
+cite {
+  color: $meta-color;
+}
+
+// Tables
+
+table {
+  color: $body-color;
+  border-color: $border-color;
+}
+
+th {
+  @extend %heading-text-treatment;
+  color: $accent-color;
+  background: $accent-color-light;
+}
+
+td,
+th {
+  border-top-color: $accent-color-light;
+}
+
+td {
+  border-left-color: $accent-color-light;
+}
+
+.loading-overlay {
+  @include page-overlay(map-get($zindex, overlay));
+}
+
+@keyframes spinner1 {
+  0% { left: 0; }
+  50% { left: 16px; }
+  100% { left: 0; }
+}
+
+@keyframes spinner2 {
+  0% {
+    left: 16px;
+    z-index: 1;
+  }
+
+  49% { z-index: 1; }
+
+  50% {
+    left: 0;
+    z-index: 10;
+  }
+
+  100% {
+    left: 16px;
+    z-index: 10;
+  }
+}
+
+.page-spinner {
+  // scss-lint:disable VendorPrefix
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  width: 32px;
+  height: 16px;
+  margin-top: -8px;
+  margin-left: -16px;
+  transform: translateX(100%);
+  transition: transform 0.4s $ease-out-quad;
+  -webkit-backface-visibility: hidden;
+
+  &.visible {
+  }
+
+  .quick-shop .add-to-cart & {
+    @include opacity(1);
+    left: auto;
+    margin-left: 0;
+    visibility: visible;
+  }
+}
+
+.page-spinner:before,
+.page-spinner:after {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  content: "";
+}
+
+.page-spinner:before {
+  left: 0;
+  z-index: 5;
+  background: mix($body-background-color, $accent-color, 60%);
+  animation: spinner1 1s linear infinite;
+}
+
+.page-spinner:after {
+  left: 16px;
+  background: mix($body-background-color, $accent-color, 40%);
+  animation: spinner2 1s linear infinite;
+}

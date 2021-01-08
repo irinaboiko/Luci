@@ -1,0 +1,16 @@
+<li class="cart-total">
+  {{#if cart.gift_certificates}}
+    {{#each cart.gift_certificates}}
+      <div class="cart-total-certificate">
+        <span class="cart-total-label">
+          {{lang 'cart.gift_certificates.giftcert' code=code}}
+        </span>
+        <span class="cart-total-value">
+          <a class="cart-certificate-remove" href="{{remove_url}}">({{lang 'cart.gift_certificates.remove'}})</a>
+        </span>
+      </div>
+    {{/each}}
+  {{/if}}
+
+  {{> components/cart/gift-certificate/certificate-input}}
+</li>

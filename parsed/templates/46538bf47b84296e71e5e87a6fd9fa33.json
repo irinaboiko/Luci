@@ -1,0 +1,3 @@
+{
+  "components/common/breadcrumbs-partial": "<li class=\"breadcrumb-item{{#if @last}} is-active{{/if}}\">\n  {{#unless @first}}&rsaquo; {{/unless}}\n  {{#if url}}\n  <a class=\"breadcrumb-label\" href=\"{{url}}\"><span>{{name}}</span></a>\n  {{else}}\n  <span class=\"breadcrumb-label\">{{name}}</span>\n  {{/if}}\n\n</li>\n"
+}

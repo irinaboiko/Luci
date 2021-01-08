@@ -1,0 +1,9 @@
+<li class="breadcrumb-item{{#if @last}} is-active{{/if}}">
+  {{#unless @first}}&rsaquo; {{/unless}}
+  {{#if url}}
+  <a class="breadcrumb-label" href="{{url}}"><span>{{name}}</span></a>
+  {{else}}
+  <span class="breadcrumb-label">{{name}}</span>
+  {{/if}}
+
+</li>

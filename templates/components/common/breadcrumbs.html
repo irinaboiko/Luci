@@ -1,0 +1,15 @@
+<ol class="page-title-breadcrumbs">
+
+  {{#if this.hide_last}}
+    {{#each this.list}}
+      {{#unless @last}}
+        {{> components/common/breadcrumbs-partial this}}
+      {{/unless}}
+    {{/each}}
+  {{else}}
+    {{#each this.list}}
+      {{> components/common/breadcrumbs-partial this}}
+    {{/each}}
+  {{/if}}
+
+</ol>

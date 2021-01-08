@@ -1,0 +1,45 @@
+.amp-product-options {
+  .form-field-quantity-control {
+    position: relative;
+    display: block;
+
+    .form-input {
+      width: 100%;
+      padding-right: 40px;
+      padding-left: 40px;
+      text-align: center;
+    }
+
+    .quantity-control-action {
+      position: absolute;
+      top: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      margin-top: -20px;
+      cursor: pointer;
+
+      &:hover {
+        color: $color-primary-dark;
+      }
+    }
+
+    .quantity-decrement {
+      left: 8px;
+    }
+
+    .quantity-increment {
+      right: 8px;
+    }
+  }
+
+  .button-progress .complete-text {
+    top: calc(50% - 10px);
+  }
+
+  .product-alert {
+    margin-bottom: 15px;
+  }
+}

@@ -1,0 +1,192 @@
+{{#if quick_shop}}
+  <h2 class="quick-shop-title">{{product.title}}</h2>
+{{/if}}
+
+<div class="product-message-area" data-product-cart-message>{{! Dynmaically populated by Alert.js}}</div>
+<div class="product-message-area" data-product-wishlist-message></div>
+
+{{#if product.out_of_stock}}
+  {{#if product.out_of_stock_message}}
+    {{> core/alerts/alert-error message=product.out_of_stock_message}}
+  {{else}}
+    {{> core/alerts/alert-error message=(lang 'product.sold_out')}}
+  {{/if}}
+{{/if}}
+
+{{#if product.release_date}}
+  {{> core/alerts/alert-info message=product.release_date}}
+{{/if}}
+
+{{#if settings.show_product_rating}}
+  <div class="product-rating-block">
+    <a
+      class="single-product-rating"
+      {{#unless quick_shop}}
+        {{#if settings.show_product_reviews}}
+          href="#write_review"
+          data-scroll-to="#write_review"
+        {{/if}}
+      {{/unless}}
+    >
+      {{> components/products/ratings
+        rating=this.product.rating
+        total_reviews=this.product.num_reviews
+        show_reviews=settings.show_product_reviews
+      }}
+    </a>
+  </div>
+{{/if}}
+
+<div class="product-price" data-product-price>
+  {{> core/products/price
+    price=product.price
+    price_range_display=theme_settings.price_range_display
+    retail_price_label=theme_settings.retail-price-label
+    non_sale_price_label=theme_settings.non-sale-price-label
+    sale_price_label=theme_settings.sale-price-label
+    price_label=theme_settings.price-label
+    show_savings=true
+  }}
+</div>
+
+{{{region name="product_below_price"}}}
+
+{{#if product.call_for_price}}
+  <p class="product-call-for-price">{{product.call_for_price}}</p>
+{{/if}}
+
+{{#if product.description}}
+  <div class="product-description-container rte">
+    {{{product.description}}}
+  </div>
+{{/if}}
+
+{{{snippet 'product_description'}}}
+
+{{#unless quick_shop}}
+  <div class="single-product-details-block">
+    {{> components/products/additional-info}}
+  </div>
+{{/unless}}
+
+<div data-variation-preview></div>
+
+<div class="product-option-message-area" data-product-option-message>
+  {{! Dynamically populated by Alert.js}}
+</div>
+
+<form
+  method="post"
+  action="{{product.cart_url}}"
+  enctype="multipart/form-data"
+  data-cart-item-add
+>
+  <input type="hidden" name="action" value="add">
+  <input type="hidden" name="product_id" value="{{product.id}}"/>
+
+  {{#if product.options.length}}
+    <div class="product-options" data-product-option-change>
+      {{#each product.options}}
+        {{{dynamicComponent 'core/forms/options'}}}
+      {{/each}}
+    </div>
+  {{/if}}
+
+  {{#if product.customizations.length}}
+    <div class="product-customizations">
+      {{#each product.customizations}}
+        {{{dynamicComponent 'core/forms/customizations'}}}
+      {{/each}}
+    </div>
+  {{/if}}
+
+  {{#if product.event_date}}
+    {{> core/products/event}}
+  {{/if}}
+
+  {{#if product.bulk_discount_rates.length}}
+    <div class="single-product-details-block">
+      <h2 class="product-details-heading">
+        {{lang 'product.bulk_pricing.title'}}
+      </h2>
+      <ul>
+        {{#each product.bulk_discount_rates}}
+          <li>
+            {{lang 'product.bulk_pricing.range' min=min max=max}}
+            {{#if type '===' 'percent'}}
+              {{lang 'product.bulk_pricing.percent' discount=discount.formatted}}
+            {{/if}}
+            {{#if type '===' 'fixed'}}
+              {{lang 'product.bulk_pricing.fixed' discount=discount.formatted}}
+            {{/if}}
+            {{#if type '===' 'price'}}
+              {{lang 'product.bulk_pricing.price' discount=discount.formatted}}
+            {{/if}}
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/if}}
+
+  {{#if product.show_quantity_input}}
+    <div class="form-field product-form-quantity">
+      <label class="form-label">
+        <span class="form-label-text">
+          {{lang 'product.quantity'}}
+        </span>
+        {{> components/common/quantity
+          min_purchase_quantity=product.min_purchase_quantity
+          max_purchase_quantity=product.max_purchase_quantity
+          value=1
+        }}
+      </label>
+    </div>
+  {{else}}
+    <input type="hidden" name="qty[]" value="1" />
+  {{/if}}
+
+  {{#if product.can_purchase}}
+    <div class="product-add-to-cart" data-product-add>
+      <button
+        type="submit"
+        class="button button-primary button-wide-medium add-to-cart button-progress"
+        data-button-purchase
+        data-default-text="{{lang 'product.add_to_cart'}}"
+        data-progress-text="{{lang 'product.add_to_cart_progress'}}">
+        <span class="button-text">
+          {{#if product.pre_order}}
+            {{lang 'product.pre_order'}}
+          {{else}}
+            {{lang 'product.add_to_cart'}}
+          {{/if}}
+        </span>
+      </button>
+    </div>
+  {{else}}
+    {{#if product.price}}
+      {{#if product.out_of_stock}}
+        <div class="button button-primary button-wide-medium add-to-cart button-disabled">
+          {{lang 'product.add_to_cart'}}
+        </div>
+      {{/if}}
+    {{/if}}
+  {{/if}}
+
+  {{{snippet 'product_details'}}}
+</form>
+
+{{#if settings.show_wishlist}}
+  <div
+    class="single-product-wishlist-form"
+  >
+    <button
+      class="button button-secondary button-wide-medium add-to-wishlist"
+      data-wishlist-button
+    >
+      {{lang 'product.add_to_wishlist'}}
+    </button>
+    <div class="wishlist-modal" data-wishlist-modal>
+      {{> components/wishlist/wishlist-modal}}
+    </div>
+</div>
+{{/if}}

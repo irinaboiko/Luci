@@ -1,0 +1,8 @@
+.account-button-primary {
+  @extend %button-base, %button-primary;
+}
+
+.account-button-alt,
+.account-button-secondary {
+  @extend %button-base, %button-secondary;
+}

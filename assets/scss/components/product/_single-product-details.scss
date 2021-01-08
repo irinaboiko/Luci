@@ -1,0 +1,129 @@
+
+.single-product-left {
+  margin-bottom: $gutter / 2;
+
+  @include breakpoint(m-only) {
+    max-width: percentage(8 / 12);
+  }
+
+  @include breakpoint(l-up, true) {
+    @include grid-columns(5 of 12, row);
+    padding-right: $gutter * 2;
+  }
+
+  @include breakpoint(xl-up) {
+    @include grid-columns(4 of 12, row);
+  }
+}
+
+.single-product-rating {
+
+  .rating-stars-readonly {
+    display: inline-block;
+    margin-right: $gutter;
+  }
+
+  .rating-total-votes {
+    display: inline-block;
+  }
+}
+
+.single-product-details-block,
+.product-description-container,
+.product-price {
+  display: block;
+  margin: $gutter 0;
+}
+
+.single-product-details-block {
+  @extend %clearfix;
+  font-size: 13px;
+}
+
+.product-details-heading {
+  font-size: 14px;
+  margin: 0 0 6px;
+}
+
+.product-detail-item {
+  display: block;
+  clear: both;
+
+  &.single-product-detail-hidden {
+    display: none;
+  }
+}
+
+.single-product-details-name,
+.single-product-details-value {
+  float: left;
+  margin: 0;
+}
+
+.single-product-details-name {
+  margin-right: $gutter / 2;
+  clear: left;
+  color: $meta-color;
+}
+
+.product-message-area .alert,
+.product-option-message-area .alert {
+  margin-bottom: 1em;
+}
+
+.product-description-container {
+  color: $body-color;
+}
+
+.single-product-wishlist-form {
+  position: relative;
+  margin-top: $gutter / 2;
+}
+
+.product-add-to-cart {
+  margin-top: $gutter * 1.5;
+}
+
+//-- Product Customizations / Options --//
+.product-form-quantity,
+.product-customizations .form-field,
+.product-options .form-field {
+  margin-bottom: $gutter * .75;
+}
+
+.variation-preview {
+  position: relative;
+  display: block;
+  height: em(50);
+  padding: 0 em(14) 0 em(50);
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: $form-input-color;
+  border: 1px solid $border-color;
+  border-radius: 3px;
+  transition: color 0.4s $ease-out-quad;
+
+  &:hover {
+    color: $accent-color;
+  }
+}
+
+.variation-preview-thumb-wrap {
+  position: absolute;
+  top: em(6);
+  left: em(6);
+}
+
+.variation-preview-thumb {
+  width: em(36);
+  height: em(36);
+  background-position: center center;
+  background-size: cover;
+}
+
+.variation-preview-label {
+  display: inline-block;
+  font-size: 14px;
+  line-height: em(50);
+  vertical-align: middle;
+}

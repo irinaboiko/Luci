@@ -1,0 +1,40 @@
+<div>
+  {{{body}}}
+</div>
+
+<footer class="blog-post-footer">
+  {{#if author}}
+    <div class="blog-post-author">
+      {{author}}
+    </div>
+  {{/if}}
+
+  <div class="blog-post-published">
+    {{date_published}}
+  </div>
+
+  {{#if tags.length}}
+    <div class="blog-post-tags">
+      {{lang 'blog.tags'}}
+      <span>
+        {{#each tags}}
+          <a class="blog-post-tag" href="{{url}}">
+            {{name}}
+          </a>
+          {{#unless @last}}, {{/unless}}
+        {{/each}}
+      </span>
+    </div>
+  {{/if}}
+
+  <div class="blog-share">
+    {{> components/common/share-buttons
+      add-this
+      inline-facebook-like=true
+      url=url
+      title=title
+      image=(getImage thumbnail '1200x1200')
+    }}
+  </div>
+
+</footer>

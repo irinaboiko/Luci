@@ -1,0 +1,40 @@
+<section class="mailing-list {{location}}">
+  <h3 class="section-title">{{lang 'footer.mailing_list'}}</h3>
+
+  <p>{{lang 'footer.mailing_list_blurb'}}</p>
+
+  <form
+    class="mailing-list-form"
+    action="{{urls.subscribe.action}}"
+    method="post"
+    data-validates
+  >
+    <input type="hidden" name="action" value="subscribe">
+    <input type="hidden" name="check" value="1">
+    <input type="hidden" name="nl_first_name" value="bc">
+
+    <div class="form-field full-width-field">
+      <label class="form-label" for="nl_email">
+        <span class="form-label-text">{{lang 'common.email_address'}}</span>
+        <input
+          class="form-input mailing-list-email"
+          id="nl_email"
+          name="nl_email"
+          type="email"
+          {{#if customer}}value="{{customer.email}}"{{/if}}
+        >
+      </label>
+
+      <input
+        class="mailing-list-submit form-input"
+        type="submit"
+        name="subscribe"
+        value="&#xe60a;"
+      >
+    </div>
+  </form>
+
+  {{#if settings.show_newsletter_summary}}
+    <p class="newsletter-summary">{{settings.newsletter_summary}}</p>
+  {{/if}}
+</section>

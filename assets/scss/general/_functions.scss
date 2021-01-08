@@ -1,0 +1,104 @@
+// Calculate whether to use a light or dark color based on best contrast
+// Found on Codepen: http://codepen.io/bluesaunders/pen/FCLaz/
+
+// Calculate brightness of a given color.
+@function brightness($color) {
+  @return ((red($color) * 0.299) + (green($color) * 0.587) + (blue($color) * 0.114)) / 255 * 100%;
+}
+
+// Compares contrast of a given color to the light/dark arguments and returns whichever is most "contrasty"
+@function color-contrast($color, $dark: $color-primary-dark, $light: $color-primary-light) {
+  @if $color == null {
+    @return null;
+  } @else {
+    $color-brightness: brightness($color);
+    $light-text-brightness: brightness($light);
+    $dark-text-brightness: brightness($dark);
+    @return if(abs($color-brightness - $light-text-brightness) > abs($color-brightness - $dark-text-brightness), $light, $dark);
+  }
+}
+
+@function modal-background($color) {
+  @if lightness($color) > 10% {
+    @return desaturate(darken($color, 15%), 15%);
+  } @else {
+    @return desaturate(lighten($color, 15%), 15%);
+  }
+}
+
+@function lightness-adjust($color-a, $color-b, $other) {
+  $lightness: abs(lightness($color-a) - lightness($color-b));
+  @return if($lightness > 30, $color-a, $other);
+}
+
+@function brightness-adjust($color, $force: false, $amount: 30%, $threshold: 30%) {
+  @if ($force) {
+    @if ($force == lighten) {
+      @return brightness-adjust(lighten($color, $amount));
+    } @else {
+      @return brightness-adjust(darken($color, $amount));
+    }
+  } @else {
+    @if lightness($color) > $threshold {
+      @return darken($color, $amount - 10%);
+    } @else {
+      @return lighten($color, $amount);
+    }
+  }
+}
+
+@function lower-bound($range) {
+  @if length($range) <= 0 {
+    @return 0;
+  }
+  @return nth($range, 1);
+}
+
+@function upper-bound($range) {
+  @if length($range) < 2 {
+    @return 999999999999;
+  }
+  @return nth($range, 2);
+}
+
+
+// ================================================================ */
+//  Function to create an optimized svg url
+// from: http://codepen.io/jakob-e/pen/doMoML
+
+@function svg-url($svg) {
+  //
+  //  Chunk up string in order to avoid
+  //  "stack level too deep" error
+  //
+  $encoded: "";
+  $slice: 2000;
+  $index: 0;
+  $loops: ceil(str-length($svg) / $slice);
+  @for $i from 1 through $loops {
+    $chunk: str-slice($svg, $index, $index + $slice - 1);
+    //
+    //   Encode (may need a few extra replacements)
+    //
+    $chunk: str-replace($chunk, '"', '\'');
+    $chunk: str-replace($chunk, '<', '%3C');
+    $chunk: str-replace($chunk, '>', '%3E');
+    $chunk: str-replace($chunk, '&', '%26');
+    $chunk: str-replace($chunk, '#', '%23');
+    $encoded: #{$encoded}#{$chunk};
+    $index: $index + $slice;
+  }
+
+  @return url("data:image/svg+xml;charset=utf8,#{$encoded}");
+}
+
+//  Helper function to replace characters in a string
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace +
+            str-replace(str-slice($string, $index +
+            str-length($search)), $search, $replace);
+  }
+  @return $string;
+}

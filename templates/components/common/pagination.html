@@ -1,0 +1,23 @@
+<div class="pagination-container{{#if is_grid}} layout-grid-item{{/if}}">
+  <ul class="pagination-list">
+
+    {{#if previous}}
+      <li class="pagination-item previous">
+        <a class="pagination-link" href="{{previous}}">
+          <i class="icon-arrow-left"></i>
+          {{lang 'common.previous'}}
+        </a>
+      </li>
+    {{/if}}
+
+    {{#if next}}
+      <li class="pagination-item next">
+        <a class="pagination-link" href="{{next}}">
+          <i class="icon-arrow-right "></i>
+          {{lang 'common.next'}}
+        </a>
+      </li>
+    {{/if}}
+
+  </ul>
+</div>

@@ -1,0 +1,106 @@
+<div id="modal-review-form" class="review-modal-container" {{#if product.reviews.messages.length "!==" 0}}data-open-review-initial{{/if}}>
+
+  <div class="review-modal-images">
+    <figure class="review-image-container">
+        <img src="{{getImage product.main_image '600x1200' (cdn theme_settings.default_image)}}" alt="{{product.main_image.alt}}"/>
+      <figcaption class="review-image-caption">{{product.title}}</figcaption>
+    </figure>
+  </div>
+
+  <div class="review-modal-form">
+    <h2 class="review-form-heading">{{lang 'product.reviews.write_review'}}</h2>
+    {{#each product.reviews.messages}}
+      {{#if error '===' ''}}
+        {{> core/alerts/alert-error message=(lang 'product.reviews.errors.general')}}
+      {{else}}
+        {{#if error}}
+          {{> core/alerts/alert-error message=error}}
+        {{/if}}
+      {{/if}}
+
+      {{#if success}}
+        {{> core/alerts/alert-success message=success}}
+      {{/if}}
+    {{/each}}
+
+    <form class="form" id="form-leave-a-review" action="{{urls.product.post_review}}" method="post">
+
+      {{! Rating selection }}
+      <div class="form-field">
+        <div class="form-label-text">
+          {{lang 'product.reviews.form.select_a_rating'}}
+        </div>
+
+        <fieldset class="form-stars">
+          <input type="radio" id="stars-select-5" class="form-input sr-only" name="revrating" value="5" data-vd-message-required="{{lang 'forms.validation.required_rating'}}" required>
+          <label for="stars-select-5" class="input-star icon-star" title="{{lang 'product.reviews.stars_count' NUM=5}}">
+            <span class="span sr-only">{{lang 'product.reviews.stars_count' NUM=5}}</span>
+          </label>
+          <input type="radio" id="stars-select-4" class="form-input sr-only" name="revrating" value="4" data-vd-message-required="{{lang 'forms.validation.required_rating'}}" required>
+          <label for="stars-select-4" class="input-star icon-star" title="{{lang 'product.reviews.stars_count' NUM=4}}">
+            <span class="span sr-only">{{lang 'product.reviews.stars_count' NUM=4}}</span>
+          </label>
+          <input type="radio" id="stars-select-3" class="form-input sr-only" name="revrating" value="3" data-vd-message-required="{{lang 'forms.validation.required_rating'}}" required>
+          <label for="stars-select-3" class="input-star icon-star" title="{{lang 'product.reviews.stars_count' NUM=3}}">
+            <span class="span sr-only">{{lang 'product.reviews.stars_count' NUM=3}}</span>
+          </label>
+          <input type="radio" id="stars-select-2" class="form-input sr-only" name="revrating" value="2" data-vd-message-required="{{lang 'forms.validation.required_rating'}}" required>
+          <label for="stars-select-2" class="input-star icon-star" title="{{lang 'product.reviews.stars_count' NUM=2}}">
+            <span class="span sr-only">{{lang 'product.reviews.stars_count' NUM=2}}</span>
+          </label>
+          <input type="radio" id="stars-select-1" class="form-input sr-only" name="revrating" value="1" data-vd-message-required="{{lang 'forms.validation.required_rating'}}" required>
+          <label for="stars-select-1" class="input-star icon-star" title="{{lang 'product.reviews.stars_count' NUM=1}}">
+            <span class="span sr-only">{{lang 'product.reviews.stars_count' NUM=1}}</span>
+          </label>
+        </fieldset>
+      </div>
+
+      {{! Name }}
+      <div class="form-field full-width-field">
+        <label class="form-label" for="rating-name">
+          <span class="form-label-text">{{lang 'product.reviews.form.name'}}</span>
+          <input id="rating-name" class="form-input" type="text" name="revfromname"
+              {{#if customer}}value="{{customer.name}}"{{/if}} required>
+        </label>
+      </div>
+
+      {{! Email }}
+      <div class="form-field full-width-field">
+        <label class="form-label" for="rating-email">
+          <span class="form-label-text">{{lang 'product.reviews.form.email'}}</span>
+          <input id="rating-email" class="form-input" type="email" name="email"
+              {{#if customer}}value="{{customer.email}}"{{/if}} required>
+        </label>
+      </div>
+
+      {{! Review Subject }}
+      <div class="form-field full-width-field">
+        <label class="form-label" for="rating-title">
+          <span class="form-label-text">{{lang 'product.reviews.form.subject'}}</span>
+          <input id="rating-title" class="form-input" type="text" name="revtitle" required>
+        </label>
+      </div>
+
+      {{! Comments }}
+      <div class="form-field full-width-field">
+        <label class="form-label" for="rating-comment">
+          <span class="form-label-text">{{lang 'product.reviews.form.comments'}}</span>
+          <textarea id="rating-comment" class="form-input" name="revtext" rows="4" required></textarea>
+        </label>
+      </div>
+
+      {{! Captcha }}
+      {{#if product.reviews.captcha}}
+        {{> core/forms/common/captcha captcha=product.reviews.captcha name=recaptcha_response_field}}
+      {{/if}}
+
+      <input type="hidden" name="product_id" value="{{product.id}}">
+      <input type="hidden" name="action" value="post_review">
+      {{#if product.reviews.throttleToken}}
+        <input type="hidden" name="throttleToken" value="{{product.reviews.throttleToken}}">
+      {{/if}}
+
+      <input type="submit" class="form-submit button button-primary" value="{{lang 'product.reviews.form.submit'}}"/>
+    </form>
+  </div>
+</div>

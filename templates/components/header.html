@@ -1,0 +1,23 @@
+
+<header class="main-header">
+  <div class="layout-module header-container">
+    <div class="header-branding">
+      <a class="header-logo" href="{{urls.home}}">
+        {{#if settings.store_logo.image.data}}
+          <img class="header-logo-image visible" src="{{getImage settings.store_logo.image 'logo'}}" alt="{{settings.store_logo.image.alt}}">
+        {{/if}}
+        <span class="header-logo-text {{#unless settings.store_logo.image.data}}visible no-image{{/unless}}">
+          {{settings.store_logo.title}}
+        </span>
+      </a>
+    </div>
+
+    <div class="header-navigation">
+      <button class="navigation-toggle-mobile-wrapper" data-mobile-menu-button>
+        <span class="navigation-toggle-mobile" data-mobile-menu-toggle></span>
+      </button>
+
+      {{> components/header-menu}}
+    </div>
+  </div>
+</header>

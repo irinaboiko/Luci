@@ -1,0 +1,3 @@
+{
+  "components/alerts/alert-error": "<div class=\"alert-message error\">\n  {{#if dismissable}}<a href=\"#\" class=\"dismiss\">&times;</a>{{/if}}\n\n  {{#if message}}\n    {{{message}}}\n  {{else}}\n    {{{this}}}\n  {{/if}}\n</div>\n"
+}

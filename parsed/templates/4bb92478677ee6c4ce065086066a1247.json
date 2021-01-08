@@ -1,0 +1,4 @@
+{
+  "components/products/single-review": "<div class=\"layout-grid-item\">\n  <div class='sr-only' aria-hidden=\"true\">\n    <span>{{product_title}}</span>\n  </div>\n  <span class=\"rating-stars-readonly\" aria-hidden=\"true\">\n    {{> components/common/rating rating=rating}}\n    <meta class=\"sr-only\" content=\"{{rating}}\">\n  </span>\n\n  <h3 class=\"single-review-title\">{{{sanitize title}}}</h3>\n\n  <span class=\"single-review-author\">\n    {{#if name}}\n      {{lang 'product.reviews.posted_on_by' date=date name=name}}\n    {{else}}\n      {{lang 'product.reviews.posted_on' date=date}}\n    {{/if}}\n  </span>\n\n  <p class=\"single-review-text\">{{{sanitize text}}}</p>\n\n</div>\n",
+  "components/common/rating": "\n{{#for 1 5}}\n    <i class=\"rating-star {{#if ../rating '>=' $index}}icon-star{{else}}icon-star-empty{{/if}}\"></i>\n{{/for}}\n"
+}

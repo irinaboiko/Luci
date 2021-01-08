@@ -1,0 +1,21 @@
+{{!-- TODO: Replace with RTE content
+  <h3 class="sidebar-title">{{settings.store_name}}</h3>
+  {{{theme_settings.content-page-right}}}
+--}}
+
+<h3 class="sidebar-title">{{lang 'page.alt_label'}}</h3>
+<ul class="sidebar-listing">
+  {{#each pages}}
+    {{>components/page/sidebar-link}}
+    {{#if children}}
+      {{#each children}}
+        {{>components/page/sidebar-link}}
+        {{#if children}}
+          {{#each children}}
+            {{>components/page/sidebar-link}}
+          {{/each}}
+        {{/if}}
+      {{/each}}
+    {{/if}}
+  {{/each}}
+</ul>

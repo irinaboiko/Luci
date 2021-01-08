@@ -1,0 +1,143 @@
+<div class="product-detail-item product-detail-stocklevel {{#unless product.stock_level}}single-product-detail-hidden{{/unless}}" data-product-stock>
+  <div class="single-product-details-name">{{lang 'product.current_stock'}}</div>
+  <div class="single-product-details-value" data-product-stock-level>{{product.stock_level}}</div>
+</div>
+
+{{#if product.sku}}
+  <div class="product-detail-item product-detail-sku">
+    <div class="single-product-details-name">{{lang 'product.sku'}}</div>
+    <div class="single-product-details-value" data-product-sku>{{product.sku}}</div>
+  </div>
+{{/if}}
+
+{{#if product.gtin}}
+  <div class="product-detail-item product-detail-gtin">
+    <div class="single-product-details-name">{{lang 'product.gtin'}}</div>
+    <div class="single-product-details-value">{{product.gtin}}</div>
+  </div>
+{{/if}}
+
+{{#if product.mpn}}
+  <div class="product-detail-item product-detail-mpn">
+    <div class="single-product-details-name">{{lang 'product.mpn'}}</div>
+    <div class="single-product-details-value">{{product.mpn}}</div>
+  </div>
+{{/if}}
+
+{{#if product.condition}}
+  <div class="product-detail-item product-detail-condition">
+    <div class="single-product-details-name">{{lang 'product.condition'}}</div>
+    <div class="single-product-details-value">{{product.condition}}</div>
+  </div>
+{{/if}}
+
+{{#if product.availability}}
+  <div class="product-detail-item product-detail-availability">
+    <div class="single-product-details-name">{{lang 'product.availability'}}</div>
+    <div class="single-product-details-value">{{product.availability}}</div>
+  </div>
+{{/if}}
+
+{{#if theme_settings.product-display-dimensions}}
+  {{#if product.weight}}
+    <div class="product-detail-item product-detail-weight">
+      <div class="single-product-details-name">{{lang 'product.weight'}}</div>
+      <div class="single-product-details-value" data-product-weight>
+        {{product.weight}}
+      </div>
+    </div>
+  {{/if}}
+
+  {{#if product.width}}
+    <div class="product-detail-item product-detail-width">
+      <div class="single-product-details-name">{{lang 'product.width'}}</div>
+      <div class="single-product-details-value">
+        {{product.width}}
+        {{#if settings.measurements.length '==' 'Centimeters'}}
+          ({{lang 'product.measurement.metric'}})
+        {{else}}
+          ({{lang 'product.measurement.imperial'}})
+        {{/if}}
+      </div>
+    </div>
+  {{/if}}
+
+  {{#if product.height}}
+    <div class="product-detail-item product-detail-height">
+      <div class="single-product-details-name">{{lang 'product.height'}}</div>
+      <div class="single-product-details-value">
+        {{product.height}}
+        {{#if settings.measurements.length '==' 'Centimeters'}}
+          ({{lang 'product.measurement.metric'}})
+        {{else}}
+          ({{lang 'product.measurement.imperial'}})
+        {{/if}}
+      </div>
+    </div>
+  {{/if}}
+
+  {{#if product.depth}}
+    <div class="product-detail-item product-detail-depth">
+      <div class="single-product-details-name">{{lang 'product.depth'}}</div>
+      <div class="single-product-details-value">
+        {{product.depth}}
+        {{#if settings.measurements.length '==' 'Centimeters'}}
+          ({{lang 'product.measurement.metric'}})
+        {{else}}
+          ({{lang 'product.measurement.imperial'}})
+        {{/if}}
+      </div>
+    </div>
+  {{/if}}
+{{/if}}
+
+{{#if product.warranty}}
+  <div class="product-detail-item product-detail-warranty">
+    <div class="single-product-details-name">{{lang 'product.warranty'}}</div>
+    <div class="single-product-details-value">{{{product.warranty}}}</div>
+  </div>
+{{/if}}
+
+{{#if product.detail_messages}}
+  <div class="product-detail-item product-detail-messages">
+    <div class="single-product-details-name">{{lang 'product.detail_messages'}}</div>
+    <div class="single-product-details-value">{{{product.detail_messages}}}</div>
+  </div>
+{{/if}}
+
+{{#if product.gift_wrapping_available}}
+  <div class="product-detail-item product-detail-giftwrap">
+    <div class="single-product-details-name">{{lang 'product.gift_wrapping'}}</div>
+    <div class="single-product-details-value">{{lang 'product.gift_wrapping_available'}}</div>
+  </div>
+{{/if}}
+
+{{#if product.shipping}}
+  {{#if product.shipping.price '==' 0}}
+    <div class="product-detail-item product-detail-shipping">
+      <div class="single-product-details-name">{{lang 'product.shipping'}}</div>
+      <div class="single-product-details-value">{{lang 'product.shipping_free'}}</div>
+    </div>
+  {{else}}
+    {{#if product.shipping.calculated}}
+      <div class="product-detail-item product-detail-shipping">
+        <div class="single-product-details-name">{{lang 'product.shipping'}}</div>
+        <div class="single-product-details-value">{{lang 'product.shipping_calculated'}}</div>
+      </div>
+    {{/if}}
+
+    {{#if product.shipping.fixed}}
+      <div class="product-detail-item product-detail-shipping">
+        <div class="single-product-details-name">{{lang 'product.shipping'}}</div>
+        <div class="single-product-details-value">{{lang 'product.shipping_fixed' amount=product.shipping.price.formatted}}</div>
+      </div>
+    {{/if}}
+  {{/if}}
+{{/if}}
+
+{{#each product.custom_fields}}
+  <div class="product-detail-item product-detail-customfield">
+    <div class="single-product-details-name">{{name}}:</div>
+    <div class="single-product-details-value">{{{value}}}</div>
+  </div>
+{{/each}}

@@ -1,0 +1,8 @@
+
+<li class="form-field form-inline">
+  <label for="shipping-quote-{{id}}">
+    <input id="shipping-quote-{{id}}" class="shipping-quote form-input input-radio" type="radio" name="shipping_method" value="{{id}}">
+    <span class="form-input-mask"></span>
+    <span class="form-label-text">{{#if logo_path}}<img src="{{logo_path}}" alt="{{provider_name}}" class="shipping-method-badge">{{/if}} {{provider_name}}: {{cost.formatted}}</span>
+  </label>
+</li>

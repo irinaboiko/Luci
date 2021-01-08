@@ -1,0 +1,3 @@
+{
+  "components/cart/gift-wrap/gift-wrap-totals": "\n{{#if cart.gift_wrapping_cost}}\n  <li class=\"cart-total\">\n    <span class=\"cart-total-label\">{{lang 'cart.gift_wrapping.title'}}</span>\n    <span class=\"cart-total-value\">{{cart.gift_wrapping_cost.formatted}}</span>\n  </li>\n{{/if}}\n"
+}

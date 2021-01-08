@@ -1,0 +1,21 @@
+.account-address-list,
+.account-address-form {
+  @include outer-container;
+  font-size: $body-font-size;
+}
+
+.account-address-list-item {
+  @include fill-parent;
+  padding-right: 0;
+  padding-left: 0;
+
+  @include breakpoint(l-only) {
+    @include span-columns(6);
+    @include omega(2n);
+  }
+
+  @include breakpoint(xl-up) {
+    @include span-columns(4);
+    @include omega(3n);
+  }
+}

@@ -1,0 +1,3 @@
+{
+  "components/banner": "<section class=\"banner\">\n  <figure\n    class=\"banner-item\"\n    style=\"background-image:url('{{getImageSrcset this 1x='1500x360'}}')\"\n  >\n    <span class=\"sr-only\">\n      <img\n        src=\"{{getImageSrcset this 1x='1500x360'}}\"\n        alt=\"{{this.alt}}\"\n        srcset=\"{{getImageSrcset this 1x='1500x360'}}\"\n      >\n    </span>\n  </figure>\n</section>\n"
+}

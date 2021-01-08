@@ -1,0 +1,80 @@
+//-- Layout --//
+.gift-certificate-container {
+
+  .form-field {
+    margin-bottom: $account-form-spacing;
+  }
+
+  .form-giftcard-balance {
+
+    .button {
+      padding: $gutter / 2 $gutter;
+      font-size: $body-font-size;
+    }
+
+    @include breakpoint(l-up) {
+      .form-field {
+        display: inline-block;
+        width: 400px;
+      }
+
+      .form-field-control {
+        margin-right: $account-gutter-inner;
+      }
+
+      .form-input {
+        max-width: 100%;
+      }
+
+      .form-actions {
+        position: relative;
+        display: inline-block;
+        width: auto;
+        vertical-align: top;
+      }
+    }
+  }
+}
+
+.giftcard-nav {
+  @extend %account-layout-nav;
+}
+
+.giftcard-body {
+  @extend %account-layout-body;
+}
+
+//-- Navigation --//
+.giftcard-nav-list {
+  @extend %account-nav;
+}
+
+//-- Heading --//
+.giftcard-heading-container {
+  margin-bottom: em($gutter);
+}
+
+.giftcard-heading {
+  padding-bottom: $gutter / 2;
+  margin-top: 0;
+  margin-bottom: $gutter;
+  font-size: 20px;
+  text-align: left;
+  border-bottom: 1px solid $account-border-color;
+}
+
+.giftcard-subheading {
+  text-align: left;
+}
+
+//-- Contents --//
+.giftcard-redeem-steps {
+  margin-left: $gutter;
+}
+
+.giftcard-balance-container {
+
+  @include breakpoint(m-up) {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,27 @@
+<div class="single-product-thumbnails">
+  {{#each product.images}}
+    <div class="single-product-thumbnail-wrapper">
+      <a
+        href="#"
+        class="
+          single-product-thumbnail
+          {{#compare this.data ../product.main_image.data operator='==='}}
+            active
+          {{/compare}}
+          {{#if @first}}active{{/if}}
+        "
+        data-slide-position="{{@index}}"
+        data-high-res="{{getImageSrcset this '600x1200'}}"
+      >
+        {{> components/common/responsive-image
+          image=this
+          class="product-thumbnail-image"
+          fallback_size=../fallback_size
+          lazyload=../lazyload
+          default_image=../default_image
+        }}
+        <span class="sr-only">{{image.alt}}</span>
+      </a>
+    </div>
+  {{/each}}
+</div>

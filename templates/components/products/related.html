@@ -1,0 +1,31 @@
+<section class="layout-module">
+  <h2 class="section-title">{{lang 'product.related_products'}}</h2>
+
+  <div
+    class="product-grid-container grid-masonry layout-grid-of-4"
+    {{#if settings.data_tag_enabled}}
+      data-list-name="Related Products"
+      data-event-type="list"
+    {{/if}}
+  >
+    <div class="layout-grid-sizer"></div>
+    <div class="layout-grid-gutter"></div>
+    {{#each grid}}
+      {{> components/products/product-item
+        settings=../settings
+        layout="masonry"
+        show_quick_shop=../show_quick_shop
+        lazyload=../lazyload
+        fallback_size=../fallback_size
+        default_image=../default_image
+        price_range_display=../price_range_display
+        retail_price_label=../retail_price_label
+        non_sale_price_label=../non_sale_price_label
+        sale_price_label=../sale_price_label
+        price_label=../price_label
+        event="list"
+        position=(add @index 1)
+      }}
+    {{/each}}
+  </div>
+</section>

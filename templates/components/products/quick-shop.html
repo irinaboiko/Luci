@@ -1,0 +1,40 @@
+
+{{> components/common/modal-close}}
+
+{{> components/products/single-image
+  this
+  class='quick-shop-images product-images'
+  quick_shop='true'
+}}
+
+<div
+  class="quick-shop-details product-area"
+  data-product-title="{{product.title}}"
+  data-product-id={{product.id}}
+  {{#if settings.data_tag_enabled}}
+    data-event-type="product"
+    data-entity-id="{{product.id}}"
+    data-name="{{product.title}}"
+    data-product-category="
+      {{#each product.category}}
+        {{#if @last}}
+          {{this}}
+        {{else}}
+          {{this}},
+        {{/if}}
+      {{/each}}"
+    data-product-brand="{{product.brand.name}}"
+    data-product-price="
+      {{#if product.price.with_tax}}
+        {{product.price.with_tax.value}}
+      {{else}}
+        {{product.price.without_tax.value}}
+      {{/if}}"
+    data-product-variant="single-product-option"
+  {{/if}}
+>
+  {{> components/products/single-details
+    settings=../settings
+    quick_shop='true'
+  }}
+</div>

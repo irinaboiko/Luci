@@ -1,0 +1,71 @@
+$color-primary-dark: stencilColor('color-primary-dark');
+$color-primary-light: stencilColor('color-primary-light');
+
+$body-background-color: stencilColor('body-background-color');
+$body-color: stencilColor('body-font-color');
+$body-font: stencilFontFamily('body-font');
+$body-font-size: 16px;
+
+$heading-font: stencilFontFamily('heading-font');
+$heading-weight: stencilFontWeight('heading-font');
+$heading-color: stencilColor('heading-font-color');
+
+$store-title-font: stencilFontFamily('store-title-font');
+$store-title-weight: stencilFontWeight('store-title-font');
+$store-title-color: stencilColor('store-title-font-color');
+
+$meta-font: stencilFontFamily('meta-font');
+$meta-weight: stencilFontWeight('meta-font');
+$meta-color: stencilColor('meta-font-color');
+
+$button-font: stencilFontFamily('button-font');
+$button-weight: stencilFontWeight('button-font');
+
+$button-font-color: stencilColor('button-font-color');
+$button-background-color: stencilColor('button-background-color');
+$button-border-color: stencilColor('button-border-color');
+
+$button-secondary-font-color: stencilColor('button-secondary-font-color');
+$button-secondary-background-color: stencilColor('button-secondary-background-color');
+$button-secondary-border-color: stencilColor('button-secondary-border-color');
+
+$product-item-title-color: stencilColor('product-item-title-color');
+$product-item-title-font-family: stencilFontFamily('product-item-title');
+$product-item-title-font-weight: stencilFontWeight('product-item-title');
+$product-item-actions-color: stencilColor('product-item-actions-color');
+$product-item-actions-background-color: stencilColor('product-item-actions-background-color');
+
+$section-title-color: stencilColor('section-title-color');
+$section-title-align: stencilString('section-title-alignment');
+
+$accent-color: stencilColor('accent-color');
+$general-link-color: stencilColor('general-link-color');
+$border-color: stencilColor('border-color');
+
+$error-color: stencilColor('color-error');
+$success-color: stencilColor('color-success');
+$neutral-color: stencilColor('color-neutral');
+
+$main-nav-background-color: stencilColor('main-nav-background-color');
+$main-nav-color: stencilColor('main-nav-color');
+
+$enable-main-nav-background-color: stencilString('enable-main-nav-background-color');
+$always-show-main-nav-background-color: stencilString('always-show-main-nav-background-color');
+
+$footer-nav-background-color: stencilColor('footer-nav-background');
+$footer-nav-font-color: stencilColor('footer-nav-font-color');
+
+$carousel-font-color: stencilColor('carousel-font-color');
+$carousel-height-mobile: stencilNumber('carousel-height-mobile');
+$carousel-height-desktop: stencilNumber('carousel-height-desktop');
+$carousel-background-color: stencilColor('carousel-background-color');
+$carousel-dot-color: stencilColor('carousel-dot-color');
+$carousel-image-crop: stencilString('crop-carousel-images');
+
+$banner-background-color: stencilColor('banner-background');
+$banner-font: stencilFontFamily('banner-font');
+$banner-font-color: stencilColor('banner-font-color');
+
+$product-item-align: stencilString('product-item-inside-alignment');
+
+$apple-pay-style: stencilString('apple-pay-style');

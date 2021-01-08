@@ -1,0 +1,3 @@
+{
+  "components/common/newsletter-subscribe": "<form class=\"form subscription-form\" action=\"{{urls.subscribe.action}}\" method=\"post\">\n  <input type=\"hidden\" name=\"action\" value=\"subscribe\">\n  <div class=\"form-field form-inline\">\n    <label class=\"sr-only\" for=\"nl_email\">{{lang 'common.newsletter.email'}}</label>\n    <input class=\"form-input\" id=\"nl_email\" name=\"nl_email\" type=\"email\" value=\"{{customer.name}}\" placeholder=\"{{lang 'forms.your_email_address'}}\">\n    <input class=\"button\" type=\"submit\" value=\"{{lang 'common.newsletter.submit'}}\">\n  </div>\n</form>\n"
+}

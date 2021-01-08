@@ -1,0 +1,106 @@
+<div class="sharing-buttons">
+  {{#each buttons}}
+    {{#if service '===' 'twitter'}}
+      <a class="sharing-button"
+        target="_blank"
+        href="//twitter.com/share?url={{../../url}}"
+        data-share-button
+        data-popup-title="Twitter">
+        <i class="icon-twitter"></i>
+      </a>
+    {{/if}}
+
+    {{#if service '===' 'facebook'}}
+      <a class="sharing-button"
+        target="_blank"
+        href="//www.facebook.com/sharer.php?u={{../../url}}"
+        data-share-button
+        data-popup-title="Facebook"
+        data-popup-width="500"
+        data-popup-height="200">
+        <i class="icon-facebook"></i>
+      </a>
+    {{/if}}
+
+    {{#if service '===' 'linkedin'}}
+      <a class="sharing-button"
+        target="_blank"
+        href="//www.linkedin.com/cws/share?url={{../../url}}"
+        data-share-button
+        data-popup-title="LinkedIn"
+        data-popup-width="500"
+        data-popup-height="200">
+        <i class="icon-linkedin"></i>
+      </a>
+    {{/if}}
+
+    {{#if service '===' 'email'}}
+      <a class="sharing-button"
+        href="mailto:?subject={{../../title}}&amp;body={{../../url}}">
+        <i class="icon-mail"></i>
+      </a>
+    {{/if}}
+
+    {{#if service '===' 'google_plusone'}}
+      <a class="sharing-button"
+        target="_blank"
+        href="//plus.google.com/share?url={{../../url}}"
+        data-share-button
+        data-popup-title="Google">
+        <i class="icon-google"></i>
+      </a>
+    {{/if}}
+
+    {{#if service '===' 'print'}}
+      <a class="sharing-button"
+        href="javascript:;"
+        onclick="window.print()">
+        <i class="icon-print"></i>
+      </a>
+    {{/if}}
+
+    {{#if service '===' 'pinterest'}}
+      {{#if ../../image}}
+        <a class="sharing-button"
+          target="_blank"
+          href="//pinterest.com/pin/create/button/?url={{../../../url}}{{#if ../../../image}}&amp;media={{../../../../image}}{{/if}}&amp;description={{../../../title}}"
+          data-share-button
+          data-popup-title="Pinterest"
+          data-popup-width="750"
+          data-popup-height="800">
+          <i class="icon-pinterest"></i>
+        </a>
+      {{/if}}
+    {{/if}}
+  {{/each}}
+
+  {{#if inline-facebook-like}}
+    {{#each buttons}}
+      {{#if service '===' 'facebook_like'}}
+        <span class="sharing-button facebook-share-button" data-facebook-like>
+          <div class="fb-like"
+            data-href="{{../../url}}"
+            data-layout="standard"
+            data-action="like"
+            data-show-faces="false">
+          </div>
+        </span>
+      {{/if}}
+    {{/each}}
+  {{/if}}
+</div>
+
+{{#unless inline-facebook-like}}
+  {{#each buttons}}
+    {{#if service '===' 'facebook_like'}}
+      <div class="facebook-share-button-standalone" data-facebook-like>
+        <div class="fb-like"
+          data-href="{{../../url}}"
+          data-layout="standard"
+          data-action="like"
+          data-show-faces="false">
+        </div>
+      </div>
+    {{/if}}
+  {{/each}}
+{{/unless}}

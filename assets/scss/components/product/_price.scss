@@ -1,0 +1,22 @@
+
+.price-saved,
+.price-withouttax,
+.price-withtax,
+.product-call-for-price {
+  display: block;
+  font-size: 110%;
+  line-height: 1.2;
+  color: $color-primary-dark-dark;
+
+  .product-item-price & {
+    color: $body-color;
+  }
+}
+
+.price-rrp {
+  text-decoration: line-through;
+}
+
+.price-tax-label {
+  padding-left: $gutter / 4;
+}

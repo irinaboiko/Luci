@@ -1,0 +1,4 @@
+{
+  "components/faceted-search/facets/rating": "<ul class=\"faceted-search-filter-list {{#if selected}}is-open{{/if}} {{#unless start_collapsed}}is-open{{/unless}}\">\n  {{#each items}}\n    {{#unless selected}}\n      {{#if param_value}}\n        <li class=\"faceted-search-item\">\n          <a href=\"{{url}}\" data-faceted-search-facet rel=\"nofollow\">\n            <span class=\"icon {{#if selected}}icon-checked{{else}}icon-unchecked{{/if}}\"></span>\n\n            {{> components/common/rating rating=param_value}}\n\n            {{#if ../show_product_counts}}<span class=\"faceted-search-item-count\">({{count}})</span>{{/if}}\n          </a>\n        </li>\n      {{/if}}\n    {{/unless}}\n  {{/each}}\n</ul>\n",
+  "components/common/rating": "\n{{#for 1 5}}\n    <i class=\"rating-star {{#if ../rating '>=' $index}}icon-star{{else}}icon-star-empty{{/if}}\"></i>\n{{/for}}\n"
+}

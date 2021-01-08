@@ -1,0 +1,23 @@
+{{!
+  @param show_reviews - whether or not to render review count
+  @param total_reviews - amount of total reviews
+  @param rating - rating count
+}}
+
+<span class="rating-stars-readonly" aria-hidden="true">
+  {{> components/common/rating rating=rating}}
+</span>
+
+{{#if show_reviews}}
+  {{#if total_reviews}}
+    <span>
+      <span class="sr-only ratings-total-score">
+        <span>{{rating}}</span>/<span>5</span>
+      </span>
+      <span class="rating-total-votes">
+        (<span>{{total_reviews}}</span>
+        {{lang 'product.reviews.number_reviews' total=total_reviews}})
+      </span>
+    </span>
+  {{/if}}
+{{/if}}

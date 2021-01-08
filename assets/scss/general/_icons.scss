@@ -1,0 +1,151 @@
+
+[class^="icon-"],
+[class*=" icon-"] {
+  @extend %icon-base;
+}
+
+.icon-arrow-left:before {
+  content: $icon-arrow-left;
+}
+
+.icon-arrow-right:before {
+  content: $icon-arrow-right;
+}
+
+.icon-cart:before {
+  content: $icon-cart;
+}
+
+.icon-circle-full:before {
+  content: $icon-circle-full;
+}
+
+.icon-close-circle:before {
+  content: $icon-close-circle;
+}
+
+.icon-close:before {
+  content: $icon-close;
+}
+
+.icon-facebook:before {
+  content: $icon-facebook;
+}
+
+.icon-google:before {
+  content: $icon-google;
+}
+
+.icon-instagram:before {
+  content: $icon-instagram;
+}
+
+.icon-linkedin:before {
+  content: $icon-linkedin;
+}
+
+.icon-mail:before {
+  content: $icon-mail;
+}
+
+.icon-menu:before {
+  content: $icon-menu;
+}
+
+.icon-menu2:before {
+  content: $icon-menu2;
+}
+
+.icon-pinterest:before {
+  content: $icon-pinterest;
+}
+
+.icon-print:before {
+  content: $icon-print;
+}
+
+.icon-rss:before {
+  content: $icon-rss;
+}
+
+.icon-search:before {
+  content: $icon-search;
+}
+
+.icon-star:before {
+  color: $body-color;
+  content: $icon-star;
+}
+
+.icon-star-empty:before {
+  color: $accent-color-light;
+  content: $icon-star;
+}
+
+.icon-star-half:before {
+  content: $icon-star-half;
+}
+
+.icon-stumbleupon:before {
+  content: $icon-stumbleupon;
+}
+
+.icon-tumblr:before {
+  content: $icon-tumblr;
+}
+
+.icon-twitter:before {
+  content: $icon-twitter;
+}
+
+.icon-user:before {
+  content: $icon-user;
+}
+
+.icon-youtube:before {
+  content: $icon-youtube;
+}
+
+.icon-unchecked {
+  background: svg-url('<svg fill="#{$meta-color}" width="10px" height="10px" xmlns="http://www.w3.org/2000/svg"><path d="M5.00012362,8.75975312 L1.72679012,8.75975309 C1.41271605,8.75975309 1.15814815,8.50518519 1.15814815,8.19098765 L1.15814815,1.72679012 C1.15814815,1.41271605 1.41271605,1.15814815 1.72679012,1.15814815 L5.00000016,1.15814815 L5,0 L1.72666667,0.0207407407 C0.785925926,0.0207407407 0.0204938272,0.78617284 0.0204938272,1.72691358 L0.0204938272,8.19111111 C0.0204938272,9.13185185 0.785925926,9.89716049 1.72666667,9.89716049 L5.00000016,9.89716053 L5.00012362,8.75975312 Z M5.00012362,8.75975312 L8.27345711,8.75975309 C8.58753119,8.75975309 8.84209909,8.50518519 8.84209909,8.19098765 L8.84209909,1.72679012 C8.84209909,1.41271605 8.58753119,1.15814815 8.27345711,1.15814815 L5.00024707,1.15814815 L5.00024724,0 L8.27358057,0.0207407407 C9.21432131,0.0207407407 9.97975341,0.78617284 9.97975341,1.72691358 L9.97975341,8.19111111 C9.97975341,9.13185185 9.21432131,9.89716049 8.27358057,9.89716049 L5.00024707,9.89716053 L5.00012362,8.75975312 Z"></path></svg>');
+}
+
+.icon-checked {
+  background: svg-url('<svg fill="#{$meta-color}" width="10px" height="10px" xmlns="http://www.w3.org/2000/svg"><path d="M9.77493827,3.63679012 L9.76407407,3.64975309 L9.75283951,3.66234568 C9.74950617,3.6662963 9.74617284,3.66987654 9.74283951,3.67333333 L8.75975309,4.84851852 L8.75975309,8.19098765 C8.75975309,8.50518519 8.50518519,8.75975309 8.19098765,8.75975309 L1.72679012,8.75975309 C1.41271605,8.75975309 1.15814815,8.50518519 1.15814815,8.19098765 L1.15814815,1.72679012 C1.15814815,1.41271605 1.41271605,1.15814815 1.72679012,1.15814815 L7.08234568,1.15814815 L8.03407407,0.0207407407 L1.72666667,0.0207407407 C0.785925926,0.0207407407 0.0204938272,0.78617284 0.0204938272,1.72691358 L0.0204938272,8.19111111 C0.0204938272,9.13185185 0.785925926,9.89716049 1.72666667,9.89716049 L8.1908642,9.89716049 C9.13160494,9.89716049 9.89691358,9.13185185 9.89691358,8.19111111 L9.89691358,3.49061728 L9.77493827,3.63679012 L9.77493827,3.63679012 Z"></path><path d="M9.64395062,0.934444444 C9.35123457,0.690123457 8.91592593,0.729382716 8.67148148,1.02234568 L4.92259259,5.51444444 L3.28395062,3.64987654 C3.03222222,3.36320988 2.59604938,3.33506173 2.30938272,3.58691358 C2.02283951,3.83851852 1.99481481,4.27493827 2.24654321,4.56135802 L4.02740741,6.58765432 L4.02716049,6.58790123 L4.94901235,7.63703704 L8.88728395,2.91604938 C8.89148148,2.91098765 8.89641975,2.90617284 8.90074074,2.90111111 L9.73197531,1.90691358 C9.97654321,1.61419753 9.93703704,1.17876543 9.64395062,0.934444444 L9.64395062,0.934444444 Z"></path></svg>');
+}
+
+.icon-remove:before {
+  content: $icon-remove;
+}
+
+.icon-increase:before {
+  content: $icon-increase;
+}
+
+.icon-decrease:before {
+  content: $icon-decrease;
+}
+
+.icon-payment-visa:before {
+  content: $icon-payment-visa;
+}
+
+.icon-payment-mastercard:before {
+  content: $icon-payment-mastercard;
+}
+
+.icon-payment-american-express:before {
+  content: $icon-payment-american-express;
+}
+
+.icon-payment-paypal:before {
+  content: $icon-payment-paypal;
+}
+
+.icon-payment-discover:before {
+  content: $icon-payment-discover;
+}
+
+.icon-payment-apple-pay:before {
+  content: $icon-payment-apple-pay;
+}

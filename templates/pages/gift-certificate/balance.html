@@ -1,0 +1,17 @@
+
+{{#partial "page"}}
+
+  {{> components/common/page-header list=breadcrumbs page_title=(lang 'gift_certificate.balance.heading')}}
+
+  <article class="gift-certificate-container giftcard-page">
+
+    <section class="layout-module">
+      {{> components/gift-certificate/navigation page='balance'}}
+      {{> core/gift-certificate/balance}}
+    </section>
+
+  </article>
+
+{{/partial}}
+
+{{> layout/base}}

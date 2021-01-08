@@ -1,0 +1,21 @@
+{{inject 'invalidCertificate' (lang 'cart.gift_certificates.invalid_error')}}
+{{inject 'addCertificate' (lang 'cart.gift_certificates.add_cert_label')}}
+{{inject 'hideForm' (lang 'cart.gift_certificates.cancel')}}
+
+<div class="cart-total certificate-wrapper">
+  <span class="cart-total-label">{{lang 'cart.gift_certificates.title'}}</span>
+  <button class="cart-total-value certificate-toggle">{{lang 'cart.gift_certificates.add_cert_label'}}</button>
+
+  <form class="certificate-form hidden" method="post" action="{{urls.cart}}">
+    <div class="form-field">
+      <label class="form-label" for="certcode">
+        <span class="form-label-text form-hidden">{{lang 'cart.gift_certificates.add_certificate'}}</span>
+        <input class="form-input" data-error="{{lang 'cart.gift_certificates.empty_error'}}" id="certcode" type="text" name="certcode" value="" placeholder="{{lang 'cart.gift_certificates.add_certificate'}}">
+      </label>
+    </div>
+    <div class="form-field certificate-submit">
+      <input class="button button-primary button-small" type="submit" value="{{lang 'cart.coupon_codes.submit'}}">
+      <input type="hidden" name="action" value="applycoupon">
+    </div>
+  </form>
+</div>

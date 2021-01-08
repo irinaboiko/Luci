@@ -1,0 +1,3 @@
+{
+  "components/navigation-footer": "<nav class=\"main-footer-menu\">\n  <ul class=\"nav-menu navigation-tier\">\n    <li>\n      <a href=\"#header-pane-category\" data-slideout-menu>{{lang 'product.label'}}</a>\n    </li>\n    {{#if shop_by_brand}}\n      <li>\n        <a href=\"#header-pane-brand\" data-slideout-menu>{{lang 'brands.label'}}</a>\n      </li>\n    {{/if}}\n    <li>\n      <a href=\"#header-pane-pages\" data-slideout-menu>{{lang 'page.label'}}</a>\n    </li>\n    <li><a href=\"#modal-search\" class=\"toggle-search\">{{lang 'search.label'}}</a></li>\n    <li><a href=\"#header-cart-pane\" data-slideout-menu>{{lang 'cart.label'}}</a></li>\n  </ul>\n</nav>\n\n"
+}

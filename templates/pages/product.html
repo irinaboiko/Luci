@@ -1,0 +1,131 @@
+---
+product:
+  reviews:
+    limit: 8
+  related_products:
+    limit: 8
+  videos:
+    limit: 12
+---
+
+{{#partial "page"}}
+{{inject 'showReviews' (lang 'product.reviews.show_reviews')}}
+{{inject 'hideReviews' (lang 'product.reviews.hide_reviews')}}
+
+{{> components/common/page-header
+  list=breadcrumbs
+  page_title=product.title
+}}
+
+<div
+  class="container product-container product-area"
+  data-product-title="{{product.title}}"
+  data-product-id={{product.id}}
+  {{#if settings.data_tag_enabled}}
+    data-event-type="product"
+    data-entity-id="{{product.id}}"
+    data-name="{{product.title}}"
+    data-product-category="
+      {{#each product.category}}
+        {{#if @last}}
+          {{this}}
+        {{else}}
+          {{this}},
+        {{/if}}
+      {{/each}}"
+    data-product-brand="{{product.brand.name}}"
+    data-product-price="
+      {{#if product.price.with_tax}}
+        {{product.price.with_tax.value}}
+          {{else}}
+        {{product.price.without_tax.value}}
+      {{/if}}"
+    data-product-variant="single-product-option"
+  {{/if}}
+>
+  <div class="layout-module">
+    {{> components/common/shipping-messages}}
+    <div class="single-product-left">
+      {{> components/products/single-details
+        this
+      }}
+    </div>
+
+    <div class="single-product-right">
+      {{> components/products/single-image
+        this
+        class='single-product-images product-images'
+      }}
+    </div>
+  </div>
+</div>
+
+{{#if product.videos.list.length}}
+  <div class="container products-videos-container">
+    <section class="layout-module">
+      <h2 class="product-reviews-title section-title">
+        {{lang 'product.videos_section' total=product.videos.list.length}}
+      </h2>
+
+      <div
+        class="
+          video-grid-container
+          grid-masonry
+          {{#if product.videos.list.length '>' 2}}
+            layout-grid-of-3
+          {{/if}}
+        "
+      >
+        <div class="layout-grid-sizer"></div>
+        <div class="layout-grid-gutter"></div>
+
+        {{#each product.videos.list}}
+          <div class="layout-grid-item product-video-container">
+            <iframe
+              src="https://www.youtube.com/embed/{{id}}?rel=0&showinfo=0&autohide=1"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+        {{/each}}
+      </div>
+    </section>
+  </div>
+{{/if}}
+
+{{#if settings.show_product_reviews}}
+  <div class="container products-reviews-container" id="write_review">
+    {{> components/products/reviews
+      reviews=product.reviews
+      product_title=product.title
+    }}
+  </div>
+{{/if}}
+
+{{{region name="product_below_content"}}}
+
+{{#if product.related_products.length}}
+  <div class="container products-related-container">
+    {{> components/products/related
+      settings=../settings
+      grid=product.related_products
+      show_quick_shop=theme_settings.show_quick_shop
+      lazyload=theme_settings.lazyload_mode
+      fallback_size=theme_settings.thumb
+      default_image=theme_settings.default_image
+      price_range_display=theme_settings.price-range-display
+      retail_price_label=theme_settings.retail-price-label
+      non_sale_price_label=theme_settings.non-sale-price-label
+      sale_price_label=theme_settings.sale-price-label
+      price_label=theme_settings.price-label
+      list="Related Products"
+    }}
+  </div>
+{{/if}}
+
+{{> core/structured-data/product}}
+{{> core/structured-data/product-reviews}}
+
+{{/partial}}
+
+{{> layout/base}}

@@ -1,0 +1,29 @@
+
+<div class="faceted-search-filter">
+  <h3 class="sidebar-title">
+    {{lang 'sidebar_filters.sort.sort_by'}}
+    <span class="faceted-search-toggle is-open" data-default-visible>&ndash;</span>
+  </h3>
+
+  <form class="faceted-search-filter-list is-open" method="get" data-sort-by>
+    <div class="form-field">
+      <label class="form-label" for="sort">
+        <span class="select-wrapper">
+        <select class="form-input input-select" name="sort" id="sort">
+          <option value="featured" {{#if sort "==" "featured" }}selected{{/if}}>{{lang "sidebar_filters.sort.featured"}}</option>
+          <option value="newest" {{#if sort "==" "newest" }}selected{{/if}}>{{lang "sidebar_filters.sort.newest"}}</option>
+          <option value="bestselling" {{#if sort "==" "bestselling"}}selected{{/if}}>{{lang "sidebar_filters.sort.top_sellers"}}</option>
+          <option value="alphaasc" {{#if sort "==" "alphaasc"}}selected{{/if}}>{{lang "sidebar_filters.sort.alpha_asc"}}</option>
+          <option value="alphadesc" {{#if sort "==" "alphadesc"}}selected{{/if}}>{{lang "sidebar_filters.sort.alpha_desc"}}</option>
+          <option value="avgcustomerreview" {{#if sort "==" "avgcustomerreview"}}selected{{/if}}>{{lang "sidebar_filters.sort.rating"}}</option>
+          <option value="priceasc" {{#if sort "==" "priceasc"}}selected{{/if}}>{{lang "sidebar_filters.sort.price_asc"}}</option>
+          <option value="pricedesc" {{#if sort "==" "pricedesc"}}selected{{/if}}>{{lang "sidebar_filters.sort.price_desc"}}</option>
+          {{#if result_count}}
+            <option value="relevance" {{#if sort "==" "relevance"}}selected{{/if}}>{{lang "sidebar_filters.sort.relevance"}}</option>
+          {{/if}}
+        </select>
+        </span>
+      </label>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,17 @@
+.rss-item {
+  margin-top: $gutter * 3;
+
+  ul {
+    list-style: none;
+  }
+}
+
+.has-page-feed {
+  h5 {
+    margin-bottom: 0;
+  }
+
+  li:not(:first-child) {
+    margin-top: $gutter;
+  }
+}

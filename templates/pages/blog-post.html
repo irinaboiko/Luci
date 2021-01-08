@@ -1,0 +1,35 @@
+{{#partial "page"}}
+{{#if blog.post.thumbnail}}
+  {{> components/banner blog.post.thumbnail}}
+{{/if}}
+
+{{> components/common/page-header
+  list=breadcrumbs
+  page_title=blog.post.title
+}}
+
+<article class="blog-container">
+
+  <section class="layout-module">
+
+    <article class="blog-post-sidebar">
+      {{> components/blog/blog-sidebar}}
+    </article>
+
+    <div class="blog-post-text rte">
+      {{> components/blog/blog-post
+        blog.post
+        add-this=settings.add_this
+      }}
+    </div>
+
+  </section>
+
+
+</article>
+
+{{> core/structured-data/blog-post}}
+
+{{/partial}}
+
+{{> layout/base}}

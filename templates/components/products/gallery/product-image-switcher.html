@@ -1,0 +1,9 @@
+<div class="single-product-image-switcher-image">
+  {{> components/common/responsive-image
+    image=product.main_image
+    fallback_size='600w'
+    lazyload=lazyload
+    default_image=default_image
+    otherAttributes=data-product-main-image
+  }}
+</div>

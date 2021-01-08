@@ -1,0 +1,15 @@
+<li class="cart-total">
+  {{#if cart.coupons}}
+    {{#each cart.coupons}}
+      <div class="cart-total-coupon">
+        <span class="cart-total-label">
+          {{lang 'cart.coupon_codes.coupon_code_label' code=code}}
+          <a class="coupon-code-remove" href="{{remove_url}}">({{lang 'cart.coupon_codes.remove'}})</a>
+        </span>
+        <span class="cart-total-value">{{discount.formatted}}</span>
+      </div>
+    {{/each}}
+  {{/if}}
+
+  {{> components/cart/cart-coupon-input}}
+</li>

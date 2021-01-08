@@ -1,0 +1,3 @@
+{
+  "components/common/modal-close": "\n<a\n  href=\"#{{#if href}}{{href}}{{/if}}\"\n  class=\"modal-close {{#if class}}{{class}}{{/if}}\"\n  aria-label=\"{{lang 'common.close'}}\"\n  {{#if data}}{{data}}{{/if}}>\n  <i class=\"modal-close-icon icon-close\"></i>\n  <span class=\"modal-close-label\" aria-hidden=\"true\">{{lang 'common.close'}}</span>\n</a>\n"
+}

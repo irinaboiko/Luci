@@ -1,0 +1,43 @@
+<div class="navigation-overlay"></div>
+<div class="error-message-modal"></div>
+
+<div class="search-overlay">
+
+  {{{snippet 'forms_search'}}}
+
+  <form class="search-overlay-form" id="modal-search" action="{{urls.search}}">
+    <div class="form-field-inline">
+      <input
+        class="search-overlay-input"
+        name="search_query"
+        {{#if forms.search.query}}
+          value="{{{sanitize forms.search.query}}}"
+        {{/if}}
+        placeholder="{{lang 'search.quick_search.input_placeholder'}}"
+      >
+      <a class="button button-invisible-thin search-overlay-close" href="#modal-search">
+        <i class="icon-close"><span class="sr-only">{{lang 'common.close'}}</span></i>
+      </a>
+    </div>
+    <input class="button button-invisible search-overlay-submit" type="submit" value="{{lang 'search.label'}}">
+  </form>
+
+</div>
+
+{{#if page_type '==' 'product' }}
+  {{#if settings.show_product_reviews}}
+    <section class="write-review-wrapper {{#if product.reviews.messages.length "!==" 0}}visible{{/if}}" data-review-modal>
+      <span class="write-review-close">
+        <i class="icon-close"></i>
+      </span>
+      <div class="write-review-content">
+        {{> components/products/review-modal}}
+      </div>
+      <span class="page-spinner {{#if product.reviews.messages.length "!==" 0}}visible{{/if}}"></span>
+    </section>
+  {{/if}}
+{{/if}}
+
+<div class="loading-overlay">
+  <span class="page-spinner"></span>
+</div>

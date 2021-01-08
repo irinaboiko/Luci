@@ -1,0 +1,32 @@
+{{!
+  @param page_type - value to test against for conditional displays
+  @param list - list of breadcrumbs
+  @param description - should only be passed through on categories
+}}
+
+<div class="container page-header">
+  <header class="layout-module">
+    <h1 class="page-title">
+      {{#compare page_type 'search' operator='==='}}
+        {{#unless page_title}}
+            {{lang 'search.label'}}
+        {{else}}
+          {{{lang 'search.results.label' query=page_title}}}
+        {{/unless}}
+      {{else}}
+        {{limit page_title 200}}{{#if page_title.length '>' 200}}&hellip;{{/if}}
+      {{/compare}}
+    </h1>
+    {{#compare page_type 'product' operator='==='}}
+      {{> components/common/breadcrumbs list=breadcrumbs hide_last='true'}}
+    {{else}}
+      {{> components/common/breadcrumbs list=breadcrumbs}}
+    {{/compare}}
+  </header>
+
+  {{#if description}}
+  <div class="layout-module collection-description rte">
+    {{{category.description}}}
+  </div>
+  {{/if}}
+</div>

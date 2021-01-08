@@ -1,0 +1,23 @@
+.outer-banner-wrapper {
+  background-color: $banner-background-color;
+  font-family: $banner-font;
+  color: $banner-font-color;
+  
+  &.top-banner {
+    padding-top: $gutter*2;
+    padding-bottom: $gutter*2;
+    margin-bottom: $gutter*2;
+    border-bottom: 1px solid $border-color;
+  }
+
+  &.bottom-banner {
+    padding-top: $gutter*2;
+    padding-bottom: $gutter;
+    margin-top: $gutter;
+    border-top: 1px solid $border-color;
+
+    .template-category & {
+      margin-top: 0;
+    }
+  }
+}

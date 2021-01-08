@@ -1,0 +1,4 @@
+{
+  "components/blog/blog-sidebar": "{{!-- TODO: Replace with RTE content\n  <h3 class=\"sidebar-title\">{{lang 'blog.label'}}</h3>\n  <div class=\"blog-sidebar-text\"></div>\n--}}\n\n{{!-- TODO: Replace with Tag cloud when it becomes visible --}}\n<h3 class=\"sidebar-title\">{{lang 'blog.sidebar_title'}}</h3>\n<ul class=\"sidebar-listing\">\n  {{#each pages}}\n    {{>components/page/sidebar-link}}\n  {{/each}}\n</ul>\n",
+  "components/page/sidebar-link": "\n<li>\n  <a href=\"{{url}}\" class=\"sidebar-link\">{{name}}</a>\n</li>\n"
+}

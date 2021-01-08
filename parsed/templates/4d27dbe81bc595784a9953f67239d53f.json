@@ -1,0 +1,3 @@
+{
+  "components/faceted-search/facets-toggle": "\n<button class=\"faceted-search-mobile-toggle\" type=\"button\" data-faceted-search-toggle>\n  {{lang 'collections.add_filters'}}\n  <span class=\"faceted-search-mobile-toggle-icon\">\n    <svg class=\"facet-title-icon\"><use xlink:href=\"#icon-plus\"></use></svg>\n  </span>\n</button>\n"
+}

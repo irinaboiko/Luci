@@ -1,0 +1,65 @@
+body {
+  color: $body-color;
+  background-color: $body-background-color;
+
+  &.modal-locked,
+  &.scroll-locked {
+    overflow: hidden;
+  }
+}
+
+.main-header {
+  position: absolute;
+  top: 0;
+  z-index: map-get($zindex, header);
+  width: 100%;
+  min-height: $header-height-mobile;
+  transition: top 1s $ease-out-quad;
+
+  @include breakpoint(l-up) {
+    .alternate-header & {
+      height: $header-height-mobile;
+      max-height: $header-height-mobile;
+    }
+  }
+
+}
+
+.main-content {
+  // scss-lint:disable DeclarationOrder
+  position: relative;
+  top: 0;
+  z-index: map-get($zindex, content);
+  margin-top: $header-height-mobile;
+
+  .has-carousel & {
+    margin-top: 0;
+  }
+
+  @include breakpoint(l-up) {
+    margin-top: $header-height-desktop;
+
+    .has-carousel & {
+      margin-top: 0;
+    }
+  }
+
+  @include breakpoint(print) {
+    margin-top: 0;
+  }
+}
+
+.page-header {
+  @extend %page-header;
+}
+
+.main-footer {
+  z-index: map-get($zindex, footer);
+  padding-bottom: $gutter * 2;
+}
+
+.layout-module {
+  @extend %wrapper;
+  @extend %clearfix;
+  position: relative;
+}

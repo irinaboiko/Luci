@@ -1,0 +1,104 @@
+{{#partial "page"}}
+{{inject 'comparisons' comparisons}}
+
+{{> components/common/page-header list=breadcrumbs page_title=(lang 'compare.heading' num_compare=comparisons.length)}}
+
+<article class="compare-container">
+
+  <section class="layout-module compare-layout-{{comparisons.length}}"
+    {{#if settings.data_tag_enabled}}
+      data-list-name="Product Compare"
+      data-event-type="list"
+    {{/if}}
+    data-product-compare>
+
+    <div class="compare-item-section">
+      <div class="compare-grid-row compare-row-product-collapse">
+        {{#each comparisons}}
+          <div class="compare-grid-item"
+            data-product-id="{{id}}"
+            data-product-name="{{name}}"
+            >
+            {{#if ../comparisons.length '>' 2}}
+              <a class='compare-item-remove' href="{{remove_url}}">
+                <i class='icon-remove'></i>
+              </a>
+            {{/if}}
+
+            {{> components/compare/compare-item
+              settings=../settings
+              show_quick_shop=false
+              lazyload=../theme_settings.lazyload_mode
+              default_image=../theme_settings.default_image
+              price_range_display=../theme_settings.price_range_display
+              retail_price_label=../theme_settings.retail-price-label
+              non_sale_price_label=../theme_settings.non-sale-price-label
+              sale_price_label=../theme_settings.sale-price-label
+              price_label=../theme_settings.price-label
+            }}
+          </div>
+        {{/each}}
+      </div>
+    </div>
+
+    {{! Description }}
+    <div class="compare-item-section">
+      <div class="compare-title-row">
+        <span class="compare-item-section-title">{{lang 'compare.description'}}</span>
+      </div>
+
+      <div class="compare-grid-row compare-row-information-collapse">
+        {{#each comparisons}}
+          <div class="compare-grid-item {{#unless summary}}compare-grid-empty{{/unless}}" data-product-name="{{name}}">
+            {{nl2br summary}}
+          </div>
+        {{/each}}
+      </div>
+    </div>
+
+    {{! Product Rating }}
+    {{#if ../settings.show_product_rating}}
+      <div class="compare-item-section">
+        <div class="compare-title-row">
+          <span class="compare-item-section-title">{{lang 'compare.rating'}}</span>
+        </div>
+
+        <div class="compare-grid-row compare-row-information-collapse">
+          {{#each comparisons}}
+            <div class="compare-grid-item" data-product-name="{{name}}">
+              {{> components/products/ratings rating=rating}}
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    {{/if}}
+
+    {{! Custom Fields }}
+    <div class="compare-item-section">
+      <div class="compare-title-row">
+        <span class="compare-item-section-title">{{lang 'compare.additional_information'}}</span>
+      </div>
+
+      <div class="compare-grid-row compare-row-information-collapse">
+        {{#each comparisons}}
+          <div class="compare-grid-item {{#unless custom_fields}}compare-grid-empty{{/unless}}" data-product-name="{{name}}">
+            {{#if custom_fields}}
+              <dl class="compare-item-details">
+                {{#each custom_fields}}
+                  <dt class="compare-item-details-name">{{name}}</dt>
+                  <dd class="compare-item-details-value">{{{value}}}</dd>
+                {{/each}}
+              </dl>
+            {{/if}}
+          </div>
+        {{/each}}
+      </div>
+    </div>
+
+  </section>
+
+</article>
+
+{{/partial}}
+
+{{> layout/base}}

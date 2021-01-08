@@ -1,0 +1,23 @@
+
+<nav class="main-header-menu">
+  <ul class="nav-menu navigation-tier navigation-tier-primary" data-navigation-tier-primary>
+    <li class="has-slide-out header-navigation-item navigation-item-primary">
+      <a class="navigation-link-primary" href="#header-pane-category" data-slideout-menu="header-pane-category">{{lang 'product.label'}}</a>
+    </li>
+    {{#if shop_by_brand}}
+      <li class="has-slide-out header-navigation-item navigation-item-primary">
+        <a class="navigation-link-primary" href="#header-pane-brand" data-slideout-menu="header-pane-brand">{{lang 'brands.label'}}</a>
+      </li>
+    {{/if}}
+    <li class="has-slide-out header-navigation-item navigation-item-primary">
+      <a class="navigation-link-primary" href="#header-pane-pages" data-slideout-menu="header-pane-pages">{{lang 'page.label'}}</a>
+    </li>
+    <li class="header-navigation-item navigation-item-primary">
+      <a class="navigation-link-primary toggle-search" href="#modal-search" class="toggle-search">{{lang 'search.label'}}</a>
+    </li>
+    <li class="has-slide-out header-navigation-item navigation-item-primary">
+      <a class="navigation-link-primary" href="#header-cart-pane" data-slideout-menu="header-cart-pane">{{lang 'cart.label'}}</a>
+    </li>
+  </ul>
+</nav>
+

@@ -1,0 +1,21 @@
+{{#if shipping_messages}}
+  {{#each shipping_messages}}
+    {{> core/alerts/alert-info message=message}}
+  {{/each}}
+{{/if}}
+
+{{#if cart.status_messages}}
+  {{#each cart.status_messages}}
+    {{#if type '===' 0}}
+      {{> core/alerts/alert-error message=message}}
+    {{else}}
+      {{> core/alerts/alert-info message=message}}
+    {{/if}}
+  {{/each}}
+{{/if}}
+
+{{#if product.shipping_messages}}
+  {{#each product.shipping_messages}}
+    {{> core/alerts/alert-info message=message}}
+  {{/each}}
+{{/if}}

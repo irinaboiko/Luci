@@ -1,0 +1,31 @@
+.coupon-code-form {
+  position: relative;
+
+  .coupon-entry-field {
+    margin-bottom: $form-gutter/2;
+
+    @include breakpoint(m-only) {
+      float: left;
+    }
+  }
+
+  .coupon-entry-submit {
+    @include breakpoint(m-only) {
+      float: left;
+      margin-left: $form-gutter;
+    }
+
+    .button {
+      line-height: 16px;
+    }
+  }
+}
+
+.cart-total-coupon {
+  vertical-align: middle;
+}
+
+.coupon-code-remove {
+  @extend %meta-text-treatment;
+  font-size: 12px;
+}

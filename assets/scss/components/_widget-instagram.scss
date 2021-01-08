@@ -1,0 +1,21 @@
+.social-widget-instagram {
+  margin-top: $gutter*2;
+}
+
+.widget-instagram {
+
+  .instagram-photos {
+    @include grid-row();
+
+    a {
+      @include breakpoint(s-only) {
+        @include grid-columns(6 of 12);
+      }
+
+      @include breakpoint(m-up) {
+        @include grid-columns(3 of 12);
+      }
+
+    }
+  }
+}

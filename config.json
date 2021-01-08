@@ -1,0 +1,787 @@
+{
+  "name": "Fortune Custom",
+  "version": "2.5.1",
+  "meta": {
+    "price": 0,
+    "documentation_url": "https://support.pixelunion.net/hc/en-us/articles/360022231134-Fortune-Theme-Manual",
+    "composed_image": "fortune-composed.png",
+    "author_name": "Pixel Union",
+    "author_email": "support@pixelunion.net",
+    "author_support_url": "http://support.pixelunion.net/",
+    "features": [
+      "fully_responsive",
+      "masonry_design",
+      "frontpage_slideshow",
+      "quick_add_to_cart",
+      "switchable_product_view",
+      "complex_search_filtering",
+      "customizable_product_selector",
+      "cart_suggested_products",
+      "free_customer_support",
+      "free_theme_upgrades",
+      "high_res_product_images",
+      "product_filtering",
+      "advanced_quick_view",
+      "product_showcase",
+      "persistent_cart",
+      "one_page_check_out",
+      "product_videos",
+      "customized_checkout",
+      "google_amp",
+      "account_payment_methods",
+      "csrf_protection",
+      "enhanced_ecommerce",
+      "pixel_pop"
+    ]
+  },
+  "css_compiler": "scss",
+  "autoprefixer_cascade": true,
+  "autoprefixer_browsers": [
+    "> 5% in US"
+  ],
+  "resources": {
+    "cart": true,
+    "checkout": true,
+    "brands": true,
+    "shop_by_brand": {
+      "limit": 11
+    }
+  },
+  "settings": {
+    "apple-pay-style": "black",
+    "payment-visa": true,
+    "payment-mastercard": true,
+    "payment-american-express": true,
+    "payment-discover": false,
+    "payment-paypal": false,
+    "payment-apple-pay": false,
+    "theme-credits": true,
+    "product-slider-isolate-images": false,
+    "product-purchase-disable-ajax": false,
+    "product-display-dimensions": true,
+    "enable-carousel-border": false,
+    "hide-parent-menu-items": false,
+    "product-results-per-page": 9,
+    "button-secondary-background-color": "#ffffff",
+    "carousel-font-color": "#6f6f6f",
+    "homepage-show-popular-products": 0,
+    "default_image": "/assets/img/no-image.svg",
+    "main-nav-background-color": "#ffffff",
+    "always-show-main-nav-background-color": "true",
+    "enable-main-nav-background-color": "true",
+    "crop-carousel-images": "cover",
+    "brand-count": 12,
+    "screen-sizes": {
+      "small": {
+        "start": 0,
+        "end": 568
+      },
+      "medium": {
+        "start": 569,
+        "end": 850
+      },
+      "large": {
+        "start": 851,
+        "end": 1199
+      },
+      "xlarge": {
+        "start": 1200,
+        "end": 1400
+      },
+      "xxlarge": {
+        "start": 1401,
+        "end": 99999
+      }
+    },
+    "_images": {
+      "account-product-thumb": {
+        "width": 440,
+        "height": 600
+      },
+      "account-logo": {
+        "width": 500,
+        "height": 200
+      },
+      "product-picklist-thumb": {
+        "width": 80,
+        "height": 200
+      },
+      "70x70": {
+        "width": 70,
+        "height": 70
+      },
+      "300x300": {
+        "width": 300,
+        "height": 300
+      },
+      "300x600": {
+        "width": 300,
+        "height": 600
+      },
+      "600x600": {
+        "width": 600,
+        "height": 600
+      },
+      "600x1200": {
+        "width": 600,
+        "height": 1200
+      },
+      "800x400": {
+        "width": 800,
+        "height": 400
+      },
+      "1200x1200": {
+        "width": 1200,
+        "height": 1200
+      },
+      "1500x360": {
+        "width": 1500,
+        "height": 360
+      },
+      "logo": {
+        "width": 250,
+        "height": 100
+      },
+      "account_product_thumbnail": {
+        "width": 100,
+        "height": 100
+      },
+      "gallery": {
+        "width": 500,
+        "height": 500
+      },
+      "thumb": {
+        "width": 100,
+        "height": 100
+      },
+      "amp-product-image": {
+        "width": 500,
+        "height": 500
+      },
+      "zoom": {
+        "width": 2048,
+        "height": 2048
+      }
+    },
+    "lazyload_mode": "lazyload+lqip",
+    "optimizedCheckout-header-backgroundColor": "#f7f7f7",
+    "optimizedCheckout-show-backgroundImage": false,
+    "optimizedCheckout-backgroundImage": "",
+    "optimizedCheckout-backgroundImage-size": "1000x400",
+    "optimizedCheckout-show-logo": "none",
+    "optimizedCheckout-logo": "",
+    "optimizedCheckout-logo-size": "250x100",
+    "optimizedCheckout-logo-position": "left",
+    "optimizedCheckout-headingPrimary-color": "#2d2d2d",
+    "optimizedCheckout-headingPrimary-font": "Google_Montserrat_400",
+    "optimizedCheckout-headingSecondary-color": "#2d2d2d",
+    "optimizedCheckout-headingSecondary-font": "Google_Montserrat_400",
+    "optimizedCheckout-body-backgroundColor": "#ffffff",
+    "optimizedCheckout-contentPrimary-color": "#4f4f4f",
+    "optimizedCheckout-contentPrimary-font": "Google_Karla_400",
+    "optimizedCheckout-contentSecondary-color": "#989898",
+    "optimizedCheckout-contentSecondary-font": "Google_Karla_400",
+    "optimizedCheckout-buttonPrimary-font": "Google_Karla_400",
+    "optimizedCheckout-buttonPrimary-color": "#ffffff",
+    "optimizedCheckout-buttonPrimary-colorHover": "#ffffff",
+    "optimizedCheckout-buttonPrimary-backgroundColor": "#454545",
+    "optimizedCheckout-buttonPrimary-backgroundColorHover": "#666666",
+    "optimizedCheckout-buttonPrimary-borderColor": "#454545",
+    "optimizedCheckout-buttonPrimary-borderColorHover": "#666666",
+    "optimizedCheckout-buttonSecondary-font": "Google_Karla_400",
+    "optimizedCheckout-buttonSecondary-color": "#4f4f4f",
+    "optimizedCheckout-buttonSecondary-backgroundColor": "#ffffff",
+    "optimizedCheckout-buttonSecondary-borderColor": "#dfdfdf",
+    "optimizedCheckout-link-color": "#4496f6",
+    "optimizedCheckout-link-font": "Google_Karla_400",
+    "optimizedCheckout-discountBanner-backgroundColor": "#f5f5f5",
+    "optimizedCheckout-discountBanner-textColor": "#333333",
+    "optimizedCheckout-discountBanner-iconColor": "#333333",
+    "optimizedCheckout-orderSummary-backgroundColor": "#ffffff",
+    "optimizedCheckout-step-backgroundColor": "#4f4f4f",
+    "optimizedCheckout-step-textColor": "#ffffff",
+    "optimizedCheckout-formField-backgroundColor": "white",
+    "optimizedCheckout-formField-borderColor": "#989898",
+    "geotrust-ssl-common-name": "",
+    "geotrust-ssl-seal-size": "M",
+    "paymentbuttons-paypal-layout": "horizontal",
+    "paymentbuttons-paypal-color": "gold",
+    "paymentbuttons-paypal-shape": "pill",
+    "paymentbuttons-paypal-size": "small",
+    "paymentbuttons-paypal-label": "checkout",
+    "paymentbuttons-paypal-tagline": true,
+    "paymentbuttons-paypal-fundingicons": false,
+    "price_range_display": "both",
+    "sale-badges": true,
+    "sale-price-label": "Now:",
+    "non-sale-price-label": "Was:",
+    "retail-price-label": "MSRP:",
+    "price-label": "",
+    "supported_card_type_icons": [
+      "american_express",
+      "diners",
+      "discover",
+      "mastercard",
+      "visa"
+    ]
+  },
+  "variations": [
+    {
+      "name": "Minimal",
+      "id": "minimal",
+      "meta": {
+        "desktop_screenshot": "fortune-minimal-desktop.png",
+        "mobile_screenshot": "fortune-minimal-mobile.png",
+        "description": "Fortune is a standout theme for cutting-edge online stores. Customers will be transfixed by its striking hero area, which puts your imagery on full display, along with its sleek navigation and unique product grid. Ideal for small-to-medium-sized catalogs, Fortune has everything you need to command and convert shoppers.",
+        "demo_url": "http://fortune-minimal-demo.mybigcommerce.com",
+        "documentation_url": "http://support.pixelunion.net/category/180-fortune",
+        "optimized_for": [
+          "multi_purpose",
+          "chrome_firefox_safari_ie_10",
+          "mobile_tablet_desktop",
+          "sales_discounts",
+          "mobile",
+          "home_furnishings"
+        ],
+        "industries": [
+          "home_garden"
+        ],
+        "features": [
+          "fully_responsive",
+          "masonry_design",
+          "frontpage_slideshow",
+          "quick_add_to_cart",
+          "switchable_product_view",
+          "complex_search_filtering",
+          "customizable_product_selector",
+          "cart_suggested_products",
+          "free_customer_support",
+          "free_theme_upgrades",
+          "high_res_product_images",
+          "product_filtering",
+          "advanced_quick_view",
+          "product_showcase",
+          "persistent_cart",
+          "one_page_check_out",
+          "product_videos",
+          "customized_checkout",
+          "google_amp",
+          "pixel_pop"
+        ]
+      },
+      "settings": {
+        "color-primary": "#6f6f6f",
+        "color-primary-dark": "#393939",
+        "color-primary-light": "#eeeeee",
+        "body-background-color": "#ffffff",
+        "body-font": "Google_Karla",
+        "body-font-color": "#6f6f6f",
+        "heading-font": "Google_Roboto+Condensed_400",
+        "heading-font-color": "#393939",
+        "meta-font": "Google_Roboto+Condensed_400",
+        "meta-font-color": "#6f6f6f",
+        "button-font": "Google_Karla_400",
+        "button-font-color": "#ffffff",
+        "button-background-color": "#393939",
+        "button-border-color": "#393939",
+        "button-secondary-font-color": "#393939",
+        "button-secondary-border-color": "#393939",
+        "product-item-title-color": "#393939",
+        "product-item-title": "Google_Roboto+Condensed_400",
+        "product-grid-layout": "masonry-grid",
+        "product-item-inside-alignment": "left",
+        "product-item-actions-color": "#eeeeee",
+        "product-item-actions-background-color": "#000000",
+        "section-title-color": "#393939",
+        "section-title-alignment": "left",
+        "accent-color": "#393939",
+        "general-link-color": "#393939",
+        "border-color": "#dadada",
+        "color-success": "#42b22a",
+        "color-neutral": "#6f6f6f",
+        "color-error": "#d93838",
+        "footer-nav-background": "#ffffff",
+        "footer-nav-font-color": "#6f6f6f",
+        "carousel-height-mobile": 300,
+        "carousel-height-desktop": 600,
+        "carousel-background-color": "#ffffff",
+        "carousel-dot-color": "#6f6f6f",
+        "store-title-font": "Google_Roboto+Condensed_700",
+        "store-title-font-color": "#393939",
+        "main-nav-background-color": "#ffffff",
+        "main-nav-color": "#393939",
+        "always-show-main-nav-background-color": "false",
+        "enable-main-nav-background-color": "true",
+        "banner-background": "#ffffff",
+        "banner-font": "Google_Roboto+Condensed",
+        "banner-font-color": "#6f6f6f",
+        "homepage-show-new-products": 0,
+        "homepage-show-featured-products": 10,
+        "homepage-show-show-large-first": true,
+        "home-product-grid-count": 4,
+        "show_quick_shop": true,
+        "enable-carousel-border": true
+      }
+    },
+    {
+      "name": "Bright",
+      "id": "bright",
+      "meta": {
+        "desktop_screenshot": "fortune-bright-desktop.png",
+        "mobile_screenshot": "fortune-bright-mobile.png",
+        "description": "Fortune is a standout theme for cutting-edge online stores. Customers will be transfixed by its striking hero area, which puts your imagery on full display, along with its sleek navigation and unique product grid. Ideal for small-to-medium-sized catalogs, Fortune has everything you need to command and convert shoppers.",
+        "demo_url": "http://fortune-bright-demo.mybigcommerce.com",
+        "documentation_url": "http://support.pixelunion.net/category/180-fortune",
+        "optimized_for": [
+          "multi_purpose",
+          "chrome_firefox_safari_ie_10",
+          "mobile_tablet_desktop",
+          "sales_discounts",
+          "mobile"
+        ],
+        "industries": [
+          "electronics_computers"
+        ],
+        "features": [
+          "fully_responsive",
+          "masonry_design",
+          "frontpage_slideshow",
+          "quick_add_to_cart",
+          "switchable_product_view",
+          "complex_search_filtering",
+          "customizable_product_selector",
+          "cart_suggested_products",
+          "free_customer_support",
+          "free_theme_upgrades",
+          "high_res_product_images",
+          "product_filtering",
+          "advanced_quick_view",
+          "product_showcase",
+          "persistent_cart",
+          "one_page_check_out",
+          "product_videos",
+          "customized_checkout",
+          "google_amp",
+          "pixel_pop"
+        ]
+      },
+      "settings": {
+        "color-primary": "#5aade9",
+        "color-primary-dark": "#393939",
+        "color-primary-light": "#eeeeee",
+        "body-background-color": "#ffffff",
+        "body-font": "Google_Open+Sans",
+        "body-font-color": "#6f6f6f",
+        "heading-font": "Google_Open+Sans_600",
+        "heading-font-color": "#3c7299",
+        "meta-font": "Google_Open+Sans_400",
+        "meta-font-color": "#6f6f6f",
+        "button-font": "Google_Open+Sans_600",
+        "button-font-color": "#ffffff",
+        "button-background-color": "#5aade9",
+        "button-border-color": "#5aade9",
+        "button-secondary-font-color": "#5aade9",
+        "button-secondary-border-color": "#5aade9",
+        "product-item-title": "Google_Open+Sans_600",
+        "product-item-title-color": "#5aade9",
+        "product-grid-layout": "masonry-grid",
+        "product-item-inside-alignment": "center",
+        "product-item-actions-color": "#ffffff",
+        "product-item-actions-background-color": "#5aade9",
+        "section-title-color": "#3c7299",
+        "section-title-alignment": "center",
+        "accent-color": "#3c7299",
+        "general-link-color": "#5aade9",
+        "border-color": "#dadada",
+        "color-success": "#42b22a",
+        "color-neutral": "#6f6f6f",
+        "color-error": "#d93838",
+        "footer-nav-background": "#5aade9",
+        "footer-nav-font-color": "#ffffff",
+        "carousel-font-color": "#ffffff",
+        "carousel-height-mobile": 300,
+        "carousel-height-desktop": 800,
+        "carousel-background-color": "#5aade9",
+        "carousel-dot-color": "#ffffff",
+        "store-title-font": "Google_Open+Sans_600",
+        "store-title-font-color": "#ffffff",
+        "main-nav-background-color": "#5aade9",
+        "main-nav-color": "#ffffff",
+        "always-show-main-nav-background-color": "true",
+        "enable-main-nav-background-color": "true",
+        "banner-background": "#3c7299",
+        "banner-font": "Google_Open+Sans_400",
+        "banner-font-color": "#ffffff",
+        "homepage-show-new-products": 0,
+        "homepage-show-featured-products": 6,
+        "homepage-show-show-large-first": false,
+        "home-product-grid-count": 4,
+        "show_quick_shop": true
+      }
+    },
+    {
+      "name": "Contrast",
+      "id": "contrast",
+      "meta": {
+        "desktop_screenshot": "fortune-contrast-desktop.png",
+        "mobile_screenshot": "fortune-contrast-mobile.png",
+        "description": "Fortune is a standout theme for cutting-edge online stores. Customers will be transfixed by its striking hero area, which puts your imagery on full display, along with its sleek navigation and unique product grid. Ideal for small-to-medium-sized catalogs, Fortune has everything you need to command and convert shoppers.",
+        "demo_url": "http://fortune-contrast-demo.mybigcommerce.com",
+        "documentation_url": "http://support.pixelunion.net/category/180-fortune",
+        "optimized_for": [
+          "multi_purpose",
+          "chrome_firefox_safari_ie_10",
+          "mobile_tablet_desktop",
+          "sales_discounts",
+          "mobile"
+        ],
+        "industries": [
+          "arts_crafts"
+        ],
+        "features": [
+          "fully_responsive",
+          "masonry_design",
+          "frontpage_slideshow",
+          "quick_add_to_cart",
+          "switchable_product_view",
+          "complex_search_filtering",
+          "customizable_product_selector",
+          "cart_suggested_products",
+          "free_customer_support",
+          "free_theme_upgrades",
+          "high_res_product_images",
+          "product_filtering",
+          "advanced_quick_view",
+          "product_showcase",
+          "persistent_cart",
+          "one_page_check_out",
+          "product_videos",
+          "customized_checkout",
+          "google_amp",
+          "pixel_pop"
+        ]
+      },
+      "settings": {
+        "color-primary": "#5aade9",
+        "color-primary-dark": "#393939",
+        "color-primary-light": "#bbbbbb",
+        "body-background-color": "#ffffff",
+        "body-font": "Google_PT+Sans",
+        "body-font-color": "#747474",
+        "heading-font": "Google_PT+Sans+Narrow_700",
+        "heading-font-color": "#393939",
+        "meta-font": "Google_PT+Sans+Narrow_400",
+        "meta-font-color": "#6f6f6f",
+        "carousel-font-color": "#ffffff",
+        "button-font": "Google_PT+Sans+Narrow_600",
+        "button-font-color": "#ebebeb",
+        "button-background-color": "#393939",
+        "button-border-color": "#393939",
+        "button-secondary-font-color": "#393939",
+        "button-secondary-border-color": "#393939",
+        "product-item-title-color": "#747474",
+        "product-item-title": "Google_PT+Sans+Narrow_700",
+        "product-grid-layout": "masonry-grid",
+        "product-item-inside-alignment": "left",
+        "product-item-actions-color": "#bbbbbb",
+        "product-item-actions-background-color": "#282828",
+        "section-title-color": "#393939",
+        "section-title-alignment": "left",
+        "accent-color": "#3c7299",
+        "general-link-color": "#393939",
+        "border-color": "#dadada",
+        "color-success": "#42b22a",
+        "color-neutral": "#282828",
+        "color-error": "#d93838",
+        "footer-nav-background": "#282828",
+        "footer-nav-font-color": "#ffffff",
+        "carousel-height-mobile": 300,
+        "carousel-height-desktop": 800,
+        "carousel-background-color": "#282828",
+        "carousel-dot-color": "#ffffff",
+        "store-title-font": "Google_PT+Sans_700",
+        "store-title-font-color": "#282828",
+        "main-nav-background-color": "#ffffff",
+        "main-nav-color": "#282828",
+        "always-show-main-nav-background-color": "true",
+        "enable-main-nav-background-color": "true",
+        "banner-background": "#bbbbbb",
+        "banner-font": "Google_PT+Sans",
+        "banner-font-color": "#ffffff",
+        "homepage-show-new-products": 0,
+        "homepage-show-featured-products": 10,
+        "homepage-show-show-large-first": true,
+        "home-product-grid-count": 4,
+        "show_quick_shop": true
+      }
+    },
+    {
+      "name": "Highlight",
+      "id": "highlight",
+      "meta": {
+        "desktop_screenshot": "fortune-highlight-desktop.png",
+        "mobile_screenshot": "fortune-highlight-mobile.png",
+        "description": "Fortune is a standout theme for cutting-edge online stores. Customers will be transfixed by its striking hero area, which puts your imagery on full display, along with its sleek navigation and unique product grid. Ideal for small-to-medium-sized catalogs, Fortune has everything you need to command and convert shoppers.",
+        "demo_url": "http://fortune-highlight-demo.mybigcommerce.com",
+        "documentation_url": "http://support.pixelunion.net/category/180-fortune",
+        "optimized_for": [
+          "multi_purpose",
+          "chrome_firefox_safari_ie_10",
+          "mobile_tablet_desktop",
+          "sales_discounts",
+          "mobile"
+        ],
+        "industries": [
+          "gifts_specialty"
+        ],
+        "features": [
+          "fully_responsive",
+          "masonry_design",
+          "frontpage_slideshow",
+          "quick_add_to_cart",
+          "switchable_product_view",
+          "complex_search_filtering",
+          "customizable_product_selector",
+          "cart_suggested_products",
+          "free_customer_support",
+          "free_theme_upgrades",
+          "high_res_product_images",
+          "product_filtering",
+          "advanced_quick_view",
+          "product_showcase",
+          "persistent_cart",
+          "one_page_check_out",
+          "product_videos",
+          "customized_checkout",
+          "google_amp",
+          "pixel_pop"
+        ]
+      },
+      "settings": {
+        "apple-pay-style": "black",
+        "payment-visa": true,
+        "payment-mastercard": true,
+        "payment-american-express": true,
+        "payment-discover": false,
+        "payment-paypal": false,
+        "payment-apple-pay": false,
+        "theme-credits": true,
+        "product-slider-isolate-images": false,
+        "product-purchase-disable-ajax": false,
+        "product-display-dimensions": true,
+        "enable-carousel-border": false,
+        "hide-parent-menu-items": false,
+        "product-results-per-page": 9,
+        "button-secondary-background-color": "#ffffff",
+        "carousel-font-color": "#47008E",
+        "homepage-show-popular-products": 0,
+        "default_image": "/assets/img/no-image.svg",
+        "main-nav-background-color": "#ffffff",
+        "always-show-main-nav-background-color": "true",
+        "enable-main-nav-background-color": "true",
+        "crop-carousel-images": "cover",
+        "brand-count": 12,
+        "screen-sizes": {
+          "small": {
+            "start": 0,
+            "end": 568
+          },
+          "medium": {
+            "start": 569,
+            "end": 850
+          },
+          "large": {
+            "start": 851,
+            "end": 1199
+          },
+          "xlarge": {
+            "start": 1200,
+            "end": 1400
+          },
+          "xxlarge": {
+            "start": 1401,
+            "end": 99999
+          }
+        },
+        "_images": {
+          "account-product-thumb": {
+            "width": 440,
+            "height": 600
+          },
+          "account-logo": {
+            "width": 500,
+            "height": 200
+          },
+          "product-picklist-thumb": {
+            "width": 80,
+            "height": 200
+          },
+          "70x70": {
+            "width": 70,
+            "height": 70
+          },
+          "300x300": {
+            "width": 300,
+            "height": 300
+          },
+          "300x600": {
+            "width": 300,
+            "height": 600
+          },
+          "600x600": {
+            "width": 600,
+            "height": 600
+          },
+          "600x1200": {
+            "width": 600,
+            "height": 1200
+          },
+          "800x400": {
+            "width": 800,
+            "height": 400
+          },
+          "1200x1200": {
+            "width": 1200,
+            "height": 1200
+          },
+          "1500x360": {
+            "width": 1500,
+            "height": 360
+          },
+          "logo": {
+            "width": 250,
+            "height": 100
+          },
+          "account_product_thumbnail": {
+            "width": 100,
+            "height": 100
+          },
+          "gallery": {
+            "width": 500,
+            "height": 500
+          },
+          "thumb": {
+            "width": 100,
+            "height": 100
+          },
+          "amp-product-image": {
+            "width": 500,
+            "height": 500
+          },
+          "zoom": {
+            "width": 2048,
+            "height": 2048
+          }
+        },
+        "lazyload_mode": "lazyload+lqip",
+        "optimizedCheckout-header-backgroundColor": "#f7f7f7",
+        "optimizedCheckout-show-backgroundImage": false,
+        "optimizedCheckout-backgroundImage": "",
+        "optimizedCheckout-backgroundImage-size": "1000x400",
+        "optimizedCheckout-show-logo": "none",
+        "optimizedCheckout-logo": "",
+        "optimizedCheckout-logo-size": "250x100",
+        "optimizedCheckout-logo-position": "left",
+        "optimizedCheckout-headingPrimary-color": "#2d2d2d",
+        "optimizedCheckout-headingPrimary-font": "Google_Montserrat_400",
+        "optimizedCheckout-headingSecondary-color": "#2d2d2d",
+        "optimizedCheckout-headingSecondary-font": "Google_Montserrat_400",
+        "optimizedCheckout-body-backgroundColor": "#ffffff",
+        "optimizedCheckout-contentPrimary-color": "#4f4f4f",
+        "optimizedCheckout-contentPrimary-font": "Google_Karla_400",
+        "optimizedCheckout-contentSecondary-color": "#989898",
+        "optimizedCheckout-contentSecondary-font": "Google_Karla_400",
+        "optimizedCheckout-buttonPrimary-font": "Google_Karla_400",
+        "optimizedCheckout-buttonPrimary-color": "#ffffff",
+        "optimizedCheckout-buttonPrimary-colorHover": "#ffffff",
+        "optimizedCheckout-buttonPrimary-backgroundColor": "#454545",
+        "optimizedCheckout-buttonPrimary-backgroundColorHover": "#666666",
+        "optimizedCheckout-buttonPrimary-borderColor": "#454545",
+        "optimizedCheckout-buttonPrimary-borderColorHover": "#666666",
+        "optimizedCheckout-buttonSecondary-font": "Google_Karla_400",
+        "optimizedCheckout-buttonSecondary-color": "#4f4f4f",
+        "optimizedCheckout-buttonSecondary-backgroundColor": "#ffffff",
+        "optimizedCheckout-buttonSecondary-borderColor": "#dfdfdf",
+        "optimizedCheckout-link-color": "#4496f6",
+        "optimizedCheckout-link-font": "Google_Karla_400",
+        "optimizedCheckout-discountBanner-backgroundColor": "#f5f5f5",
+        "optimizedCheckout-discountBanner-textColor": "#333333",
+        "optimizedCheckout-discountBanner-iconColor": "#333333",
+        "optimizedCheckout-orderSummary-backgroundColor": "#ffffff",
+        "optimizedCheckout-step-backgroundColor": "#4f4f4f",
+        "optimizedCheckout-step-textColor": "#ffffff",
+        "optimizedCheckout-formField-backgroundColor": "white",
+        "optimizedCheckout-formField-borderColor": "#989898",
+        "geotrust-ssl-common-name": "",
+        "geotrust-ssl-seal-size": "M",
+        "paymentbuttons-paypal-layout": "horizontal",
+        "paymentbuttons-paypal-color": "gold",
+        "paymentbuttons-paypal-shape": "pill",
+        "paymentbuttons-paypal-size": "small",
+        "paymentbuttons-paypal-label": "checkout",
+        "paymentbuttons-paypal-tagline": true,
+        "paymentbuttons-paypal-fundingicons": false,
+        "price_range_display": "both",
+        "sale-badges": true,
+        "sale-price-label": "Now:",
+        "non-sale-price-label": "Was:",
+        "retail-price-label": "MSRP:",
+        "price-label": "",
+        "supported_card_type_icons": [
+          "american_express",
+          "diners",
+          "discover",
+          "mastercard",
+          "visa"
+        ],
+        "color-primary": "#fff990",
+        "color-primary-dark": "#393939",
+        "color-primary-light": "#eeeeee",
+        "body-background-color": "#ffffff",
+        "body-font": "Google_Source+Sans+Pro",
+        "body-font-color": "#47008E",
+        "heading-font": "Google_PT+Sans_700",
+        "heading-font-color": "#47008E",
+        "store-title-font": "Google_PT+Sans_700",
+        "store-title-font-color": "#47008E",
+        "meta-font": "Google_PT+Sans+Narrow_400",
+        "meta-font-color": "#47008E",
+        "button-font": "Google_PT+Sans+Narrow_600",
+        "button-font-color": "#FFFFFF",
+        "button-background-color": "#47008E",
+        "button-border-color": "#47008E",
+        "button-secondary-font-color": "#393939",
+        "button-secondary-border-color": "#393939",
+        "product-item-title-color": "#47008E",
+        "product-item-title": "Google_Karla_400",
+        "product-grid-layout": "masonry-grid",
+        "product-item-inside-alignment": "center",
+        "product-item-actions-color": "#FFFFFF",
+        "product-item-actions-background-color": "#171717",
+        "section-title-color": "#47008E",
+        "section-title-alignment": "center",
+        "accent-color": "#393939",
+        "general-link-color": "#47008E",
+        "border-color": "#dadada",
+        "color-success": "#42b22a",
+        "color-neutral": "#393939",
+        "color-error": "#d93838",
+        "footer-nav-background": "#47008E",
+        "footer-nav-font-color": "#FFFFFF",
+        "carousel-height-mobile": 300,
+        "carousel-height-desktop": 800,
+        "carousel-background-color": "#FFFFFF",
+        "carousel-dot-color": "#FDE454",
+        "main-nav-color": "#47008E",
+        "banner-background": "#fff990",
+        "banner-font": "Google_Open+Sans_400",
+        "banner-font-color": "#222222",
+        "homepage-show-new-products": 4,
+        "homepage-show-featured-products": 8,
+        "homepage-show-show-large-first": false,
+        "home-product-grid-count": 4,
+        "show_quick_shop": true
+      }
+    }
+  ]
+}
